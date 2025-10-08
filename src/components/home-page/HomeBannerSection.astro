@@ -1,0 +1,41 @@
+---
+import ClientsLogoSlider from "./component/ClientsLogoSlider.astro";
+import { Box } from "@lucide/astro"
+---
+
+<head>
+  <link rel="preload" as="image" href="/images/upload/banner-image.webp" />
+</head>
+
+
+<section class="w-full col-center z-0 gap-4">
+    <div class="w-full aspect-[2.2929/1] flex items-end justify-start relative bg-[url(/images/upload/banner-image.webp)] bg-no-repeat bg-cover bg-center">
+        <div class="w-full max-w-6xl mx-auto px-3 mb-5">
+            <h1 class="h1-bold text-white text-shadow-gray-500 text-shadow-md text-left">
+                <span class="inline-block">
+                    <span class="text-[var(--primary-color)]">Y</span>our Space for Growth.
+                </span>
+                <span class="inline-block">
+                    Your <span class="text-[var(--primary-color)]">S</span>pace to Move Ahead. 
+                </span>
+            </h1>
+            <p class="text-base md:text-lg xl:text-xl leading-snug xl:leading-tight font-medium max-w-2xl text-shadow-sm text-shadow-gray-[rgba(0,0,0,0.13)] text-white py-3.5 lg:py-5 px-1">
+                Welcome to Warehouster Group – your one-stop solution for all warehousing and industrial infrastructure needs across India. 
+            </p>
+        </div>
+    </div>
+    <div class="w-full col-center gap-2 md:gap-3.5 xl:gap-5 max-w-6xl mx-auto mt-8 text-[#091532]">
+        <div class="col-center gap-3 md:gap-2">
+            <span class="flex-center gap-2 px-3.5 py-1 bg-white border border-[#e4e4e4] rounded-full">
+                <Box size={18} stroke-width={2} class="text-gray-700 md:text-gray-800" />
+                <h4 class="text-[13px] md:text-[15px] font-medium text-gray-700  md:text-gray-800">
+                    Our Partner
+                </h4>
+            </span>
+            <h2 class="text-lg md:text-xl lg:text-2xl font-bold text-left px-4">
+                Your Trusted Brands, Our Expert Partnerships
+            </h2>
+        </div>
+        <ClientsLogoSlider />
+    </div>
+</section>

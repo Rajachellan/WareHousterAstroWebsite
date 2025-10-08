@@ -1,0 +1,70 @@
+---
+import { Image } from 'astro:assets';
+import { Facebook, Instagram, Linkedin,  } from '@lucide/astro';
+
+---
+
+<footer class="w-full flex-center px-4 mt-10 lg:mt-20">
+    <div class="w-full lg:max-w-4xl xl:max-w-6xl flex flex-col items-center justify-center">
+        <div class="w-full flex items-start justify-center pt-4 md:pt-7 lg:pt-9 xl:pt-12 2xl:pt-14 border-b border-gray-500 gap-12">
+            <div class="w-2/5 flex flex-col items-start justify-start gap-2">
+                <div class="w-3/4  max-w-68">
+                    <a href="/" class="w-full">
+                        <Image src="/images/logo/logo-icon.webp" alt="logo" width={1042} height={180} class="w-full" />
+                    </a>
+                </div>
+                <div class="flex-center pt-4 gap-4">
+                    <div class="flex-center group">
+                        <a href="" class="p-1.5 rounded-sm text-white bg-gray-400 group-hover:bg-[var(--primary-color)] transform transition-colors duration-100">
+                            <Facebook size={24} stroke-width={2} class="" />
+                        </a>
+                    </div>
+                    <div class="flex-center group">
+                        <a href="" class="p-1.5 rounded-sm text-white bg-gray-400 group-hover:bg-[var(--primary-color)] transform transition-colors duration-100">
+                            <Instagram size={24} stroke-width={2} class="" />
+                        </a>
+                    </div>
+                    <div class="flex-center group">
+                        <a href="" class="p-1.5 rounded-sm text-white bg-gray-400 group-hover:bg-[var(--primary-color)] transform transition-colors duration-100">
+                            <Linkedin size={24} stroke-width={2} class="" />
+                        </a>
+                    </div>
+                </div>
+                <a href="tel:+918879661696" class="xl:font-medium text-gray-600 hover:text-[var(--primary-color)]">+91 88796 61696</a>
+                <a href="mailto:info@warehouster.com" class="xl:font-medium text-gray-600 hover:text-[var(--primary-color)]">info@warehouster.com</a>
+            </div>
+            <div class="w-1/5 flex flex-col items-start justify-start gap-5 text-gray-700 pb-10 mb-10 leading-none xl:font-medium">
+                <p class="lg:text-lg font-semibold lg:font-bold text-gray-900">Services</p>
+                <a href="#" class="pt-1.5 hover:text-[var(--primary-color)]">Land Acquisition Development</a>
+                <a href="#" class="hover:text-[var(--primary-color)]">Development Management</a>
+                <a href="#" class="hover:text-[var(--primary-color)]">Construction & EPC</a>
+                <a href="#" class="hover:text-[var(--primary-color)]">Leasing & Marketing</a>
+                <a href="#" class="hover:text-[var(--primary-color)]">Asset Management</a>
+            </div>
+            <div class="w-1/5 flex flex-col items-start justify-start gap-5 text-gray-700 pb-10 mb-10 leading-none xl:font-medium">
+                <p class="lg:text-lg font-semibold lg:font-bold text-gray-900">Projects</p>
+                <a href="#" class="pt-3 hover:text-[var(--primary-color)]"></a>
+                <a href="#" class="hover:text-[var(--primary-color)]"></a>
+                <a href="#" class="hover:text-[var(--primary-color)]"></a>
+                <a href="#" class="hover:text-[var(--primary-color)]"></a>
+                <a href="#" class="hover:text-[var(--primary-color)]"></a>
+            </div>
+            <div class="w-1/5 flex flex-col items-start justify-start gap-5 text-gray-700 pb-10 mb-10 leading-none xl:font-medium">
+                <p class="lg:text-lg font-semibold lg:font-bold text-gray-900">Media</p>
+                <a href="#" class="pt-3 hover:text-[var(--primary-color)]">Blogs</a>
+                <a href="#" class="hover:text-[var(--primary-color)]">News</a>
+                <a href="#" class="hover:text-[var(--primary-color)]">Events</a>
+            </div>
+        </div>
+        <div class="w-full flex items-center justify-between py-8 text-gray-700">
+            <div class="text-xs lg:text-sm">
+                © 2025 Warehouster. All Rights Reserved.
+            </div>
+            <div class="flex-center gap-4 text-xs lg:text-sm">
+                <a href="#" class="">Privacy Policy</a>
+                <a href="#" class="">Terms & Conditions</a>
+                <a href="#" class="">Site Map</a>
+            </div>
+        </div>
+    </div>
+</footer>

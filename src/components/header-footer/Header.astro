@@ -1,0 +1,221 @@
+---
+import { Image } from "astro:assets";
+import { ChevronDown, LandPlot, BrainCircuit, Layers, PackageCheck, FolderKey, Newspaper, PenLine, CalendarDays } from "@lucide/astro";
+---
+
+<>
+<header class="w-full mt-4 px-4 fixed z-50">
+    <div class="w-full flex-center rounded-md xl:rounded-lg">
+        <div class="w-full max-w-6xl drop-shadow-md">
+            <div class="w-full flex items-center justify-between lg:justify-start rounded-md xl:rounded-lg h-16 md:h-[68px] mx-auto px-3.5 gap-3.5 lg:gap-0 z-50 relative">
+                <div class="py-4.5 pl-2 pr-10 md:py-4 md:px-7 lg:py-4 lg:px-8 mx-1.5 h-10/12 md:h-11/12 aspect-[4.5/1] md:aspect-[4.8/1] xl:aspect-[4.8/1]">
+                    <a href="/" class="h-full">
+                        <Image src={"/images/logo/logo-icon.webp"} alt="logo" width="1042" height="180" class="h-full" loading="eager" />
+                    </a>
+                </div>
+                <nav class="hidden lg:flex items-center justify-center w-full h-full">
+                    <div class="w-full h-full flex-center justify-between">
+                        <ul class="h-full flex-center text-[15px] font-medium text-gray-900 peer">
+                            <li class="h-full flex-center group/service cursor-pointer px-3.5 peer">
+                                <div class="flex-center gap-0.5">
+                                    <span class="group-hover/service:text-[#F6670B]">
+                                        Services
+                                    </span>
+                                    <span class="translate-y-[1px] group-hover/service:text-[#F6670B]">
+                                        <ChevronDown size={26} stroke-width={1.2} class="group-hover/service:-rotate-180 transform-300" />
+                                    </span>
+                                    <div class="absolute group-hover/service:h-80 top-0 left-0 h-0 w-full transition-[height,drop-shadow] duration-500 delay-100 ease-in-out rounded-md xl:rounded-lg bg-[#F6F6F6] shadow-lg cursor-default -z-10 overflow-hidden">
+                                        <div class="grid grid-cols-3 gap-x-3 px-7 pt-16 md:pt-[88px] pb-7 relative">
+                                            <a href="/land-acquisition" class="w-full flex gap-3 items-start jusatify-start px-3 py-2 group hover:bg-[#FFFFFF] rounded-md">
+                                                <LandPlot size={28} stroke-width={1.5} class="mt-1 group-hover:text-[var(--primary-color)]" />
+                                                <div class="flex-1 flex flex-col items-start jusatify-start">
+                                                    <h5 class="text-base group-hover:text-[var(--primary-color)]">Land Acquisition</h5>
+                                                    <span class="text-[15px] text-gray-500 leading-sung">Warehouster excels in the crucial game of land acquisition</span>
+                                                </div>
+                                            </a>
+                                            <a href="/warehouse-strategic-alliances" class="w-full flex gap-3 items-start jusatify-start px-3 py-2 group hover:bg-[#FFFFFF] rounded-md">
+                                                <BrainCircuit size={28} stroke-width={1.5} class="mt-1 group-hover:text-[var(--primary-color)]" />
+                                                <div class="flex-1 flex flex-col items-start jusatify-start">
+                                                    <h5 class="text-base group-hover:text-[var(--primary-color)]">Warehouse - Strategic Alliances</h5>
+                                                    <span class="text-[15px] text-gray-500 leading-sung">This strategic alliance brings together Warehouster's deep expertise</span>
+                                                </div>
+                                            </a>
+                                            <a href="/development-management" class="w-full flex gap-3 items-start jusatify-start px-3 py-2 group hover:bg-[#FFFFFF] rounded-md">
+                                                <Layers size={28} stroke-width={1.5} class="mt-1 group-hover:text-[var(--primary-color)]" />
+                                                <div class="flex-1 flex flex-col items-start jusatify-start">
+                                                    <h5 class="text-base group-hover:text-[var(--primary-color)]">Development Management</h5>
+                                                    <span class="text-[15px] text-gray-500 leading-sung">We take on this challenge, making your land profitable through professional management</span>
+                                                </div>
+                                            </a>
+                                            <a href="/approvals-and-compliances" class="w-full flex gap-3 items-start jusatify-start px-3 py-2 group hover:bg-[#FFFFFF] rounded-md">
+                                                <PackageCheck size={28} stroke-width={1.5} class="mt-1 group-hover:text-[var(--primary-color)]" />
+                                                <div class="flex-1 flex flex-col items-start jusatify-start">
+                                                    <h5 class="text-base group-hover:text-[var(--primary-color)]">Approvals and Compliances</h5>
+                                                    <span class="text-[15px] text-gray-500 leading-sung">Warehouster is experienced in statutory and regulatory framework Pan India</span>
+                                                </div>
+                                            </a>
+                                            <a href="/asset-management" class="w-full flex gap-3 items-start jusatify-start px-3 py-2 group hover:bg-[#FFFFFF] rounded-md">
+                                                <FolderKey size={28} stroke-width={1.5} class="mt-1 group-hover:text-[var(--primary-color)]" />
+                                                <div class="flex-1 flex flex-col items-start jusatify-start">
+                                                    <h5 class="text-base group-hover:text-[var(--primary-color)]">Asset Management</h5>
+                                                    <span class="text-[15px] text-gray-500 leading-sung">This strategic alliance brings together Warehouster's deep expertise</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="h-full flex-center group/project cursor-pointer px-3.5 peer">
+                                <div class="flex-center gap-0.5">
+                                    <span class="group-hover/project:text-[#F6670B]">
+                                        Projects
+                                    </span>
+                                    <span class="translate-y-[1px] group-hover/project:text-[#F6670B]">
+                                        <ChevronDown size={26} stroke-width={1.2} class="group-hover/project:-rotate-180 transform-300" />
+                                    </span>
+                                    <div class="absolute group-hover/project:h-80 top-0 left-0 h-0 w-full transition-[height,drop-shadow] duration-500 delay-100 ease-in-out rounded-md xl:rounded-lg bg-[#F6F6F6] shadow-lg cursor-default -z-10 overflow-hidden">
+                                        <div class="grid grid-cols-4 gap-x-3 px-7 pt-16 md:pt-[88px] pb-7 relative lg:px-12">
+                                            <div class="w-full flex flex-col">
+                                                <div class="w-full flex gap-1.5 items-center jusatify-start px-3 py-2 group rounded-md">
+                                                    <Image src="/icons/chennai.png" alt="chennai" width={32} height={32} class="w-9" />                                            
+                                                    <p class="text-base">Chennai</p>                                                    
+                                                </div>
+                                                <div class="flex flex-col pl-3.5 gap-1.5">
+                                                    <a href="/" class="w-full flex gap-1 items-start jusatify-start pl-10 group rounded-md">
+                                                        <span class="text-base font-normal group-hover:text-[var(--primary-color)]">Redhills</span>
+                                                    </a>
+                                                    <a href="/" class="w-full flex gap-3 items-start jusatify-start pl-10 group rounded-md">
+                                                        <span class="text-base font-normal group-hover:text-[var(--primary-color)]">Chengalpet</span>
+                                                    </a>
+                                                    <a href="/" class="w-full flex gap-3 items-start jusatify-start pl-10 group rounded-md">
+                                                        <span class="text-base font-normal group-hover:text-[var(--primary-color)]">Ponneri ORR</span>
+                                                    </a>
+                                                    <a href="/" class="w-full flex gap-3 items-start jusatify-start pl-10 group rounded-md">
+                                                        <span class="text-base font-normal group-hover:text-[var(--primary-color)]">Vallur</span>
+                                                    </a>
+                                                    <a href="/" class="w-full flex gap-3 items-start jusatify-start pl-10 group rounded-md">
+                                                        <span class="text-base font-normal group-hover:text-[var(--primary-color)]">Mammadoor</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="w-full flex flex-col">
+                                                <div class="w-full flex gap-1.5 items-center jusatify-start px-3 py-2 group rounded-md">
+                                                    <Image src="/icons/bengaluru.png" alt="bengaluru" width={32} height={32} class="w-9" />                                            
+                                                    <p class="text-base">Bengaluru</p>                                                    
+                                                </div>
+                                                <div class="flex flex-col pl-3.5">
+                                                    <a href="/" class="w-full flex gap-1 items-start jusatify-start pl-10 group rounded-md">
+                                                        <span class="text-base font-normal group-hover:text-[var(--primary-color)]">
+                                                            Devanhalli
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="w-full flex flex-col">
+                                                <div class="w-full min-h-[52px] flex gap-1.5 items-center jusatify-start px-3 py-2 group rounded-md">
+                                                    <Image src="/icons/madurai.png" alt="madurai" width={32} height={32} class="w-[22px]" />                                            
+                                                    <p class="text-base">Madurai</p>                                                    
+                                                </div>
+                                                <div class="flex flex-col pl-2.5">
+                                                    <a href="/" class="w-full flex gap-1 items-start jusatify-start pl-10 group rounded-md">
+                                                        <span class="text-base font-normal group-hover:text-[var(--primary-color)]">
+                                                            Madurai
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="w-full flex flex-col">
+                                                <div class="w-full min-h-[52px] flex gap-1.5 items-center jusatify-start px-3 py-2 group rounded-md">
+                                                    <Image src="/icons/hosur.png" alt="hosur" width={32} height={32} class="w-6" />                                            
+                                                    <p class="text-base">Hosur</p>                                                    
+                                                </div>
+                                                <div class="flex flex-col pl-2.5">
+                                                    <a href="/" class="w-full flex gap-1 items-start jusatify-start pl-10 group rounded-md">
+                                                        <span class="text-base font-normal group-hover:text-[var(--primary-color)]">
+                                                            Shoolgiri
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="h-full flex-center group/about cursor-pointer px-3.5 peer hover:text-[#F6670B]">
+                                <div class="flex-center gap-0.5">
+                                    <a href="/about" class="">
+                                        About
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="h-full flex-center group/news cursor-pointer px-3.5 peer">
+                                <div class="flex-center gap-0.5">
+                                    <span class="group-hover/news:text-[#F6670B]">
+                                        Media
+                                    </span>
+                                    <span class="group-hover/news:text-[#F6670B] translate-y-[1px]">
+                                        <ChevronDown size={26} stroke-width={1.2} class="group-hover/news:-rotate-180 transform-300" />
+                                    </span>
+                                    <div class="absolute group-hover/news:h-52 top-0 left-0 h-0 w-full transition-[height,drop-shadow] duration-500 delay-100 ease-in-out rounded-md xl:rounded-lg bg-[#F6F6F6] shadow-lg cursor-default -z-10 overflow-hidden">
+                                        <div class="grid grid-cols-3 gap-x-3 px-7 pt-16 md:pt-[88px] pb-7 relative">
+                                            <a href="#" class="w-full flex gap-3 items-start jusatify-start px-3 py-2 group hover:bg-[#FFFFFF] rounded-md">
+                                                <PenLine size={28} stroke-width={1.5} class="mt-1 group-hover:text-[var(--primary-color)]" />
+                                                <div class="flex-1 flex flex-col items-start jusatify-start">
+                                                    <h5 class="text-base group-hover:text-[var(--primary-color)]">Blogs</h5>
+                                                    <span class="text-[15px] text-gray-500 leading-sung">Expert takes on inventory and fulfillment trends</span>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="w-full flex gap-3 items-start jusatify-start px-3 py-2 group hover:bg-[#FFFFFF] rounded-md">
+                                                <CalendarDays size={28} stroke-width={1.5} class="mt-1 group-hover:text-[var(--primary-color)]" />
+                                                <div class="flex-1 flex flex-col items-start jusatify-start">
+                                                    <h5 class="text-base group-hover:text-[var(--primary-color)]">Events</h5>
+                                                    <span class="text-[15px] text-gray-500 leading-sung">Networking events for warehouse leaders and partners</span>
+                                                </div>
+                                            </a>
+                                            <a href="#" class="w-full flex gap-3 items-start jusatify-start px-3 py-2 group hover:bg-[#FFFFFF] rounded-md">
+                                                <Newspaper size={28} stroke-width={1.5} class="mt-1 group-hover:text-[var(--primary-color)]" />
+                                                <div class="flex-1 flex flex-col items-start jusatify-start">
+                                                    <h5 class="text-base group-hover:text-[var(--primary-color)]">News</h5>
+                                                    <span class="text-[15px] text-gray-500 leading-sung">Industry-first breakthroughs transforming warehouse intelligence</span>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex-center mx-1.5 h-full w-32">
+                        <a href="/contact-us" class="text-nowrap px-5 py-1.5 bg-[#F6670B] rounded-full relative overflow-hidden border border-[#F6670B] group hover:bg-white transform transition-colors delay-100">
+                            <span class="group-hover:-translate-y-10 text-white flex transform transition-transform duration-300">
+                                Contact Us
+                            </span>
+                            <span class="z-10 after:content-['Contact_Us'] after-wh-full after:text-[#F6670B] after:absolute after:top-10 after:left-1/2 after:-translate-x-1/2 group-hover:after:-translate-y-10 group-hover:translate-z-3 after:flex after:items-center after:justify-center after:z-10 after:transform after:transition-transform after:duration-300">
+                            </span>
+                        </a>
+                    </div>
+                </nav>
+                <div class="flex lg:hidden items-center justify-center mr-3 md:mr-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 md:w-7" ><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path></svg>
+                </div>
+                <div class="absolute w-full h-full top-0 left-0 bg-white -z-20 rounded-md">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="fixed w-screen h-screen top-0 left-0 bg-[#00000059] -z-10 hidden" id="bg-cover" ></div>
+</header>
+</>
+
+<script>
+    if (typeof window !== "undefined") {
+        const allChild1 = document.querySelectorAll(".peer");
+
+        allChild1.forEach((el) => {
+            const bgHover = document.getElementById('bg-cover');
+            el.addEventListener("mouseenter", () => bgHover?.classList.remove("hidden"));
+            el.addEventListener("mouseleave", () => bgHover?.classList.add("hidden"));
+        })
+    }
+</script>

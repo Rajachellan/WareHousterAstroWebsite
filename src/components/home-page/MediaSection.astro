@@ -1,0 +1,247 @@
+---
+import { Box } from "@lucide/astro";
+import { Image } from 'astro:assets';
+---
+
+<section class="w-full col-center mx-auto my-10 px-5">
+    <div class="w-full col-center gap-14 max-w-7xl mt-20">
+        <div class="col-center gap-2">
+            <span class="flex-center gap-2 px-3.5 py-1 bg-white border border-[#e4e4e4] rounded-full">
+                <Box size={18} stroke-width={2} class="text-gray-800" />
+                <h2 class="text-[13px] md:text-[15px] font-medium  text-gray-800">
+                    Media
+                </h2>
+            </span>
+            <h2 class="h2-bold text-center">
+                Stories That Shape Our Legacy
+            </h2>
+            <p class="text-sm lg:text-base leading-snug text-gray-400 md:text-gray-500 max-w-4xl text-center px-auto">
+                From global news to curated blogs and standout events, each feature marks a milestone in our journey. These stories spotlight the innovation, recognition, and impact that shape our legacy.
+            </p>
+        </div>
+    </div>
+    
+    <div class="w-full col-center max-w-5xl mt-12 mb-8 relative">
+        
+        <input type="radio" name="media" id="mda-1" class="hidden" checked>
+        <input type="radio" name="media" id="mda-2" class="hidden">
+        <input type="radio" name="media" id="mda-3" class="hidden">
+
+        <div class="w-full flex-center border-b border-gray-400 tab-list rounded-sm">
+            <div class="max-w-full w-full overflow-x-scroll rounded-t-md px-4.5 relative" id="scroller" style="-ms-overflow-style: none; scrollbar-width: none; scroll-behavior:smooth;" >
+                <ul class="flex flex-nowrap justify-start gap-8 md:gap-10 whitespace-nowrap text-sm lg:text-base leading-snug font-semibold text-[#05070b] py-1.5 px-1.5">
+                    <li class="flex-none">
+                        <label for="mda-1" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-[var(--primary-color)]">Blogs</label>
+                    </li>
+                    <li class="flex-none">
+                        <label for="mda-2" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-[var(--primary-color)]">News</label>
+                    </li>
+                    <li class="flex-none">
+                        <label for="mda-3" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-[var(--primary-color)]">Events</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+          
+        <!-- 3. Media content stack -->
+        <div class="w-full h-auto relative py-3.5 px-1">
+            <div id="media-one" class="w-full h-fit flex items-stretch justify-center media-section gap-3.5">
+                <div class="w-1/2 flex flex-col items-start justify-start gap-2.5 transform transition-all duration-300">
+                    <div class="w-full col-center group">
+                        <div class="w-full flex-center relative">
+                            <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] group-hover:block">
+                            </div>
+                            <Image src="/images/upload/blogs/Estate-Asset-Management.webp" alt="Blog-Estate-Asset-Management" width={768} height={690} class="w-full object-fit" />
+                        </div>
+                        <div class="w-full col-center">
+                            <p class="lg:text-lg text-gray-600  group-hover:text-gray-800 font-medium px-1">
+                                Estate Asset Management: Enhancing Efficiency in Warehousing
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#" class="text-xs lg:text-sm px-1 text-[var(--primary-color)] font-medium">Read more...</a>
+                </div>
+                <div class="w-1/2 col-center gap-3 px-4">
+                    <div class="w-full h-1/4 py-2.5 flex-center group gap-2.5 border-b border-gray-300">
+                        <div class="w-1/4 relative">
+                            <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] rounded-xs group-hover:block"></div>
+                            <Image src="/images/upload/blogs/approvals-and-compliance-in-warehousing.webp" alt="approvals-and-compliance-in-warehousing" width={950} height={650} class="w-full rounded-xs" />
+                        </div>
+                        <div class="w-3/4 flex-center">
+                            <p class="text-sm lg:text-base text-gray-600  group-hover:text-gray-800 font-medium px-1">
+                                Approvals and Compliance in Warehousing: Ensuring Safety and Accountability
+                            </p>
+                        </div>
+                    </div>
+                    <div class="w-full h-1/4 py-2.5 flex-center group gap-2.5 border-b border-gray-300">
+                        <div class="w-1/4 relative">
+                            <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] rounded-xs group-hover:block"></div>
+                            <Image src="/images/upload/blogs/building-strategic-alliances-in-warehousing-park.webp" alt="building-strategic-alliances-in-warehousing-park" width={950} height={650} class="w-full rounded-xs" />
+                        </div>
+                        <div class="w-3/4 flex-center">
+                            <p class="text-sm lg:text-base text-gray-600  group-hover:text-gray-800 font-medium px-1">
+                                Building Strategic Alliances in Warehousing Park: Unlocking Growth and Operational Excellence with Warehouster
+                            </p>
+                        </div>
+                    </div>
+                    <div class="w-full h-1/4 py-2.5 flex-center group gap-2.5 border-b border-gray-300">
+                        <div class="w-1/4 relative">
+                            <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] rounded-xs group-hover:block"></div>
+                            <Image src="/images/upload/blogs/DevelopingWarehouseComprehensiveBusinesses.webp" alt="DevelopingWarehouseComprehensiveBusinesses" width={950} height={650} class="w-full rounded-xs" />
+                        </div>
+                        <div class="w-3/4 flex-center">
+                            <p class="text-sm lg:text-base text-gray-600  group-hover:text-gray-800 font-medium px-1">
+                                Developing Warehouse: A Comprehensive Guide How to Develop a Warehouse
+                            </p>
+                        </div>
+                    </div>
+                    <div class="w-full h-1/4"></div>
+                </div>
+            </div>
+            <div id="media-two" class="w-full h-fit flex items-stretch justify-center media-section gap-3.5">
+                <div class="w-1/2 flex flex-col items-start justify-start gap-2.5 transform transition-all duration-300">
+                    <div class="w-full col-center group">
+                        <div class="w-full flex-center relative">
+                            <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] group-hover:block">
+                            </div>
+                            <Image src="/images/upload/news/manufacturing-today.webp" alt="manufacturing-today" width={768} height={690} class="w-full object-fit" />
+                        </div>
+                        <div class="w-full col-center">
+                            <p class="lg:text-lg text-gray-600  group-hover:text-gray-800 font-medium px-1">
+                                We thank Manufacturing Today India for featuring our MD, Sandeep Chadha, in their latest article on sustainable warehousing
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#" class="text-xs lg:text-sm px-1 text-[var(--primary-color)] font-medium">Read more...</a>
+                </div>
+                <div class="w-1/2 h-full col-center px-4 overflow-hidden">
+                    <div class="flex flex-col max-h-[400px] h-full gap-3 overflow-y-scroll scrollbar-custom">
+                        <div class="w-full h-1/4 py-2.5 flex-center group gap-2.5 border-b border-gray-300">
+                            <div class="w-1/4 relative">
+                                <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] rounded-xs group-hover:block"></div>
+                                <Image src="/images/upload/news/cargobreakingnews1.webp" alt="cargobreakingnews1" width={950} height={650} class="w-full rounded-xs" />
+                            </div>
+                            <div class="w-3/4 flex-center">
+                                <p class="text-sm lg:text-base text-gray-600  group-hover:text-gray-800 font-medium px-1">
+                                    We're thrilled to thank CargoBreakingNews for featuring our MD, Mr. Sandeep Chadha, and his insights on security in warehouse management
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-full h-1/4 py-2.5 flex-center group gap-2.5 border-b border-gray-300">
+                            <div class="w-1/4 relative">
+                                <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] rounded-xs group-hover:block"></div>
+                                <Image src="/images/upload/news/building-strategic-alliances-in-warehousing-park.webp" alt="building-strategic-alliances-in-warehousing-park" width={950} height={650} class="w-full rounded-xs" />
+                            </div>
+                            <div class="w-3/4 flex-center">
+                                <p class="text-sm lg:text-base text-gray-600  group-hover:text-gray-800 font-medium px-1">
+                                    Building Strategic Alliances in Warehousing Park: Unlocking Growth and Operational Excellence with Warehouster
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-full h-1/4 py-2.5 flex-center group gap-2.5 border-b border-gray-300">
+                            <div class="w-1/4 relative">
+                                <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] rounded-xs group-hover:block"></div>
+                                <Image src="/images/upload/news/DevelopingWarehouseComprehensiveBusinesses.webp" alt="DevelopingWarehouseComprehensiveBusinesses" width={950} height={650} class="w-full rounded-xs" />
+                            </div>
+                            <div class="w-3/4 flex-center">
+                                <p class="text-sm lg:text-base text-gray-600  group-hover:text-gray-800 font-medium px-1">
+                                    Developing Warehouse: A Comprehensive Guide How to Develop a Warehouse
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-full h-1/4 py-2.5 flex-center group gap-2.5 border-b border-gray-300">
+                            <div class="w-1/4 relative">
+                                <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] rounded-xs group-hover:block"></div>
+                                <Image src="/images/upload/news/DevelopingWarehouseComprehensiveBusinesses.webp" alt="DevelopingWarehouseComprehensiveBusinesses" width={950} height={650} class="w-full rounded-xs" />
+                            </div>
+                            <div class="w-3/4 flex-center">
+                                <p class="text-sm lg:text-base text-gray-600  group-hover:text-gray-800 font-medium px-1">
+                                    Developing Warehouse: A Comprehensive Guide How to Develop a Warehouse
+                                </p>
+                            </div>
+                        </div>
+                        <div class="w-full h-1/4 py-2.5 flex-center group gap-2.5 border-b border-gray-300">
+                            <div class="w-1/4 relative">
+                                <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] rounded-xs group-hover:block"></div>
+                                <Image src="/images/upload/news/DevelopingWarehouseComprehensiveBusinesses.webp" alt="DevelopingWarehouseComprehensiveBusinesses" width={950} height={650} class="w-full rounded-xs" />
+                            </div>
+                            <div class="w-3/4 flex-center">
+                                <p class="text-sm lg:text-base text-gray-600  group-hover:text-gray-800 font-medium px-1">
+                                    Developing Warehouse: A Comprehensive Guide How to Develop a Warehouse
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="media-three" class="w-full h-fit flex items-stretch justify-center media-section gap-3.5">
+                <div class="w-1/2 flex flex-col items-start justify-start gap-2.5 transform transition-all duration-300">
+                    <div class="w-full col-center group">
+                        <div class="w-full aspect-[1.8/1] flex-center overflow-hidden relative">
+                            <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] group-hover:block">
+                            </div>
+                            <Image src="/images/upload/events/bhoomi-pujan_1-1.webp" alt="bhoomi-pujan_1-1" width={768} height={690} class="w-full object-fit" />
+                        </div>
+                        <div class="w-full col-center">
+                            <p class="lg:text-lg text-gray-600  group-hover:text-gray-800 font-medium px-1">
+                                We thank Manufacturing Today India for featuring our MD, Sandeep Chadha, in their latest article on sustainable warehousing
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#" class="text-xs lg:text-sm px-1 text-[var(--primary-color)] font-medium">Read more...</a>
+                </div>
+                <div class="w-1/2 flex flex-col items-start justify-start gap-2.5 transform transition-all duration-300">
+                    <div class="w-full col-center group">
+                        <div class="w-full aspect-[1.8/1] flex-center overflow-hidden relative">
+                            <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] group-hover:block">
+                            </div>
+                            <Image src="/images/upload/events/jubilee-ceremony-1.webp" alt="jubilee-ceremony-1" width={768} height={690} class="w-full object-fit" />
+                        </div>
+                        <div class="w-full col-center">
+                            <p class="lg:text-lg text-gray-600  group-hover:text-gray-800 font-medium px-1">
+                                We thank Manufacturing Today India for featuring our MD, Sandeep Chadha, in their latest article on sustainable warehousing
+                            </p>
+                        </div>
+                    </div>
+                    <a href="#" class="text-xs lg:text-sm px-1 text-[var(--primary-color)] font-medium">Read more...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* hide WebKit scrollbar */
+    .overflow-x-auto::-webkit-scrollbar {
+    display: none;
+    }
+
+    /* Hide native scrollbar */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    .scrollbar-custom::-webkit-scrollbar {
+    width: 2px; /* Reduced from 8px */
+    }
+
+    .scrollbar-custom::-webkit-scrollbar-track {
+    background: #e7e7e7; /* Tailwind's gray-100 */
+    }
+
+    .scrollbar-custom::-webkit-scrollbar-thumb {
+    background-color: #F6670B; /* Your brand orange */
+    border-radius: 4px;
+    border: 2px solid #e7e7e7;
+    }
+
+    .scrollbar-custom::-webkit-scrollbar-button {
+    display: none;
+    height: 0;
+    }
+
+    /* Firefox support */
+    .scrollbar-custom {
+    scrollbar-width: thin;
+    scrollbar-color: #F6670B #e7e7e7;
+    }
+</style>

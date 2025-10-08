@@ -1,0 +1,106 @@
+---
+import Image from "astro/components/Image.astro";
+---
+
+<section class="w-full col-center z-0 gap-4 mt-10">
+    <div class="w-full col-center gap-2 md:gap-3.5 xl:gap-5 max-w-6xl mx-auto mt-8 text-[#091532]">
+        <div class="w-full col-center gap-3 md:gap-2">
+            <h2 class="text-lg md:text-xl lg:text-2xl font-bold text-left px-4">
+                Who We Are
+            </h2>
+            <div class="w-full flex-center py-1.5">
+                <div class="w-fit pl-4 pr-10 mr-10">
+                    <Image src="/icons/arrow-design.webp" alt="arrow-icon" width={120} height={90} class="w-32" />
+                </div>
+                <div class="flex-1 py-2.5 pl-10 border-l-2 border-gray-400">
+                    <p class="text-sm lg:text-base text-justify">
+                        <span class="inline-block">
+                            Warehouster Group is an integrated solution provider for warehousing and industrial infrastructure in India. From acquiring land to managing large-scale logistics assets, we deliver complete solutions to corporates, landowners, and investors.
+                        </span>
+                        <span class="inline-block pt-2.5">
+                            Founded by Sandeep Chadha, a visionary with over 20 years of leadership experience in logistics and real estate, our company has grown into a trusted partner for some of the most dynamic industries – e-commerce, FMCG, retail, and manufacturing. 
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="w-full flex-center flex-row-reverse py-1.5">
+                <div class="w-fit pl-8 pr-4 ml-8">
+                    <Image src="/icons/arrow-design.webp" alt="arrow-icon" width={120} height={90} class="w-32" />
+                </div>
+                <div class="flex-1 py-2.5 pr-8 pl-4 border-r-2 border-gray-400">
+                    <p class="text-sm lg:text-base">
+                        <span class="inline-block text-justify">
+                            Warehouse’s projects are built to the global standards with world-class infrastructure, facilities designed to make the work environment highly productive & standardized specifications.
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="w-full flex items-start justify-start">
+            <div class="flex flex-col justify-start items-start gap-10 relative before:absolute before:w-0.5 before:h-full before:bg-[var(--primary-color)] before:left-5 before:-z-10">
+                <div class="flex-center gap-3.5">
+                    <div class="w-10 aspect-square flex-center bg-[var(--primary-color)] rounded-sm shadow-sm">
+                        <div class="w-6 aspect-square">
+                            <Image src="/icons/businessgoal.webp" alt="icon" height={31} width={31} class="w-full" />
+                        </div>
+                    </div>
+                    <p class="text-sm lg:text-base">Progress partner of Customer</p>
+                </div>
+                <div class="flex-center gap-3.5">
+                    <div class="w-10 aspect-square flex-center bg-[var(--primary-color)] rounded-sm shadow-sm">
+                        <div class="w-6 aspect-square">
+                            <Image src="/icons/worldmarkets.webp" alt="icon" height={31} width={31} class="w-full" />
+                        </div>
+                    </div>
+                    <p class="text-sm lg:text-base">Progress partner of Nation</p>
+                </div>
+                <div class="flex-center gap-3.5">
+                    <div class="w-10 aspect-square flex-center bg-[var(--primary-color)] rounded-sm shadow-sm">
+                        <div class="w-6 aspect-square">
+                            <Image src="/icons/funds.webp" alt="icon" height={31} width={31} class="w-full" />
+                        </div>
+                    </div>
+                    <p class="text-sm lg:text-base">Progress partner of world’s PE funds who want to enter India</p>
+                </div>
+            </div>
+        </div>
+        <div class="w-full col-center gap-10 px-5 mt-8">
+            <div class="w-full max-w-4xl flex-center px-6 py-4 bg-white rounded-lg gap-5 shadow-md cursor-pointer hover:scale-[102%] transform transition-transform duration-500 origin-top-left">
+                <div class="w-9/12 flex flex-col items-start justify-start gap-2.5 px-1.5">
+                    <h4 class="text-xl xl:text-3xl uppercase">
+                        Our Vision
+                    </h4>
+                    <p class="text-lg lg:text-2xl text-justify font-light leading-snug">
+                        <span class="inline-block">
+                            “Think Warehouses, Think Warehouster"
+                        </span>
+                        <span class="inline-block pt-2.5">
+                             To be India’s most preferred warehousing and industrial developer.
+                        </span>
+                    </p>
+                </div>
+                <div class="w-3/12">
+                    <Image src="/images/upload/our-vision.webp" alt="our-vision" width={286} height={266} class="" />
+                </div>
+            </div>
+            <div class="w-full max-w-4xl flex-center flex-row-reverse px-6 py-4 bg-white rounded-lg gap-5 shadow-md  cursor-pointer hover:scale-[102%] transform transition-transform duration-500 origin-top-left">
+                <div class="w-9/12 flex flex-col items-start justify-start gap-2.5 px-1.5">
+                    <h4 class="text-xl xl:text-3xl uppercase">
+                        Our Mission
+                    </h4>
+                    <p class="text-lg lg:text-2xl text-justify font-light leading-snug">
+                        <span class="inline-block">
+                            “Think Warehouses, Think Warehouster"
+                        </span>
+                        <span class="inline-block pt-2.5">
+                             To be India’s most preferred warehousing and industrial developer.
+                        </span>
+                    </p>
+                </div>
+                <div class="w-3/12">
+                    <Image src="/images/upload/our-mission.webp" alt="our-mission" width={286} height={266} class="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

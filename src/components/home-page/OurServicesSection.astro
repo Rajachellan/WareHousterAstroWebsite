@@ -1,0 +1,383 @@
+---
+import { Box, ChevronLeft, ChevronRight, PlugZap, HouseWifi, Cctv, Truck, Fuel, AlarmSmoke, Cross, SquareParking, Droplet} from "@lucide/astro";
+import { Image } from "astro:assets";
+---
+
+<>
+<section class="w-full col-center mx-auto my-10 bg-white px-5">
+    <div class="w-full col-center gap-14 max-w-7xl mt-16">
+        <div class="col-center gap-2">
+            <span class="flex-center gap-2 px-3.5 py-1 bg-white border border-[#e4e4e4] rounded-full">
+                <Box size={18} stroke-width={2} class="text-gray-800" />
+                <h2 class="text-[13px] md:text-[15px] font-medium  text-gray-800">
+                    Our Services
+                </h2>
+            </span>
+            <h2 class="h2-bold text-center">
+                Provides Superior Services in All Aspects
+            </h2>
+            <h6 class="text-sm lg:text-base leading-snug text-gray-400 md:text-gray-500 max-w-4xl text-center px-auto">
+                Warehouster is India’s leading logistics asset partner, offering integrated solutions for acquisition, development, and portfolio management to global and domestic investors.
+            </h6>
+        </div>
+    </div>
+    <div class="w-full col-center max-w-5xl mt-12 mb-8 relative">
+        <!-- 1. Hidden radio buttons to track state -->
+        <input type="radio" name="service" id="svc-1" class="hidden" checked>
+        <input type="radio" name="service" id="svc-2" class="hidden">
+        <input type="radio" name="service" id="svc-3" class="hidden">
+        <input type="radio" name="service" id="svc-4" class="hidden">
+        <input type="radio" name="service" id="svc-5" class="hidden">
+
+        <div class="w-full flex-center border border-gray-100 tab-list rounded-sm">
+            <button class="h-full flex-center px-2.5 text-gray-800 bg-white focus:outline-none cursor-pointer" id="scroll-left" aria-label="Scroll left">
+                <ChevronLeft size={24} stroke-width={1} />
+            </button>
+            <div class="max-w-full w-full overflow-x-scroll rounded-t-md px-4.5 relative" id="scroller" style="-ms-overflow-style: none; scrollbar-width: none; scroll-behavior:smooth;" >
+                <ul class="flex flex-nowrap justify-around gap-8 md:gap-10 whitespace-nowrap text-sm lg:text-base leading-snug font-semibold text-[#05070b] py-1.5 px-1.5">
+                    <li class="flex-none">
+                        <label for="svc-1" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-[var(--primary-color)]">Land Acquisition Development</label>
+                    </li>
+                    <li class="flex-none">
+                        <label for="svc-2" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-[var(--primary-color)]">Development Management</label>
+                    </li>
+                    <li class="flex-none">
+                        <label for="svc-3" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-[var(--primary-color)]">Construction & EPC</label>
+                    </li>
+                    <li class="flex-none">
+                        <label for="svc-4" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-[var(--primary-color)]">Leasing & Marketing</label>
+                    </li>
+                    <li class="flex-none">
+                        <label for="svc-5" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-[var(--primary-color)]">Asset Management</label>
+                    </li>
+                </ul>
+            </div>
+            <button class="h-full flex-center px-2.5 text-gray-800 bg-white focus:outline-none cursor-pointer" id="scroll-right" aria-label="Scroll right">
+                <ChevronRight size={24} stroke-width={1} />
+            </button>
+        </div>
+          
+        <!-- 3. Service content stack -->
+        <div class="w-full h-auto relative">
+            <div id="services-one" class="w-full h-fit col-center service-section">
+                <div class="w-full mx-2.5">
+                    <Image src={"/images/upload/land-acquistion-development.webp"} alt="land-acquistion-development" width={990} height={330} class="w-full" />
+                </div>
+                <div class="w-[calc(100%-56px)] md:w-[calc(100%-80px)] flex flex-col items-start justify-start py-3.5 md:py-5 md:px-5 px-8 gap-5 -translate-y-8 md:-translate-y-14 bg-white">
+                    <div class="flex flex-col items-start justify-start gap-0.5 md:gap-0">   
+                        <h3 class="h3-base leading-snug">
+                            Land Acquisition Development
+                        </h3>
+                        <p class="text-sm lg:text-base text-gray-600 font-light">
+                            We help clients, corporates and institutions to help find right locations to expand in regions by acquiring land across India.
+                        </p>
+                    </div>
+                    <div class="w-full flex flex-col items-start justify-start gap-3.5">
+                        <h3 class="h3-base text-[var(--primary-color)]">
+                            Amenities:
+                        </h3>
+                        <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 md:gap-4 place-items-center">
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <PlugZap size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">24/7 Electricity</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <HouseWifi size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Wi-Fi Zone</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Cctv size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">24/7 CCTV</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Truck size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Truck Terminals</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Fuel size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Fuel Station</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <AlarmSmoke size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Fire Fighting</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Cross size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">System Medical</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <SquareParking size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Parking</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Droplet size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Storm Water Drainage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="services-two" class="w-full h-fit col-center service-section">
+                <div class="w-full mx-2.5">
+                    <Image src={"/images/upload/land-acquistion-development.webp"} alt="land-acquistion-development" width={990} height={330} class="w-full" />
+                </div>
+                <div class="w-[calc(100%-56px)] md:w-[calc(100%-80px)] flex flex-col items-start justify-start py-3.5 md:py-5 md:px-5 px-8 gap-5 -translate-y-8 md:-translate-y-14 bg-white">
+                    <div class="flex flex-col items-start justify-start">   
+                        <h3 class="h3-base">
+                            Development Management
+                        </h3>
+                        <p class="text-sm lg:text-base text-gray-600 font-light">
+                            We help clients, landowners and select fund houses to unlock potential of their lands by offering our team to manage end-to-end development while you can enjoy the returns on the asset.
+                        </p>
+                    </div>
+                    <div class="w-full flex flex-col items-start justify-start gap-3.5">
+                        <h3 class="h3-base text-[var(--primary-color)]">
+                            Amenities:
+                        </h3>
+                        <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 md:gap-4 place-items-center">
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <PlugZap size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">24/7 Electricity</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <HouseWifi size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Wi-Fi Zone</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Cctv size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">24/7 CCTV</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Truck size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Truck Terminals</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Fuel size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Fuel Station</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <AlarmSmoke size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Fire Fighting</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Cross size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">System Medical</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <SquareParking size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Parking</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Droplet size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Storm Water Drainage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="services-three" class="w-full h-fit col-center service-section">
+                <div class="w-full mx-2.5">
+                    <Image src={"/images/upload/land-acquistion-development.webp"} alt="land-acquistion-development" width={990} height={330} class="w-full" />
+                </div>
+                <div class="w-[calc(100%-56px)] md:w-[calc(100%-80px)] flex flex-col items-start justify-start py-3.5 md:py-5 md:px-5 px-8 gap-5 -translate-y-8 md:-translate-y-14 bg-white">
+                    <div class="flex flex-col items-start justify-start">   
+                        <h3 class="h3-base">
+                            Construction & EPC
+                        </h3>
+                        <p class="text-sm lg:text-base text-gray-600 font-light">
+                            We help corporates and institutions construct warehouses and provide engineering and procurement services.
+                        </p>
+                    </div>
+                    <div class="w-full flex flex-col items-start justify-start gap-3.5">
+                        <h3 class="h3-base text-[var(--primary-color)]">
+                            Amenities:
+                        </h3>
+                        <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 md:gap-4 place-items-center">
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <PlugZap size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">24/7 Electricity</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <HouseWifi size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Wi-Fi Zone</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Cctv size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">24/7 CCTV</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Truck size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Truck Terminals</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Fuel size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Fuel Station</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <AlarmSmoke size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Fire Fighting</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Cross size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">System Medical</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <SquareParking size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Parking</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Droplet size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Storm Water Drainage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="services-four" class="w-full h-fit col-center service-section">
+                <div class="w-full mx-2.5">
+                    <Image src={"/images/upload/land-acquistion-development.webp"} alt="land-acquistion-development" width={990} height={330} class="w-full" />
+                </div>
+                <div class="w-[calc(100%-56px)] md:w-[calc(100%-80px)] flex flex-col items-start justify-start py-3.5 md:py-5 md:px-5 px-8 gap-5 -translate-y-8 md:-translate-y-14 bg-white">
+                    <div class="flex flex-col items-start justify-start">   
+                        <h3 class="h3-base">
+                            Leasing & Marketing
+                        </h3>
+                        <p class="text-sm lg:text-base text-gray-600 font-light">
+                            We are committed to creating enduring relationships with our customers by understanding their needs and we are committed to deliver our buildings on time to their customized specifications.
+                        </p>
+                    </div>
+                    <div class="w-full flex flex-col items-start justify-start gap-3.5">
+                        <h3 class="h3-base text-[var(--primary-color)]">
+                            Amenities:
+                        </h3>
+                        <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 md:gap-4 place-items-center">
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <PlugZap size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">24/7 Electricity</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <HouseWifi size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Wi-Fi Zone</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Cctv size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">24/7 CCTV</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Truck size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Truck Terminals</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Fuel size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Fuel Station</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <AlarmSmoke size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Fire Fighting</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Cross size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">System Medical</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <SquareParking size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Parking</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Droplet size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Storm Water Drainage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="services-five" class="w-full h-fit col-center service-section">
+                <div class="w-full mx-2.5">
+                    <Image src={"/images/upload/land-acquistion-development.webp"} alt="land-acquistion-development" width={990} height={330} class="w-full" />
+                </div>
+                <div class="w-[calc(100%-56px)] md:w-[calc(100%-80px)] flex flex-col items-start justify-start py-3.5 md:py-5 md:px-5 px-8 gap-5 -translate-y-8 md:-translate-y-14 bg-white">
+                    <div class="flex flex-col items-start justify-start">   
+                        <h3 class="h3-base">
+                            Asset Management
+                        </h3>
+                        <p class="text-sm lg:text-base text-gray-600 font-light">
+                            We utilize our experience of managing properties responsibly and generate returns for our Investors. We develop Warehousing and Industrial buildings that deliver lasting value.
+                        </p>
+                    </div>
+                    <div class="w-full flex flex-col items-start justify-start gap-3.5">
+                        <h3 class="h3-base text-[var(--primary-color)]">
+                            Amenities:
+                        </h3>
+                        <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2.5 md:gap-4 place-items-center">
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <PlugZap size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">24/7 Electricity</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <HouseWifi size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Wi-Fi Zone</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Cctv size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">24/7 CCTV</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Truck size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Truck Terminals</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Fuel size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Fuel Station</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <AlarmSmoke size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Fire Fighting</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Cross size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">System Medical</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <SquareParking size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Parking</span>
+                            </div>
+                            <div class="w-full flex items-start justify-start gap-2.5 text-gray-700">
+                                <Droplet size={24} stroke-width={1} />
+                                <span class="text-xs lg:text-sm text-gray-500 font-light">Storm Water Drainage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</>
+
+<style>
+    /* hide WebKit scrollbar */
+    .overflow-x-auto::-webkit-scrollbar {
+    display: none;
+    }
+
+    /* Hide native scrollbar */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+
+<script>
+    const tabList = document.getElementById('scroller');
+    const btnLeft = document.getElementById('scroll-left');
+    const btnRight = document.getElementById('scroll-right');
+
+    const SCROLL_AMOUNT = 200; // px per click, tweak as needed
+
+    btnLeft.addEventListener('click', () => {
+        tabList.scrollBy({ left: -SCROLL_AMOUNT, behavior: 'smooth' });
+    });
+
+    btnRight.addEventListener('click', () => {
+        tabList.scrollBy({ left: SCROLL_AMOUNT, behavior: 'smooth' });
+    });
+
+</script>

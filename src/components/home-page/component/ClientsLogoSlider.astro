@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+const logos = [
+  '/images/logo/clients/blackstoner.webp',
+  '/images/logo/clients/db.webp',
+  '/images/logo/clients/dhl.webp',
+  '/images/logo/clients/ecomexpress.webp',
+  '/images/logo/clients/flipkart.webp',
+  '/images/logo/clients/flyjack.webp',
+  '/images/logo/clients/horizon.webp',
+  '/images/logo/clients/indospace.webp',
+  '/images/logo/clients/ntc.webp',
+  '/images/logo/clients/samsung.webp'
+];
+const duplicated = [...logos, ...logos];
+---
+
+<div class="logo-slider overflow-hidden relative w-full before:content-[''] before:absolute before:h-full before:w-8 before:bg-linear-to-l before:top-0 before:left-0 before:from-transparent before:to-[#f6f6f6] before:z-10 after:absolute after:content-[''] after:h-full after:w-8 after:bg-linear-to-r after:top-0 after:right-0 after:from-transparent after:to-[#f6f6f6] after:z-10">
+  <div class="slide-track flex items-center animate-scroll-left">
+    {duplicated.map((src) => (
+      <div class="slide flex-none w-[78px] md:w-[128px] h-[62px] md:h-[92px] mx-1.5 md:mx-4">
+        <Image
+          src={src}
+          alt="Brand logo"
+          width={128}
+          height={92}
+          loading="lazy"
+          class="object-contain w-full h-full filter transition-filter duration-300"
+        />
+      </div>
+    ))}
+  </div>
+</div>

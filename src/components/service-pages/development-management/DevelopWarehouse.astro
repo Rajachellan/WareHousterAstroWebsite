@@ -1,0 +1,53 @@
+---
+import Image from "astro/components/Image.astro";
+import { Box } from "@lucide/astro";
+---
+
+<section class="w-full col-center gap-4">
+    <div class="w-full max-w-6xl col-center gap-2 md:gap-18 xl:gap-20 mx-auto mt-10 py-10">
+        <div class="col-center gap-2">
+            <span class="flex-center gap-2 px-3.5 py-1 bg-white border border-[#e4e4e4] rounded-full">
+                <Box size={18} stroke-width={2} class="text-gray-800" />
+                <h4 class="text-[13px] md:text-[15px] font-medium  text-gray-800">
+                    Why It Matters
+                </h4>
+            </span>
+            <h2 class="h2-bold text-center">
+                Development Management | Warehouster
+            </h2>
+            <p class="text-sm lg:text-base leading-snug text-gray-500 max-w-5xl text-justify md:text-center px-auto">
+                As a leading Grade A warehousing and industrial developer across India, Warehouster delivers world-class development management for warehousing and logistics projects. We excel at integrating all facets of land development—from approvals, design, and construction to sales, marketing and asset handover. With us, you don’t just build warehouses. you build efficient, high-value assets engineered for long-term performance.
+            </p>
+        </div>
+        <div class="w-full flex items-start mt-4">
+            <div class="w-[calc(25%+5rem)] min-w-[calc(25%+1.875rem)] aspect-square p-2.5 relative border-b-4 border-[#F6670B00] after:absolute after:w-[calc(100%-2.5rem)] after:h-1 after:bg-[#F6670B00] after:top-0 after:left-0 before:absolute before:w-1 before:h-10 before:bg-[#F6670B00] before:bottom-0 before:right-0">
+                <div class="w-full h-full p-2.5 bg-white rounded-lg border border-gray-100 shadow-sm before:absolute before:w-1 before:h-10 before:bg-[#F6670B00] before:top-0 before:right-10 before:-translate-y-full">  
+                    <div class="w-full h-full rounded-lg">
+                        <Image src="/images/upload/development-img-1.webp" alt="development-img-1" width={345} height={346} class="w-full" />
+                    </div>
+                </div>
+            </div>
+            <div class="w-[calc(25%+5rem)] min-w-[calc(25%+1.875rem)] aspect-square p-2.5 relative border-t-4 border-[#F6670B00] -translate-y-10 -translate-x-10 after:absolute after:w-[calc(100%-5rem)] after:h-1 after:bg-[#F6670B00] after:bottom-0 after:left-1/2 after:-translate-x-1/2 before:absolute before:w-1 before:h-10 before:bg-[#F6670B00] before:top-0 before:right-0">
+                <div class="w-full h-full p-2.5 bg-white rounded-lg border border-gray-100 shadow-sm before:absolute before:w-1 before:h-10 before:bg-[#F6670B00] before:bottom-0 before:right-10 before:translate-y-full">  
+                    <div class="w-full h-full rounded-lg">
+                        <Image src="/images/upload/development-img-2.webp" alt="development-img-2" width={345} height={346} class="w-full" />
+                    </div>
+                </div>
+            </div>
+            <div class="w-[calc(25%+5rem)] min-w-[calc(25%+1.875rem)] aspect-square p-2.5 relative border-b-4 border-[#F6670B00] -translate-x-20 after:absolute after:w-[calc(100%-5rem)] after:h-1 after:bg-[#F6670B00] after:top-0 after:left-1/2 after:-translate-x-1/2 before:absolute before:w-1 before:h-10 before:bg-[#F6670B00] before:bottom-0 before:right-0">
+                <div class="w-full h-full p-2.5 bg-white rounded-lg border border-gray-100 shadow-sm before:absolute before:w-1 before:h-10 before:bg-[#F6670B00] before:top-0 before:right-10 before:-translate-y-full">  
+                    <div class="w-full h-full rounded-lg">
+                        <Image src="/images/upload/development-img-3.webp" alt="development-img-3" width={345} height={346} class="w-full" />
+                    </div>
+                </div>
+            </div>
+            <div class="w-[calc(25%+5rem)] min-w-[calc(25%+1.875rem)] aspect-square p-2.5 relative border-t-4 border-[#F6670B00] -translate-y-10 -translate-x-30 after:absolute after:w-[calc(100%-2.5rem)] after:h-1 after:bg-[#F6670B00] after:bottom-0 after:right-0">
+                <div class="w-full h-full p-2.5 bg-white rounded-lg border border-gray-100 shadow-sm">  
+                    <div class="w-full h-full rounded-lg">
+                        <Image src="/images/upload/development-img-4.webp" alt="development-img-4" width={345} height={346} class="w-full" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

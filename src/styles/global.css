@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme {
+    --font-display: "IBM Plex Sans", "sans-serif";
+}
+
+@layer utility {
+    .flex-center {
+        @apply flex items-center justify-center;
+    }
+    .col-center {
+        @apply flex flex-col items-center justify-center;
+    }
+    .flex-stretch{
+        @apply flex flex-col md:flex-row items-stretch justify-center
+    }
+    .abs-center {
+        @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+    }
+    .after-abs-center {
+        @apply after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2;
+    }
+    .after-wh-full {
+        @apply after:w-full after:h-full;
+    }
+    .transform-300 {
+        @apply transform transition-transform duration-300;
+    }
+    .h1-bold{
+        @apply font-bold text-3xl md:text-4xl xl:text-6xl;
+    }
+    .h2-bold{
+        @apply font-bold text-2xl md:text-3xl xl:text-4xl;
+    }
+    .h3-md{
+        @apply text-xl lg:text-2xl;
+    }
+    .h3-base{
+        @apply text-base lg:text-lg;
+    }
+
+    .saw-md{
+        @apply shadow-[0px_4px_8px_rgba(0,0,0,0.12)\,0px_-4px_8px_rgba(0,0,0,0.12)]
+    }
+
+    /* Base styles for all sections */
+
+    .service-section {
+        @apply absolute top-0 left-0 inset-0 w-full opacity-0 translate-y-10 z-0 transition-all duration-500;
+    }
+
+    .media-section {
+        @apply absolute top-0 left-0 inset-0 w-full opacity-0 translate-y-10 z-0 transition-all duration-500;
+    }
+
+    .manag-section {
+        @apply absolute top-0 left-0 inset-0 w-full opacity-0 translate-y-10 z-0 transition-all duration-500;
+    }
+
+    .location-section {
+        @apply absolute top-0 left-0 inset-0 w-full opacity-0 translate-y-10 z-0 transition-all duration-500;
+    }
+
+    /* When svc-1 is checked, show #services-one */
+    #svc-1:checked ~ .relative #services-one,
+    #svc-2:checked ~ .relative #services-two,
+    #svc-3:checked ~ .relative #services-three,
+    #svc-4:checked ~ .relative #services-four,
+    #svc-5:checked ~ .relative #services-five {
+    @apply relative opacity-100 translate-y-0 z-10;
+    }
+
+    /* When svc-1 is checked, color only its label */
+    #svc-1:checked ~ .tab-list label[for="svc-1"],
+    #svc-2:checked ~ .tab-list label[for="svc-2"],
+    #svc-3:checked ~ .tab-list label[for="svc-3"],
+    #svc-4:checked ~ .tab-list label[for="svc-4"],
+    #svc-5:checked ~ .tab-list label[for="svc-5"] {
+        color: var(--primary-color);
+    }
+
+    #mda-1:checked ~ .relative #media-one,
+    #mda-2:checked ~ .relative #media-two,
+    #mda-3:checked ~ .relative #media-three {
+    @apply relative opacity-100 translate-y-0 z-10;
+    }
+
+    /* When mda-1 is checked, color only its label */
+    #mda-1:checked ~ .tab-list label[for="mda-1"],
+    #mda-2:checked ~ .tab-list label[for="mda-2"],
+    #mda-3:checked ~ .tab-list label[for="mda-3"] {
+        color: var(--primary-color);
+    }
+
+    #mag-1:checked ~ .relative #manag-one,
+    #mag-2:checked ~ .relative #manag-two,
+    #mag-3:checked ~ .relative #manag-three {
+    @apply relative opacity-100 translate-y-0 z-10;
+    }
+
+    /* When mag-1 is checked, color only its label */
+    #mag-1:checked ~ .tab-list label[for="mag-1"],
+    #mag-2:checked ~ .tab-list label[for="mag-2"],
+    #mag-3:checked ~ .tab-list label[for="mag-3"] {
+        color: var(--primary-color);
+    }
+
+    #loc-0:checked ~ .relative #location-zero,
+    #loc-1:checked ~ .relative #location-one,
+    #loc-2:checked ~ .relative #location-two,
+    #loc-3:checked ~ .relative #location-three,
+    #loc-4:checked ~ .relative #location-four {
+    @apply relative opacity-100 translate-y-0 z-10;
+    }
+
+    /* When loc-1 is checked, color only its label */
+    #loc-0:checked ~ .tab-list label[for="loc-0"],
+    #loc-1:checked ~ .tab-list label[for="loc-1"],
+    #loc-2:checked ~ .tab-list label[for="loc-2"],
+    #loc-3:checked ~ .tab-list label[for="loc-3"],
+    #loc-4:checked ~ .tab-list label[for="loc-4"] {
+        color: #F6670B;
+    }
+
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+    --font-family: "IBM Plex Sans", "sans-serif";
+    --primary-color: #F6670B;
+    --secondary-color: #091532;
+    --primary-clr-lit: #f67b2e;
+    --secondary-clr-lit: #0774c2;
+}
+
+@keyframes scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* 1. play the infinite scroll */
+.animate-scroll-left {
+  animation: scroll-left 20s linear infinite;
+}
+
+/* 2. on container hover → gray everything */
+.logo-slider:hover .slide img {
+  @apply filter grayscale;
+}
+
+/* 3. on individual slide hover → reset that one */
+.logo-slider .slide:hover img {
+  @apply filter grayscale-0;
+}
+
+.logo-slider:hover .slide-track {
+    animation-play-state: paused;
+}
