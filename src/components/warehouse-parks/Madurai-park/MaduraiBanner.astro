@@ -1,0 +1,74 @@
+---
+import Image from "astro/components/Image.astro";
+import { Box } from "@lucide/astro";
+---
+
+<>
+<section class="w-full flex-center mx-auto mb-5 md:mb-12 px-4">
+    <div class="w-full col-center gap-14 max-w-6xl mt-8 md:mt-24 pt-5 md:pt-20">
+        <div class="col-center gap-2">
+            <span class="flex-center gap-2 px-3.5 py-1 bg-white border border-[#e4e4e4] rounded-lg">
+                <h6 class="text-[13px] md:text-[15px] font-medium  text-gray-800">
+                    Industrial & Warehousing
+                </h6>
+
+                <div class="w-2.5 aspect-square rounded-full bg-[var(--primary-color)] mx-1.5"></div>
+
+                <h6 class="text-[13px] md:text-[15px] font-medium  text-gray-800">
+                    30 <span class="text-gray-700 text-[10px] md:text-[13px]">Acres</span>
+                </h6>
+
+                <div class="w-2.5 aspect-square rounded-full bg-[var(--primary-color)] mx-1.5"></div>
+
+                <h6 class="text-[13px] md:text-[15px] font-medium  text-gray-800">
+                    0.65 Mn. Sq. Ft. <span class="text-gray-700 text-[10px] md:text-[13px]">Buildable area</span>
+                </h6>
+            </span>
+            <h1 class="font-bold text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-center">
+                <span class="block">Why Our Park in Madurai</span> Powers Strategic Growth
+            </h1>
+            <p class="text-sm lg:text-base leading-snug text-gray-500 max-w-3xl text-justify md:text-center px-auto mt-1.5">
+                Located in Madurai, our 30-acre Grade A industrial park offers compliant infrastructure, skilled workforce access, and proximity to major industrial and logistics hubs.
+            </p>
+        </div>
+        <div class="w-full flex items-stretch justify-center gap-4 md:gap-5 lg:gap-7">
+            <div class="w-1/2 rounded-md overflow-hidden">
+                <Image src="/images/upload/parks/chennai-redhills-warehouse.webp" alt="warehouse-redhills" width={530} height={360} class="w-full h-full object-cover object-center" />
+            </div>
+            <div class="w-1/2 bg-white rounded-md px-7 py-5">
+                <span class="w-fit flex-center gap-2 px-3.5 py-1 bg-[#f5f5f5] border border-[#e4e4e4] rounded-lg">
+                    <Box size={14} class="text-[var(--primary-color)]" />
+                    <p class="text-[11px] md:text-[13px] font-medium text-gray-800">
+                        Core Highlights
+                    </p>
+                </span>
+                <div class="flex flex-col gap-2 mt-3.5">
+                    <h4 class="md:text-lg lg:text-xl font-semibold">
+                        Global-Standard, Compliant Infrastructure
+                    </h4>
+                    <p class="text-sm lg:text-base leading-snug text-gray-500 text-left px-auto mt-1.5">
+                        The subject site is a contiguous 30-acre land parcel with frontage on NH 38. It is well-suited for warehousing and industrial operations catering to South-based clients.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-2 mt-3.5">
+                    <h4 class="md:text-lg lg:text-xl font-semibold">
+                        Strategic Location with Seamless Access
+                    </h4>
+                    <p class="text-sm lg:text-base leading-snug text-gray-500 text-left px-auto mt-1.5">
+                        The site is located just 3.5 km from the airport and 15 km from the city. SIDCO Industrial Estate, a prominent industrial development in the district, is accessible via Old Thirumangalam Road and lies 27 km from the site.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-2 mt-3.5">
+                    <h4 class="md:text-lg lg:text-xl font-semibold">
+                        Proven Ecosystem for Industrial Growth
+                    </h4>
+                    <p class="text-sm lg:text-base leading-snug text-gray-500 text-left px-auto mt-1.5">
+                        The area hosts major industries such as Total, Ihita, GD Textiles, JG Rubber, and Asian Paints. Its proximity to the airport makes the site highly attractive to real estate warehouse developers. Companies like Jio, Asian Paints, and Marvels have warehouses within 1 km of the site. The location also provides strategic access to South Chennai CBD for distribution and logistics operations.
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+</>
