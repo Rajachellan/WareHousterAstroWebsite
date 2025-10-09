@@ -15,8 +15,8 @@ import { ChevronDown, LandPlot, BrainCircuit, Layers, PackageCheck, FolderKey, N
                 </div>
                 <nav class="hidden lg:flex items-center justify-center w-full h-full">
                     <div class="w-full h-full flex-center justify-between">
-                        <ul class="h-full flex-center text-[15px] font-medium text-gray-900 peer">
-                            <li class="h-full flex-center group/service cursor-pointer px-3.5 peer">
+                        <ul class="h-full flex-center text-[15px] font-medium text-gray-900">
+                            <li class="h-full flex-center group/service cursor-pointer px-3.5 bg-shade-header">
                                 <div class="flex-center gap-0.5">
                                     <span class="group-hover/service:text-[#F6670B]">
                                         Services
@@ -65,7 +65,7 @@ import { ChevronDown, LandPlot, BrainCircuit, Layers, PackageCheck, FolderKey, N
                                     </div>
                                 </div>
                             </li>
-                            <li class="h-full flex-center group/project cursor-pointer px-3.5 peer">
+                            <li class="h-full flex-center group/project cursor-pointer px-3.5 bg-shade-header">
                                 <div class="flex-center gap-0.5">
                                     <span class="group-hover/project:text-[#F6670B]">
                                         Projects
@@ -81,10 +81,10 @@ import { ChevronDown, LandPlot, BrainCircuit, Layers, PackageCheck, FolderKey, N
                                                     <p class="text-base">Chennai</p>                                                    
                                                 </div>
                                                 <div class="flex flex-col pl-3.5 gap-1.5">
-                                                    <a href="/" class="w-full flex gap-1 items-start jusatify-start pl-10 group rounded-md">
+                                                    <a href="/park/redhills" class="w-full flex gap-1 items-start jusatify-start pl-10 group rounded-md">
                                                         <span class="text-base font-normal group-hover:text-[var(--primary-color)]">Redhills</span>
                                                     </a>
-                                                    <a href="/" class="w-full flex gap-3 items-start jusatify-start pl-10 group rounded-md">
+                                                    <a href="/park/chengalpet" class="w-full flex gap-3 items-start jusatify-start pl-10 group rounded-md">
                                                         <span class="text-base font-normal group-hover:text-[var(--primary-color)]">Chengalpet</span>
                                                     </a>
                                                     <a href="/" class="w-full flex gap-3 items-start jusatify-start pl-10 group rounded-md">
@@ -141,14 +141,14 @@ import { ChevronDown, LandPlot, BrainCircuit, Layers, PackageCheck, FolderKey, N
                                     </div>
                                 </div>
                             </li>
-                            <li class="h-full flex-center group/about cursor-pointer px-3.5 peer hover:text-[#F6670B]">
+                            <li class="h-full flex-center group/about cursor-pointer px-3.5 hover:text-[#F6670B]">
                                 <div class="flex-center gap-0.5">
                                     <a href="/about" class="">
                                         About
                                     </a>
                                 </div>
                             </li>
-                            <li class="h-full flex-center group/news cursor-pointer px-3.5 peer">
+                            <li class="h-full flex-center group/news cursor-pointer px-3.5 bg-shade-header">
                                 <div class="flex-center gap-0.5">
                                     <span class="group-hover/news:text-[#F6670B]">
                                         Media
@@ -210,7 +210,7 @@ import { ChevronDown, LandPlot, BrainCircuit, Layers, PackageCheck, FolderKey, N
 
 <script>
     if (typeof window !== "undefined") {
-        const allChild1 = document.querySelectorAll(".peer");
+        const allChild1 = document.querySelectorAll(".bg-shade-header");
 
         allChild1.forEach((el) => {
             const bgHover = document.getElementById('bg-cover');

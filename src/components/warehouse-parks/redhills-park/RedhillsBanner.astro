@@ -1,0 +1,74 @@
+---
+import Image from "astro/components/Image.astro";
+import { Box } from "@lucide/astro";
+---
+
+<>
+<section class="w-full flex-center mx-auto mb-5 md:mb-12 px-4">
+    <div class="w-full col-center gap-14 max-w-6xl mt-8 md:mt-24 pt-5 md:pt-20">
+        <div class="col-center gap-2">
+            <span class="flex-center gap-2 px-3.5 py-1 bg-white border border-[#e4e4e4] rounded-lg">
+                <h6 class="text-[13px] md:text-[15px] font-medium  text-gray-800">
+                    Industrial & Warehousing
+                </h6>
+
+                <div class="w-2.5 aspect-square rounded-full bg-[var(--primary-color)] mx-1.5"></div>
+
+                <h6 class="text-[13px] md:text-[15px] font-medium  text-gray-800">
+                    24 <span class="text-gray-700 text-[10px] md:text-[13px]">Acres</span>
+                </h6>
+
+                <div class="w-2.5 aspect-square rounded-full bg-[var(--primary-color)] mx-1.5"></div>
+
+                <h6 class="text-[13px] md:text-[15px] font-medium  text-gray-800">
+                    0.5 Mn. Sq. Ft. <span class="text-gray-700 text-[10px] md:text-[13px]">Buildable area</span>
+                </h6>
+            </span>
+            <h1 class="font-bold text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-center">
+                <span class="block">Why Our Park in Redhills</span> Powers Strategic Growth
+            </h1>
+            <p class="text-sm lg:text-base leading-snug text-gray-500 max-w-3xl text-justify md:text-center px-auto mt-1.5">
+                Located in Redhills, our 24-acre Grade A park offers compliant infrastructure, skilled workforce access, and proximity to major industrial and logistics hubs.
+            </p>
+        </div>
+        <div class="w-full flex items-stretch justify-center gap-4 md:gap-5 lg:gap-7">
+            <div class="w-1/2 rounded-md overflow-hidden">
+                <Image src="/images/upload/parks/chennai-redhills-warehouse.webp" alt="warehouse-redhills" width={530} height={360} class="w-full h-full object-cover object-center" />
+            </div>
+            <div class="w-1/2 bg-white rounded-md px-7 py-5">
+                <span class="w-fit flex-center gap-2 px-3.5 py-1 bg-[#f5f5f5] border border-[#e4e4e4] rounded-lg">
+                    <Box size={14} class="text-[var(--primary-color)]" />
+                    <p class="text-[11px] md:text-[13px] font-medium text-gray-800">
+                        Core Highlights
+                    </p>
+                </span>
+                <div class="flex flex-col gap-2 mt-3.5">
+                    <h4 class="md:text-lg lg:text-xl font-semibold">
+                        Global-Standard, Compliant Infrastructure
+                    </h4>
+                    <p class="text-sm lg:text-base leading-snug text-gray-500 text-left px-auto mt-1.5">
+                        Located in Redhills, our 24-acre Grade A park offers compliant infrastructure, skilled workforce access, and proximity to major industrial and logistics hubs.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-2 mt-3.5">
+                    <h4 class="md:text-lg lg:text-xl font-semibold">
+                        Strategic Location with Seamless Access
+                    </h4>
+                    <p class="text-sm lg:text-base leading-snug text-gray-500 text-left px-auto mt-1.5">
+                        Situated within the GNT Redhills cluster, the park connects effortlessly to key industrial zones, ports, and urban centers.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-2 mt-3.5">
+                    <h4 class="md:text-lg lg:text-xl font-semibold">
+                        Proven Ecosystem for Industrial Growth
+                    </h4>
+                    <p class="text-sm lg:text-base leading-snug text-gray-500 text-left px-auto mt-1.5">
+                        Surrounded by leading manufacturers and logistics players, the park supports scalable operations and rising tenant demand.
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+</>
