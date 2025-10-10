@@ -1,9 +1,9 @@
 ---
-
+import Image from "astro/components/Image.astro";
 ---
 
 <section class="w-full col-center mx-auto px-5">
-    <div class="w-full col-center gap-14 max-w-6xl mt-24 mb-10">
+    <div class="w-full col-center gap-4 md:gap-6 lg:gap-8 px-1.5 py-5 max-w-6xl mt-24 mb-10">
         <div class="col-center gap-2">
             <h2 class="h2-bold text-center">
                 Development Capacity and Future Build-Out Potential
@@ -12,5 +12,69 @@
                 Planned buildable area designed to accommodate phased expansion, advanced infrastructure, and tenant-specific industrial requirements for long-term scalability.
             </p>
         </div>
+        <div class="w-full flex items-stretch justify-center py-5 px-7 gap-4 md:gap-5 lg:gap-7 bg-white rounded-xl cursor-pointer">
+            <div class="w-1/2 rounded-md overflow-hidden">
+                <Image src="/images/upload/parks/redhills_develop_park.webp" alt="warehouse-redhills-development" width={530} height={360} class="w-full h-full object-cover object-center" />
+            </div>
+            <div class="w-1/2 flex flex-col justify-between rounded-md px-5 py-3.5" id="hoverPlayer">
+                <div class="flex flex-col gap-0.5">
+                    <div class="flex items-end gap-4">
+                        <lottie-player id="craneLottie" src="/icons/crane.json" background="transparent" speed="1" style="width:64px;height:64px" loop ></lottie-player>
+                        <h4 class="md:text-lg lg:text-xl font-bold">
+                            Built-up potential
+                        </h4>
+                    </div>
+                    <p class="text-[13px] lg:text-[15px] leading-snug text-gray-500 text-left px-auto mt-1.5">
+                        Strategically positioned in the Redhills cluster with direct access to the Redhills–Tiruvallur Highway and nearby logistics hubs
+                    </p>
+                    <div class="flex gap-3.5 text-[10px] md:text-xs lg:text-[12px] text-gray-800 mt-1.5">
+                        <span class="px-1.5 py-0.5 rounded-full bg-[#f7f7f7] border border-gray-200">
+                            Industrial Logistics
+                        </span>
+                        <span class="px-1.5 py-0.5 rounded-full bg-[#f7f7f7] border border-gray-200">
+                            Grade A Warehousing
+                        </span>
+                        <span class="px-1.5 py-0.5 rounded-full bg-[#f7f7f7] border border-gray-200">
+                            Redhills Cluster
+                        </span>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-0.5 py-2.5 border-t border-gray-300">
+                    <h4 class="text-[17px] md:text-[19px] lg:text-[25px] font-bold">
+                        0.5 MN <span class="text-gary-700 font-text-sm mdLtext-base lg:text-xl font-medium">sq. ft. Planned buildable area</span>
+                    </h4>
+                    <p class="text-sm lg:text-base leading-snug text-gray-500 text-left px-auto mt-0.5">
+                        Consolidated single‑phase site enabling flexible, fast-occupancy logistics.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
+<script>
+  // run after component is parsed
+  window.addEventListener('DOMContentLoaded', () => {
+    const hover = document.getElementById('hoverPlayer');
+    const player = document.getElementById('craneLottie');
+    if ((!player) || (!hover)) return;
+
+    // start stopped at first frame
+    player.stop();
+
+    // Pointer interactions
+    hover.addEventListener('mouseenter', () => player.play());
+    hover.addEventListener('mouseleave', () => { player.stop(); player.goToAndStop(0, true); });
+
+    // Keyboard accessibility
+    hover.addEventListener('focus', () => player.play());
+    hover.addEventListener('blur', () => { player.stop(); player.goToAndStop(0, true); });
+
+    // Touch support: play on touchstart, reset on touchend
+    hover.addEventListener('touchstart', () => player.play(), { passive: true });
+    hover.addEventListener('touchend', () => { player.stop(); player.goToAndStop(0, true); });
+  });
+</script>
+
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" defer></script>
