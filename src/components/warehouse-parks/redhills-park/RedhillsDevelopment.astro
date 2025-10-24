@@ -12,7 +12,7 @@ import Image from "astro/components/Image.astro";
                 Precision‑engineered structures, compliant systems, and optimized layouts ensure durability, efficiency, and scalability—delivering long‑term value for global occupiers.
             </p>
         </div>
-        <div class="w-full flex items-stretch justify-center py-5 px-7 gap-4 md:gap-5 lg:gap-7 bg-white rounded-xl cursor-pointer mb-10">
+        <div class="w-full flex items-stretch justify-center py-5 px-7 gap-4 md:gap-5 lg:gap-7 bg-white rounded-xl cursor-pointer mb-10 border border-gray-200 hover:-translate-y-1.5 hover:shadow-lg transform transition-transform duration-300">
             <div class="w-1/2 rounded-md overflow-hidden">
                 <Image src="/images/upload/parks/park-interior.webp" alt="warehouse-redhills-development" width={530} height={360} class="w-full h-full object-cover object-center" />
             </div>
@@ -59,7 +59,7 @@ import Image from "astro/components/Image.astro";
                 </div>
             </div>
         </div>
-        <div class="w-full flex flex-row-reverse items-stretch justify-center py-5 px-7 gap-4 md:gap-5 lg:gap-7 bg-white rounded-xl cursor-pointer mb-10">
+        <div class="w-full flex flex-row-reverse items-stretch justify-center py-5 px-7 gap-4 md:gap-5 lg:gap-7 bg-white rounded-xl cursor-pointer mb-10 border border-gray-200 hover:-translate-y-1.5 hover:shadow-lg transform transition-transform duration-300">
             <div class="w-1/2 rounded-md overflow-hidden">
                 <Image src="/images/upload/parks/park-exterior.webp" alt="warehouse-redhills-development" width={530} height={360} class="w-full h-full object-cover object-center" />
             </div>
@@ -106,6 +106,48 @@ import Image from "astro/components/Image.astro";
                     </h4>
                     <p class="text-sm lg:text-base leading-snug text-gray-500 text-left px-auto mt-0.5">
                         The park enables high‑bay racking, advanced automation, and efficient vertical storage for scalable logistics
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="w-full flex items-stretch justify-center py-5 px-7 gap-4 md:gap-5 lg:gap-7 bg-white rounded-xl cursor-pointer mb-10 border border-gray-200 hover:-translate-y-1.5 hover:shadow-lg transform transition-transform duration-300">
+            <div class="w-1/2 rounded-md overflow-hidden">
+                <Image src="/images/upload/parks/park-operation.webp" alt="warehouse-redhills-development" width={530} height={360} class="w-full h-full object-cover object-center" />
+            </div>
+            <div class="w-1/2 flex flex-col justify-between rounded-md px-5 py-3.5" id="hoverPlayer">
+                <div class="flex flex-col gap-0.5">
+                    <div class="flex items-end gap-4">
+                        <lottie-player id="craneLottie" src="/icons/crane.json" background="transparent" speed="1" style="width:64px;height:64px" loop ></lottie-player>
+                        <h4 class="md:text-lg lg:text-xl font-bold">
+                            Operational Excellence
+                        </h4>
+                    </div>
+                    <p class="text-[13px] lg:text-[15px] leading-snug text-gray-500 text-left px-auto mt-1.5">
+                        Uninterrupted operations with dual backup, compliance infrastructure, automated safety, scalable capacity, and smart connectivity.
+                    </p>
+                    <div class="flex flex-wrap gap-3.5 text-[10px] md:text-xs lg:text-[12px] text-gray-800 my-1.5">
+                        <div class="flex flex-wrap gap-3.5 text-[10px] md:text-xs lg:text-[12px] text-gray-800 my-1.5">
+                            <span class="px-3.5 py-0.5 rounded-full bg-[#f7f7f7] border border-gray-200">
+                                Power Backup – Dual Source + DG Sets
+                            </span>
+                            <span class="px-3.5 py-0.5 rounded-full bg-[#f7f7f7] border border-gray-200">
+                                Utility & Network Reliability
+                            </span>
+                            <span class="px-3.5 py-0.5 rounded-full bg-[#f7f7f7] border border-gray-200">
+                                Seismic & Safety Standards
+                            </span>
+                            <span class="px-3.5 py-0.5 rounded-full bg-[#f7f7f7] border border-gray-200">
+                                24×7 Manned + CCTV
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-0.5 py-2.5 border-t border-gray-300 mt-1.5">
+                    <h4 class="text-[17px] md:text-[19px] lg:text-[25px] font-bold"> 
+                        30-40 <span class="text-gary-700 font-text-sm mdLtext-base lg:text-xl font-medium">km Chennai Port & Airport</span>
+                    </h4>
+                    <p class="text-sm lg:text-base leading-snug text-gray-500 text-left px-auto mt-0.5">
+                        Well‑connected site ensuring smooth access to port, airport, and key transport corridors
                     </p>
                 </div>
             </div>
