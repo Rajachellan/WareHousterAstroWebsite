@@ -1,21 +1,23 @@
----
-import Image from "astro/components/Image.astro";
----
-
-<section class="w-full col-center z-0 gap-4 overflow-hidden">
-    <div class="w-full aspect-[2.2/1] flex flex-col items-start justify-center relative bg-[url(/images/upload/land-acq-banner.webp)] bg-no-repeat bg-cover bg-center gap-2.5 lg:gap-5"> 
-        <div class="w-fit py-4 lg:py-6 px-7 lg:px-9 rounded-r-3xl">
-            <h1 class="text-3xl md:4xl lg:text-5xl font-black text-[#004EA1] text-left text-wrap z-10 ml-7 md:ml-10 lg:ml-14 xl:ml-18 relative after:h-[175%] after:aspect-square after:absolute after:bottom-0 after:left-0 after:border-l-[6px] after:border-b-[6px] after:-translate-x-5 after:translate-y-5 after:rounded-tl-lg after:rounded-br-lg before:h-[175%] before:aspect-square before:absolute before:bottom-0 before:left-0 before:border-l-[6px] before:border-b-[6px] before:-translate-x-[31px] before:translate-y-[31px] before:rounded-tl-lg before:rounded-br-lg">
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200%] -z-10">
-                    <Image src="/images/upload/bg-blur-1.webp" alt="background-blur" width={1080} height={1080} class="w-full" />
-                </div>
-                <span class="block">
-                    <span class="[-webkit-text-fill-color:transparent] [-webkit-text-stroke-width:1.5px] [-webkit-text-stroke-color:#004EA1] pr-0.5">L</span>and <span class="[-webkit-text-fill-color:transparent] [-webkit-text-stroke-width:1.5px] [-webkit-text-stroke-color:#004EA1] pr-0.5">A</span>cquisition & <span class="[-webkit-text-fill-color:transparent] [-webkit-text-stroke-width:1.5px] [-webkit-text-stroke-color:#004EA1] pr-0.5">S</span>trategic  
-                </span>
-                <span class="block">
-                    <span class="[-webkit-text-fill-color:transparent] [-webkit-text-stroke-width:1.5px] [-webkit-text-stroke-color:#004EA1] pr-0.5">P</span>rocurement
-                </span>
+<section class="w-full col-center z-0 gap-4 overflow-hidden px-4 lg:px-5 2xl:px-7 3xl:px-8 py-4 lg:py-5 2xl:py-7 3xl:py-8">
+  <div class="w-full h-[calc(100vh-9rem)] flex items-end justify-center relative gap-2.5 lg:gap-5 mt-20 pt-5 px-4 lg:px-5 2xl:px-7 3xl:px-8 py-4 lg:py-5 2xl:py-7 3xl:py-8 overflow-hidden">
+    <div class="w-full h-full flex items-end justify-center overflow-hidden bg-[url(/images/upload/approvals-compliances-banner.webp)] bg-no-repeat bg-cover bg-center rounded-lg relative">
+      
+      <!-- Gradient wrapper behind everything -->
+      <div class="absolute inset-0 z-0">
+        <div class="w-full h-full bg-[linear-gradient(180deg,#00000033_0%_75%,#0774c266_100%)]"></div>
+      </div>
+      <!-- Content wrapper above gradient -->
+      <div class="max-6xl flex flex-col items-start justify-end py-4 lg:py-12 px-7 lg:px-9 rounded-r-3xl mb-1.5 relative z-10">
+        <div class="relative px-5 py-4 rounded-lg">
+          <div class="absolute inset-0 rounded-lg backdrop-blur-sm bg-linear-to-r from-[#0774c23c] to-[#00000000]"></div>
+          <div class="flex-center relative z-10">
+            <h1 class="h1-md text-white text-left text-wrap capitalize">
+                Strategic Approvals for Logistics Growth
             </h1>
+          </div>
         </div>
+      </div>
+
     </div>
+  </div>
 </section>

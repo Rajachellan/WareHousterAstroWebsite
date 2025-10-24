@@ -1,6 +1,5 @@
 ---
 import Image from "astro/components/Image.astro";
-import { Box } from "@lucide/astro";
 ---
 
 <>
@@ -9,61 +8,77 @@ import { Box } from "@lucide/astro";
         <div class="col-center gap-2">
             <span class="flex-center gap-2 px-3.5 py-1 bg-white border border-[#e4e4e4] rounded-lg">
                 <h6 class="text-[13px] md:text-[15px] font-medium  text-gray-800">
-                    Industrial & Warehousing
+                    Logistics Park
                 </h6>
 
-                <div class="w-2.5 aspect-square rounded-full bg-[var(--primary-color)] mx-1.5"></div>
+                <div class="w-2.5 aspect-square rounded-full bg-(--primary-clr-lit) mx-1.5"></div>
 
                 <h6 class="text-[13px] md:text-[15px] font-medium  text-gray-800">
                     24 <span class="text-gray-700 text-[10px] md:text-[13px]">Acres</span>
                 </h6>
 
-                <div class="w-2.5 aspect-square rounded-full bg-[var(--primary-color)] mx-1.5"></div>
+                <div class="w-2.5 aspect-square rounded-full bg-(--primary-clr-lit) mx-1.5"></div>
 
                 <h6 class="text-[13px] md:text-[15px] font-medium  text-gray-800">
-                    0.5 Mn. Sq. Ft. <span class="text-gray-700 text-[10px] md:text-[13px]">Buildable area</span>
+                    0.5 <span class="text-gray-700 text-[10px] md:text-[13px]">Mn. Sq. Ft.</span>
                 </h6>
             </span>
             <h1 class="font-bold text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-center">
                 <span class="block">Why Our Park in Redhills</span> Powers Strategic Growth
             </h1>
             <p class="text-sm lg:text-base leading-snug text-gray-500 max-w-3xl text-justify md:text-center px-auto mt-1.5">
-                Located in Redhills, our 24-acre Grade A park offers compliant infrastructure, skilled workforce access, and proximity to major industrial and logistics hubs.
+                Located in Redhills, our 24-acres Grade A park offers compliant infrastructure, skilled workforce access, and proximity to major industrial and logistics hubs.
             </p>
         </div>
         <div class="w-full flex items-stretch justify-center gap-4 md:gap-5 lg:gap-7">
             <div class="w-1/2 rounded-md overflow-hidden">
                 <Image src="/images/upload/parks/chennai-redhills-warehouse.webp" alt="warehouse-redhills" width={530} height={360} class="w-full h-full object-cover object-center" />
             </div>
-            <div class="w-1/2 bg-white rounded-md px-7 py-5">
+            <div class="w-1/2 bg-white rounded-md px-7 py-5 cursor-pointer" id="hoverPlayerTwo">
                 <span class="w-fit flex-center gap-2 px-3.5 py-1 bg-[#f5f5f5] border border-[#e4e4e4] rounded-lg">
-                    <Box size={14} class="text-[var(--primary-color)]" />
-                    <p class="text-[11px] md:text-[13px] font-medium text-gray-800">
-                        Core Highlights
+                    <!-- <div class="w-2.5 aspect-square rounded-full bg-(--primary-color) mx-0.5"></div> -->
+                    <p class="text-[11px] md:text-[13px] font-medium text-black">
+                        Core Advantages
+
                     </p>
                 </span>
-                <div class="flex flex-col gap-2 mt-3.5">
-                    <h4 class="md:text-lg lg:text-xl font-semibold">
-                        Global-Standard, Compliant Infrastructure
-                    </h4>
-                    <p class="text-sm lg:text-base leading-snug text-gray-500 text-left px-auto mt-1.5">
-                        Located in Redhills, our 24-acre Grade A park offers compliant infrastructure, skilled workforce access, and proximity to major industrial and logistics hubs.
-                    </p>
-                </div>
-                <div class="flex flex-col gap-2 mt-3.5">
-                    <h4 class="md:text-lg lg:text-xl font-semibold">
-                        Strategic Location with Seamless Access
-                    </h4>
-                    <p class="text-sm lg:text-base leading-snug text-gray-500 text-left px-auto mt-1.5">
+                <div class="flex flex-col gap-0.5 mt-5">
+                    <div class="flex items-center justify-start gap-1.5">
+                        <div class="w-16">
+                            <lottie-player id="location-logo" src="/icons/map.json" background="transparent" speed="1" class="w-11" loop ></lottie-player>
+                        </div>
+                        <h4 class="md:text-lg lg:text-xl font-semibold">
+                            Strategic Location
+                        </h4>
+                    </div>
+                    <p class="text-sm lg:text-base leading-snug text-gray-500 text-left px-auto mt-0.5">
                         Situated within the GNT Redhills cluster, the park connects effortlessly to key industrial zones, ports, and urban centers.
                     </p>
                 </div>
-                <div class="flex flex-col gap-2 mt-3.5">
-                    <h4 class="md:text-lg lg:text-xl font-semibold">
-                        Proven Ecosystem for Industrial Growth
-                    </h4>
-                    <p class="text-sm lg:text-base leading-snug text-gray-500 text-left px-auto mt-1.5">
+                <div class="flex flex-col gap-0.5 mt-5">
+                    <div class="flex items-center justify-start gap-1.5">
+                        <div class="w-16">
+                            <lottie-player id="growth-logo" src="/icons/line-chart.json" background="transparent" speed="1" class="w-12" loop ></lottie-player>
+                        </div>
+                        <h4 class="md:text-lg lg:text-xl font-semibold">
+                            Industrial Growth
+                        </h4>
+                    </div>
+                    <p class="text-sm lg:text-base leading-snug text-gray-500 text-left px-auto mt-0.5">
                         Surrounded by leading manufacturers and logistics players, the park supports scalable operations and rising tenant demand.
+                    </p>
+                </div>
+                <div class="flex flex-col gap-0.5 mt-5">
+                    <div class="flex items-center justify-start gap-1.5">
+                        <div class="w-16">
+                            <lottie-player id="infra-logo" src="/icons/business-management.json" background="transparent" speed="1" class="w-14" loop ></lottie-player>
+                        </div>
+                        <h4 class="md:text-lg lg:text-xl font-semibold">
+                            Global-Standard Infrastructure
+                        </h4>
+                    </div>
+                    <p class="text-sm lg:text-base leading-snug text-gray-500 text-left px-auto mt-0.5">
+                        Located in Redhills, our 24-acre Grade A park offers compliant infrastructure, skilled workforce access, and proximity to major industrial and logistics hubs.
                     </p>
                 </div>
             </div>
@@ -71,3 +86,32 @@ import { Box } from "@lucide/astro";
     </div>
 </section>
 </>
+
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const pairs = [
+      { hoverId: 'hoverPlayerTwo', lottieId: 'location-logo' },
+      { hoverId: 'hoverPlayerTwo', lottieId: 'growth-logo' },
+      { hoverId: 'hoverPlayerTwo', lottieId: 'infra-logo' }
+    ];
+
+    pairs.forEach(({ hoverId, lottieId }) => {
+      const hover = document.getElementById(hoverId);
+      const player = document.getElementById(lottieId);
+      if (!hover || !player) return;
+
+      player.stop();
+
+      const play = () => player.play();
+      const reset = () => { player.stop(); player.goToAndStop(0, true); };
+
+      hover.addEventListener('mouseenter', play);
+      hover.addEventListener('mouseleave', reset);
+      hover.addEventListener('focus', play);
+      hover.addEventListener('blur', reset);
+      hover.addEventListener('touchstart', play, { passive: true });
+      hover.addEventListener('touchend', reset);
+    });
+  });
+</script>

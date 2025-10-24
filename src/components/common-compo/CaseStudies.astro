@@ -1,104 +1,47 @@
 ---
 import Image from "astro/components/Image.astro";
+import { CircleChevronLeft, CircleChevronRight } from "@lucide/astro";
+import { getCollection } from 'astro:content';
+
+const casestudies = await getCollection('caseStudies');
 ---
 
 <div class="w-full col-center gap-14 max-w-7xl mt-8 lg:mt-12 xl:mt-16 mb-10">
-    <div class="col-center gap-2">
-        <h2 class="h2-bold text-center">
+    <div class="col-center gap-0.5">
+        <h2 class="h2-bold text-center mt-3 lg:mt-4 2xl:mt-5 fade-in-up">
             Case Studies - Warehouster Projects <span class="block">Across India</span>
         </h2>
-        <p class="text-sm lg:text-base leading-snug text-gray-400 md:text-gray-500 max-w-4xl text-center px-auto">
+        <p class="text-sm lg:text-base 2xl:text-lg leading-snug text-gray-500 max-w-4xl text-justify md:text-center px-auto mt-3 lg:mt-4 2xl:mt-5 fade-in-up">
             Explore diverse case studies showcasing innovative warehousing projects across India—highlighting strategic locations, scalable designs, and operational excellence tailored to regional logistics and supply chain demands.
         </p>
     </div>
     <div class="w-full flex flex-col gap-7">
         <!-- <div class="flex justify-end items-center gap-6 mr-10">
-            <div class="" id="scroll-left">
+            <div class="cursor-pointer" id="scroll-left">
                 <CircleChevronLeft size={24} strock-width={1} class="text-gray-400" />
             </div>
-            <div class="" id="scroll-right">
-                <CircleChevronRight size={24} strock-width={1} class="text-gray-400" /></div>
+            <div class="cursor-pointer" id="scroll-right">
+                <CircleChevronRight size={24} strock-width={1} class="text-gray-400"/>
+            </div>
         </div> -->
-        <div class="w-full max-w-full overflow-x-scroll scrollbar-custom">
-            <div class="w-[200%] flex items-stretch justify-center mb-1.5 gap-5" id="case-studies-scroll">
-                <div class="w-1/3 max-w-1/3 flex flex-col gap-2.5 p-5 bg-white border border-gray-200 rounded-xl group cursor-pointer" id="case-studie">
-                    <div class="w-full aspect-[1.321/1] overflow-hidden rounded-xl">
-                        <Image src="/images/upload/case-study/casesty1.webp" alt="case-" width={555} height={420} class="object-center w-full group-hover:scale-105 transition-all duration-800" />
+        <div class="w-full max-w-full overflow-hidden scrollbar-custom" id="case-studies-scroll">
+            <div class="w-full flex items-stretch justify-center mb-1.5 gap-5">
+                {casestudies.map((study, index) => (
+                    <div class="w-1/3 max-w-1/3 flex flex-col gap-2.5 p-5 bg-white border border-gray-200 rounded-xl group cursor-pointer fade-in-up" key={index} id="case-studie">
+                        <div class="w-full aspect-[1.321/1] overflow-hidden rounded-xl">
+                            <Image src={study?.data.image} alt={study?.data.title} width={555} height={420} class="object-center w-full group-hover:scale-105 transition-all duration-800" />
+                        </div>
+                        <div class="w-full col-center gap-2 p-1.5">
+                            <h6 class="text-(--primary-clr-lit) group-hover:text-(--primary-color) lg:text-lg font-bold transition-all duration-800">
+                                {study?.data.title}
+                            </h6>
+                            <h6 class="text-sm xl:text-base font-medium text-gray-700"><span class="text-gray-800 font-semibold xl:font-semibold xl:text-xl">{study?.data.area} </span>acres - <span class="text-gray-800 font-semibold xl:font-semibold xl:text-xl">{study?.data.buildArea} </span>Mn.Sq.Ft.</h6>
+                            <p class="text-sm lg:text-base leading-snug text-gray-500 group-hover:text-gray-900 text-justify transition-all duration-800">
+                                {study?.data.description}
+                            </p>
+                        </div>
                     </div>
-                    <div class="w-full col-center gap-2 p-1.5">
-                        <h6 class="text-[var(--primary-clr-lit)] group-hover:text-[var(--primary-color)] lg:text-lg font-bold transition-all duration-800">
-                            Mammadoor Logistics Park – 50 Acres
-                        </h6>
-                        <p class="text-sm lg:text-base leading-snug text-gray-500 group-hover:text-gray-900 text-justify transition-all duration-800">
-                            Spread across 50 acres, the Mammadoor park offers scalable warehousing infrastructure with modern specifications like super-flat flooring, automated dock systems, and energy-efficient roofing. With excellent access to national highways and logistics corridors, it is tailored for e-commerce fulfillment centers and FMCG distribution hubs.
-                        </p>
-                    </div>
-                </div>
-                <div class="w-1/3 max-w-1/3 flex flex-col gap-2.5 p-5 bg-white border border-gray-200 rounded-xl group cursor-pointer">
-                    <div class="w-full aspect-[1.321/1] overflow-hidden rounded-xl">
-                        <Image src="/images/upload/case-study/casesty2.webp" alt="case-" width={555} height={420} class="object-center w-full group-hover:scale-105 transition-all duration-800" />
-                    </div>
-                    <div class="w-full col-center gap-2 p-1.5">
-                        <h6 class="text-[var(--primary-clr-lit)] group-hover:text-[var(--primary-color)] lg:text-lg font-bold transition-all duration-800">
-                            Ponneri ORR Park – 18 Acres
-                        </h6>
-                        <p class="text-sm lg:text-base leading-snug text-gray-500 group-hover:text-gray-900 text-justify transition-all duration-800">
-                            Located strategically along the Outer Ring Road in Chennai, this 18-acre facility is designed to serve urban distribution and last-mile logistics. With smaller yet high-spec warehouses, Ponneri ORR is ideal for 3PLs, courier companies, and quick-commerce operators looking to serve Chennai’s growing metropolitan market.
-                        </p>
-                    </div>
-                </div>
-                <div class="w-1/3 max-w-1/3 flex flex-col gap-2.5 p-5 bg-white border border-gray-200 rounded-xl group cursor-pointer">
-                    <div class="w-full aspect-[1.321/1] overflow-hidden rounded-xl">
-                        <Image src="/images/upload/case-study/casesty3.webp" alt="case-" width={555} height={420} class="object-center w-full group-hover:scale-105 transition-all duration-800" />
-                    </div>
-                    <div class="w-full col-center gap-2 p-1.5">
-                        <h6 class="text-[var(--primary-clr-lit)] group-hover:text-[var(--primary-color)] lg:text-lg font-bold transition-all duration-800">
-                            Redhills Industrial Park – 24 Acres
-                        </h6>
-                        <p class="text-sm lg:text-base leading-snug text-gray-500 group-hover:text-gray-900 text-justify transition-all duration-800">
-                            Our 24-acre Redhills project is strategically placed near Chennai’s northern logistics corridor, making it suitable for import-export businesses, industrial suppliers, and retail distribution. With robust fire detection systems, parking for heavy vehicles, and RCC road networks, this park ensures operational ease and compliance for growing enterprises.
-                        </p>
-                    </div>
-                </div>
-                <div class="w-1/3 max-w-1/3 flex flex-col gap-2.5 p-5 bg-white border border-gray-200 rounded-xl group cursor-pointer">
-                    <div class="w-full aspect-[1.321/1] overflow-hidden rounded-xl">
-                        <Image src="/images/upload/case-study/casesty4.webp" alt="case-" width={555} height={420} class="object-center w-full group-hover:scale-105 transition-all duration-800" />
-                    </div>
-                    <div class="w-full col-center gap-2 p-1.5">
-                        <h6 class="text-[var(--primary-clr-lit)] group-hover:text-[var(--primary-color)] lg:text-lg font-bold transition-all duration-800">
-                            Vallur Logistics Park – 81 Acres
-                        </h6>
-                        <p class="text-sm lg:text-base leading-snug text-gray-500 group-hover:text-gray-900 text-justify transition-all duration-800">
-                            The 81-acre Vallur park is among our largest developments, located near power, port, and industrial hubs. This facility offers large contiguous warehouse spaces suited for manufacturing companies, heavy industrial players, and large-scale 3PL operators. Designed with stormwater drainage, sewage treatment, and sustainable building features, it supports long-term industrial growth.
-                        </p>
-                    </div>
-                </div>
-                <div class="w-1/3 max-w-1/3 flex flex-col gap-2.5 p-5 bg-white border border-gray-200 rounded-xl group cursor-pointer">
-                    <div class="w-full aspect-[1.321/1] overflow-hidden rounded-xl">
-                        <Image src="/images/upload/case-study/casesty5.webp" alt="case-" width={555} height={420} class="object-center w-full group-hover:scale-105 transition-all duration-800" />
-                    </div>
-                    <div class="w-full col-center gap-2 p-1.5">
-                        <h6 class="text-[var(--primary-clr-lit)] group-hover:text-[var(--primary-color)] lg:text-lg font-bold transition-all duration-800">
-                            Devanhalli (Bangalore) Logistics Park – 53 Acres
-                        </h6>
-                        <p class="text-sm lg:text-base leading-snug text-gray-500 group-hover:text-gray-900 text-justify transition-all duration-800">
-                            Positioned near Kempegowda International Airport, Bangalore, this 53-acre development is designed to serve air cargo, e-commerce, and high-value industries. With airport proximity, excellent road connectivity, and Grade-A compliant warehousing, this park is a strategic choice for businesses requiring fast turnaround times and pan-India distribution networks.
-                        </p>
-                    </div>
-                </div>
-                <div class="w-1/3 max-w-1/3 flex flex-col gap-2.5 p-5 bg-white border border-gray-200 rounded-xl group cursor-pointer">
-                    <div class="w-full aspect-[1.321/1] overflow-hidden rounded-xl transform">
-                        <Image src="/images/upload/case-study/casesty6.webp" alt="case-" width={555} height={420} class="object-center w-full group-hover:scale-105 transition-all duration-800" />
-                    </div>
-                    <div class="w-full col-center gap-2 p-1.5">
-                        <h6 class="text-[var(--primary-clr-lit)] group-hover:text-[var(--primary-color)] lg:text-lg font-bold transition-all duration-800">
-                            Madurai Logistics Park – 30 Acres
-                        </h6>
-                        <p class="text-sm lg:text-base leading-snug text-gray-500 group-hover:text-gray-900 text-justify transition-all duration-800">
-                            Our 30-acre development in Madurai caters to businesses looking to strengthen their southern distribution networks. With proximity to major highways and Tier-II consumption markets, this park is suited for FMCG, pharma, and retail players. Built with 24x7 utilities, CCTV security, and energy-efficient infrastructure, it is designed for cost-effective regional operations.
-                        </p>
-                    </div>
-                </div>
+                    ))}
             </div>
         </div>
     </div>
@@ -132,3 +75,22 @@ import Image from "astro/components/Image.astro";
 
 </style>
 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const scrollContainer = document.getElementById('case-studies-scroll');
+    const scrollLeftBtn = document.getElementById('scroll-left');
+    const scrollRightBtn = document.getElementById('scroll-right');
+
+    if (!scrollContainer || !scrollLeftBtn || !scrollRightBtn) return;
+
+    const scrollByFraction = () => scrollContainer.offsetWidth / 3;
+
+    scrollLeftBtn.onclick = () => {
+      scrollContainer?.scrollBy({ left: -scrollByFraction(), behavior: 'smooth' });
+    };
+
+    scrollRightBtn.onclick = () => {
+      scrollContainer?.scrollBy({ left: scrollByFraction(), behavior: 'smooth' });
+    };
+  });
+</script>

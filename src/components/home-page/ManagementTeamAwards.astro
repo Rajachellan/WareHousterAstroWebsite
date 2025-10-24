@@ -5,29 +5,30 @@ import Image from "astro/components/Image.astro";
 
 <section class="w-full col-center mx-auto my-10 gap-14">
     <div class="w-full col-center gap-1 max-w-7xl mt-8 lg:mt-12 xl:mt-16">
-        <div class="col-center gap-2">
-            <span class="flex-center gap-2 px-3.5 py-1 bg-white border border-[#e4e4e4] rounded-full">
-                <Box size={18} stroke-width={2} class="text-gray-800" />
-                <h2 class="text-[13px] md:text-[15px] font-medium  text-gray-800">
+        <div class="col-center gap-0.5">
+            <span class="flex-center gap-2 px-3.5 py-0.5 bg-white border border-[#e4e4e4] rounded-full fade-in-up">
+                <div class="w-3.5 md:w-4 4xl:w-5">
+                    <Box stroke-width={2} class="w-full text-gray-800" />
+                </div>
+                <h4 class="text-[11px] md:text-[13px] 4xl:text-[15px] font-medium  text-gray-800">
                     Team & Awards
-                </h2>
+                </h4>
             </span>
-            <h2 class="h2-bold text-center">
+            <h2 class="h2-bold text-center mt-3 lg:mt-4 2xl:mt-5 fade-in-up">
                 The Minds and Milestones Behind Our Success
             </h2>
-            <p class="text-sm lg:text-base leading-snug text-gray-400 md:text-gray-500 max-w-4xl text-center px-auto">
-                From visionary leadership to industry accolades, this section celebrates the people and achievements that define our journey. Meet the team driving innovation—and explore the recognitions that reflect our impact.
-            </p>
+            <h6 class="text-sm lg:text-base 2xl:text-lg leading-snug text-gray-400 md:text-gray-500 max-w-4xl text-center px-auto mt-3 lg:mt-4 2xl:mt-5 fade-in-up">
+                <span class="inline-block">From visionary leadership to industry accolades, this section celebrates the people and achievements that </span> <span class="inline-block">define our journey. Meet the team driving innovation—and explore the recognitions that reflect our impact.</span>
+            </h6>
         </div>
     </div>
-    
-    <div class="w-full flex items-stretch justify-stretch mt-12 mb-8">
+    <div class="w-full flex items-stretch justify-stretch mt-12 mb-8 fade-in-up">
         <div class="w-1/4 overflow-hidden relative">
             <Image src="/images/upload/Sandeep.webp" alt="ceo-image" width={450} height={590} class="w-full" />
             <div class="absolute flex-center w-full bg-linear-to-t from-black to-[rgba(0,0,0,0.02)] py-1.5 lg:py-3.5 bottom-0 left-0">
                 <p class="text-sm md:text-base lg:text-lg xl:text-xl font-medium lg:font-semibold text-white text-center">
                     <span class="block">Sandeep Chadha</span>
-                    <span class="block text-[var(--primary-color)] text-xs lg:text-base text-center">Founder & CEO</span>
+                    <span class="block text-white text-xs lg:text-base text-center font-normal">Founder & CEO</span>
                 </p>
             </div>
         </div>
@@ -40,10 +41,10 @@ import Image from "astro/components/Image.astro";
                     <div class="max-w-full w-full overflow-x-scroll rounded-t-md px-4.5 relative" id="scroller" style="-ms-overflow-style: none; scrollbar-width: none; scroll-behavior:smooth;" >
                         <ul class="flex flex-nowrap justify-start gap-8 md:gap-10 whitespace-nowrap text-sm lg:text-base leading-snug font-semibold text-[#05070b] py-1.5 px-1.5">
                             <li class="flex-none">
-                                <label for="mag-1" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-[var(--primary-color)]">Management Team</label>
+                                <label for="mag-1" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-(--primary-clr-lit)">Management Team</label>
                             </li>
                             <li class="flex-none">
-                                <label for="mag-2" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-[var(--primary-color)]">Awards</label>
+                                <label for="mag-2" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-(--primary-clr-lit)">Awards</label>
                             </li>
                         </ul>
                     </div>

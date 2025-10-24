@@ -1,0 +1,39 @@
+---
+import Image from "astro/components/Image.astro";
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => new Date(b.data.date) - new Date(a.data.date));
+---
+
+<section class="w-full col-center z-0 gap-4 overflow-hidden">
+  <div class="w-full max-w-7xl mt-14 mb-10">
+    <div class="flex flex-col items-start justify-center gap-7">
+      <h2 class="h2-bold text-(--primary-color)">Blogs</h2>
+      <div class="w-full h-px bg-gray-300"></div>
+      <div class="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
+        {sortedPosts.map(post => (
+          <article class="border border-gray-200 p-5 rounded-md bg-white hover:bg-[#EAEFF1]" key={post.data.slug}>
+            <a href="" class="w-full h-full flex flex-col justify-between gap-4">  
+                <Image src={post.data.image} alt={post.data.title} width={1024} height={1024} class="w-full h-48 object-cover rounded-md" />
+                <h3 class="px-0.5 text-xl font-semibold">{post.data.title}</h3>
+                <p class="px-0.5 text-sm text-gray-600 text-justify">{post.data.description}</p>
+                <p class="px-0.5 text-xs text-gray-400">
+                    {new Date(post.data.date).toLocaleDateString('en-US', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                    })}
+                </p>
+                <div class="px-0.5 flex flex-wrap gap-2">
+                {post.data.tags.map(tag => (
+                    <span class="px-2.5 py-1 text-xs bg-gray-100 rounded border border-gray-200">{tag}</span>
+                ))}
+                </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>  

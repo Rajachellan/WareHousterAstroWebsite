@@ -5,22 +5,24 @@ import { Image } from 'astro:assets';
 
 <section class="w-full col-center mx-auto my-10 px-5">
     <div class="w-full col-center gap-14 max-w-7xl mt-20">
-        <div class="col-center gap-2">
-            <span class="flex-center gap-2 px-3.5 py-1 bg-white border border-[#e4e4e4] rounded-full">
-                <Box size={18} stroke-width={2} class="text-gray-800" />
-                <h2 class="text-[13px] md:text-[15px] font-medium  text-gray-800">
+        <div class="col-center gap-0.5">
+            <span class="flex-center gap-2 px-3.5 py-0.5 bg-white border border-[#e4e4e4] rounded-full fade-in-up">
+                <div class="w-3.5 md:w-4 4xl:w-5">
+                    <Box stroke-width={2} class="w-full text-gray-800" />
+                </div>
+                <h4 class="text-[11px] md:text-[13px] 4xl:text-[15px] font-medium  text-gray-800">
                     Media
-                </h2>
+                </h4>
             </span>
-            <h2 class="h2-bold text-center">
+            <h2 class="h2-bold text-center mt-3 lg:mt-4 2xl:mt-5 fade-in-up">
                 Stories That Shape Our Legacy
             </h2>
-            <p class="text-sm lg:text-base leading-snug text-gray-400 md:text-gray-500 max-w-4xl text-center px-auto">
-                From global news to curated blogs and standout events, each feature marks a milestone in our journey. These stories spotlight the innovation, recognition, and impact that shape our legacy.
-            </p>
+            <h6 class="text-sm lg:text-base 2xl:text-lg leading-snug text-gray-400 md:text-gray-500 max-w-4xl text-center px-auto mt-3 lg:mt-4 2xl:mt-5 fade-in-up">
+                <span class="inline-block">From global news to curated blogs and standout events, each feature marks a milestone in our journey.</span> <span class="inline-block">These stories spotlight the innovation, recognition, and impact that shape our legacy.</span>
+            </h6>
         </div>
     </div>
-    <div class="w-full col-center max-w-5xl mt-12 mb-8 relative">
+    <div class="w-full col-center max-w-5xl mt-12 mb-8 relative fade-in-up">
         
         <input type="radio" name="media" id="mda-1" class="hidden" checked>
         <input type="radio" name="media" id="mda-2" class="hidden">
@@ -30,13 +32,13 @@ import { Image } from 'astro:assets';
             <div class="max-w-full w-full overflow-x-scroll rounded-t-md px-4.5 relative" id="scroller" style="-ms-overflow-style: none; scrollbar-width: none; scroll-behavior:smooth;" >
                 <ul class="flex flex-nowrap justify-start gap-8 md:gap-10 whitespace-nowrap text-sm lg:text-base leading-snug font-semibold text-[#05070b] py-1.5 px-1.5">
                     <li class="flex-none">
-                        <label for="mda-1" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-[var(--primary-color)]">Blogs</label>
+                        <label for="mda-1" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-(--primary-clr-lit)">Blogs</label>
                     </li>
                     <li class="flex-none">
-                        <label for="mda-2" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-[var(--primary-color)]">News</label>
+                        <label for="mda-2" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-(--primary-clr-lit)">News</label>
                     </li>
                     <li class="flex-none">
-                        <label for="mda-3" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-[var(--primary-color)]">Events</label>
+                        <label for="mda-3" class="text-sm md:text-base inline-block py-4.5 cursor-pointer hover:text-(--primary-clr-lit)">Events</label>
                     </li>
                 </ul>
             </div>

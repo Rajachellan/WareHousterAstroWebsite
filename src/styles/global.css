@@ -29,20 +29,33 @@
         @apply transform transition-transform duration-300;
     }
     .h1-bold{
-        @apply font-bold text-3xl md:text-4xl xl:text-6xl 2xl:text-7xl;
+        @apply font-bold text-3xl md:text-4xl xl:text-6xl 2xl:text-7xl 4xl:text-8xl;
+    }
+    .h1-md{
+        @apply font-semibold text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl;
     }
     .h2-bold{
-        @apply font-bold text-2xl md:text-3xl xl:text-4xl;
+        @apply font-bold text-2xl md:text-3xl xl:text-4xl 2xl:text-[2.5rem];
     }
     .h3-md{
-        @apply text-xl lg:text-2xl;
+        @apply text-xl xl:text-2xl 4xl:text-[1.625rem];
     }
     .h3-base{
-        @apply text-base lg:text-lg;
+        @apply text-base lg:text-lg xl:text-xl 2xl:text-2xl;
     }
 
     .saw-md{
         @apply shadow-[0px_4px_8px_rgba(0,0,0,0.12)\,0px_-4px_8px_rgba(0,0,0,0.12)]
+    }
+
+    /* Color and Bg-image */
+
+    .gradient-pry{
+        @apply bg-linear-[90deg,#0774c2_85%,#569ce6_100%] hover:bg-none hover:bg-white;
+    }
+
+    .gradient-blur-pry{
+        @apply bg-linear-[180deg,#0774c2_0%_15%,#00000000_35%_100%] hover:bg-none hover:bg-white
     }
 
     /* Base styles for all sections */
@@ -78,7 +91,8 @@
     #svc-3:checked ~ .tab-list label[for="svc-3"],
     #svc-4:checked ~ .tab-list label[for="svc-4"],
     #svc-5:checked ~ .tab-list label[for="svc-5"] {
-        color: var(--primary-color);
+        background-color: var(--primary-color);
+        color: white;
     }
 
     #mda-1:checked ~ .relative #media-one,
@@ -91,7 +105,7 @@
     #mda-1:checked ~ .tab-list label[for="mda-1"],
     #mda-2:checked ~ .tab-list label[for="mda-2"],
     #mda-3:checked ~ .tab-list label[for="mda-3"] {
-        color: var(--primary-color);
+        color: var(--primary-clr-lit);
     }
 
     #mag-1:checked ~ .relative #manag-one,
@@ -104,7 +118,7 @@
     #mag-1:checked ~ .tab-list label[for="mag-1"],
     #mag-2:checked ~ .tab-list label[for="mag-2"],
     #mag-3:checked ~ .tab-list label[for="mag-3"] {
-        color: var(--primary-color);
+        color: var(--primary-clr-lit);
     }
 
     #loc-0:checked ~ .relative #location-zero,
@@ -123,6 +137,12 @@
     #loc-4:checked ~ .tab-list label[for="loc-4"] {
         color: #F6670B;
     }
+}
+
+@layer utilities {
+    .transition-height {
+        transition: height 0.5s ease-in-out;
+    }
 
 }
 
@@ -130,22 +150,42 @@
   box-sizing: border-box;
 }
 
+html{
+    scroll-behavior: smooth;   
+}
+
 :root {
     --font-family: "IBM Plex Sans", "sans-serif";
-    --primary-color: #F6670B;
-    --secondary-color: #091532;
-    --primary-clr-lit: #f67b2e;
-    --secondary-clr-lit: #0774c2;
+    --primary-color: #004EA1;
+    --secondary-color: #ddf1ff;
+    --primary-clr-lit: #F6670B;
+    --secondary-clr-lit: #3B7FC8;
 }
 
 @keyframes scroll-left {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(calc(50% - var(--scroll-width))); }
 }
+
+@keyframes carousel {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.carousel-track {
+    display: flex;
+    white-space: nowrap;
+    will-change: transform;
+  }
+
 
 /* 1. play the infinite scroll */
 .animate-scroll-left {
-  animation: scroll-left 20s linear infinite;
+  animation: scroll-left 15s linear infinite;
 }
 
 /* 2. on container hover → gray everything */
@@ -161,3 +201,25 @@
 .logo-slider:hover .slide-track {
     animation-play-state: paused;
 }
+
+.scrollbar-none {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.carousel-banner {
+    animation: carousel 30s infinite linear;
+    scroll-behavior: smooth;
+    transform-style: preserve-3d;
+}
+
+
+.carousel-track {
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+

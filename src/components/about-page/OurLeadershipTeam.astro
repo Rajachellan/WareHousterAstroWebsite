@@ -1,242 +1,52 @@
 ---
 import Image from "astro/components/Image.astro";
 import { X } from '@lucide/astro';
+import { CircleChevronLeft, CircleChevronRight } from "@lucide/astro";
+import { getCollection } from 'astro:content';
+
+const teams = await getCollection('leadershipTeam');
+const sortedTeams = teams.sort((a, b) => a.data.id - b.data.id);
 ---
 
-<section class="w-full col-center gap-4 mt-10" x-data="{ showModal: false }">
-    <div class="w-full col-center gap-2 md:gap-3.5 xl:gap-5 mx-4 mt-8 py-10">
+<section class="w-full col-center gap-4" x-data="{ showModal: false }">
+    <div class="w-full flex flex-col gap-7 my-14 max-w-6xl">
         <div class="w-full col-center max-w-6xl">
-            <h2 class="h2-bold text-center">
-                Our Leadership Team
+            <h2 class="h2-bold text-center fade-in-up">
+                Visionaries Behind Warehouster
             </h2>
-            <p class="text-sm lg:text-base leading-snug text-gray-500 max-w-3xl text-justify md:text-center px-auto">
+            <p class="text-sm lg:text-base leading-snug text-gray-500 max-w-3xl text-justify md:text-center px-auto pt-4 fade-in-up">
                 We approach things with a unique perspective, actively seek opportunities with a flexible team and strive to deliver exceptional value to our customers, partners, and employees. 
             </p>
         </div>
-        <div class="w-full col-center  bg-[url(/images/upload/pattern1x.webp)] bg-cover bg-center bg-no-repeat mt-5 lg:mt-8">
-            <div class="w-full relative before:absolute before:w-full before:h-10 before:top-0 before:left-0 before:bg-linear-to-b before:from-[#f7f7f7] before:to-transparent"></div>
-            <div class="w-full col-center max-w-6xl gap-20 py-14" x-data="{ activeModal: null }">
-                <div class="w-full flex items-center justify-around">
-                    <div class="col-center w-1/6">
-                        <div class="w-[calc(100%-32px)] col-center relative pt-2.5">
-                            <div class="w-full aspect-square overflow-hidden z-10 after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-[linear-gradient(335deg,_#3395FD,_#00000064)] after:-z-10 after:rounded-t-xl">
-                                <Image src="/images/upload/sandeepchadharemovebgpreview.webp" alt="sandeep-chadha-CEO" width={260} height={280} class="w-full object-center object-cover" />
-                            </div>
-                        </div>
-                        <div class="w-full px-6 flex flex-col items-start bg-white py-2.5 shadow-lg rounded-t-md">
-                            <p class="lg:text-lg leading-snug text-gray-800 max-w-3xl text-justify md:text-center px-auto font-medium">
-                                Sandeep Chadha
-                            </p>
-                            <p class="text-sm lg:text-base text-gray-600 max-w-3xl text-justify md:text-center px-auto leading-none mb-2">
-                                Founder & CEO
-                            </p>
-                            <p  @click="showModal = 'sandeep'" class="text-xs lg:text-sm text-[var(--primary-color)] font-medium cursor-pointer" >Read More...</p>
-
-                            <!-- Place this outside the relative container -->
-                            <div x-show="showModal === 'sandeep'" x-transition class="fixed inset-0 bg-[rgba(0,0,0,0.34)] z-[100] flex items-center justify-center w-screen h-screen">
-                                <div class="bg-white max-w-2xl lg:max-w-3xl xl:max-w-4xl w-full mx-4 p-6 shadow-xl relative rounded-tl-4xl rounded-br-4xl">
-                                    <button @click="showModal = null" class="absolute top-4 right-4 text-xl font-bold text-red-400 hover:text-red-500 bg-red-100 rounded-full p-2 cursor-pointer">
-                                        <X size={18} stroke-width={2} />
-                                    </button>
-                                    <div class="w-full flex gap-4 pr-4">
-                                        <div class="w-1/5 flex flex-col pt-3.5">
-                                            <div class="w-full relative aspect-square overflow-hidden z-10 after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-[linear-gradient(335deg,_#3395FD,_#00000064)] after:-z-10 after:rounded-t-xl">
-                                                <Image src="/images/upload/sandeepchadharemovebgpreview.webp" alt="sandeep-chadha-CEO" width={260} height={280} class="w-full object-center object-cover" />
-                                            </div>
-                                        </div>
-                                        <div class="w-4/5 flex flex-col items-left justify-start px-0.5">
-                                            <p class="lg:text-lg text-gray-800 max-w-3xl text-left px-auto leading-none mb-2 font-medium capitalize">
-                                                sandeep chadha
-                                            </p>
-                                            <p class="text-xs lg:text-sm text-gray-600 max-w-3xl text-left px-auto leading-none mb-2">
-                                                Founder & CEO
-                                            </p>
-                                            <p class="text-xs lg:text-sm text-gray-800 max-w-3xl text-justify px-auto leading-normal mb-2">
-                                                Sandeep has 20+ years of leadership experience in real estate sector with a track record of managing and exiting a warehousing portfolio to Blackstone and 4 Private REIT funds. He successfully developed the warehousing business for All cargo and Milestone Capital in the capacity of CEO and Senior Partner. He founded Warehouster Capital in 2019 – an Integrated solution provider for the acquisition, development and management of logistics asset in India. The company not only owns logistics assets in India but also suitably positioned to partner with international investors in managing their asset portfolios. Prior to this, Sandeep was the CEO of All Cargo Logistics Parks and from 2014-2017 Partner for Milestone Capital. He holds a postgraduate degree from Ivy league Cornell University fand a B.E. in Production & Industrial Engineering from Delhi University.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-center w-1/6">
-                        <div class="w-[calc(100%-32px)] col-center relative pt-2.5">
-                            <div class="w-full aspect-square overflow-hidden z-10 after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-[linear-gradient(335deg,_#3395FD,_#00000064)] after:-z-10 after:rounded-t-xl">
-                                <Image src="/images/upload/debisarangi1removebgpreview.webp" alt="debi-sarangi-Head-legal" width={260} height={280} class="w-full object-center object-cover" />
-                            </div>
-                        </div>
-                        <div class="w-full px-6 flex flex-col items-start bg-white py-2.5 shadow-lg rounded-t-md">
-                            <p class="lg:text-lg leading-snug text-gray-800 max-w-3xl text-justify md:text-center px-auto font-medium">
-                                Debi Sarangi
-                            </p>
-                            <p class="text-sm lg:text-base text-gray-600 max-w-3xl text-justify md:text-center px-auto leading-none mb-2">
-                                Head Legal
-                            </p>
-                            <p @click="showModal = 'debi'" class="text-xs lg:text-sm text-[var(--primary-color)] font-medium cursor-pointer" >Read More...</p>
-
-                            <!-- Place this outside the relative container -->
-                            <div x-show="showModal === 'debi'" x-transition class="fixed inset-0 bg-[rgba(0,0,0,0.34)] z-[100] flex items-center justify-center w-screen h-screen">
-                                <div class="bg-white max-w-2xl lg:max-w-3xl xl:max-w-4xl w-full mx-4 p-6 shadow-xl relative rounded-tl-4xl rounded-br-4xl">
-                                    <button @click="showModal = null" class="absolute top-4 right-4 text-xl font-bold text-red-400 hover:text-red-500 bg-red-100 rounded-full p-2 cursor-pointer">
-                                        <X size={18} stroke-width={2} />
-                                    </button>
-                                    <div class="w-full flex gap-4 pr-4">
-                                        <div class="w-1/5 flex flex-col pt-3.5">
-                                            <div class="w-full relative aspect-square overflow-hidden z-10 after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-[linear-gradient(335deg,_#3395FD,_#00000064)] after:-z-10 after:rounded-t-xl">
-                                                <Image src="/images/upload/debisarangi1removebgpreview.webp" alt="debi-sarangi-Head-legal" width={260} height={280} class="w-full object-center object-cover" />
-                                            </div>
-                                        </div>
-                                        <div class="w-4/5 flex flex-col items-left justify-start px-0.5">
-                                            <p class="lg:text-lg text-gray-800 max-w-3xl text-left px-auto leading-none mb-2 font-medium capitalize">
-                                                Debi Sarangi
-                                            </p>
-                                            <p class="text-xs lg:text-sm text-gray-600 max-w-3xl text-left px-auto leading-none mb-2">
-                                                Head Legal
-                                            </p>
-                                            <p class="text-xs lg:text-sm text-gray-800 max-w-3xl text-justify px-auto leading-normal mb-2">
-                                                Debi brings more than 21 years of legal expertise spanning investment, land acquisition, real estate structuring, corporate litigation, and compliance. Having previously worked with leading organizations such as Indospace, All Cargo, Redwood Capital, and Lafarge India, Debi ensures that Warehouster’s projects are developed with strong legal foundations, risk mitigation, and regulatory compliance at every stage. 
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-center w-1/6">
-                        <div class="w-[calc(100%-32px)] col-center relative pt-2.5">
-                            <div class="w-full aspect-square overflow-hidden z-10 after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-[linear-gradient(335deg,_#3395FD,_#00000064)] after:-z-10 after:rounded-t-xl">
-                                <Image src="/images/upload/kaushik-vora-removebg-preview.webp" alt="kaushik-vora-investments" width={260} height={280} class="w-full object-center object-cover" />
-                            </div>
-                        </div>
-                        <div class="w-full px-6 flex flex-col items-start bg-white py-2.5 shadow-lg rounded-t-md">
-                            <p class="lg:text-lg leading-snug text-gray-800 max-w-3xl text-justify md:text-center px-auto font-medium">
-                                Kaushik Vora
-                            </p>
-                            <p class="text-sm lg:text-base text-gray-600 max-w-3xl text-justify md:text-center px-auto leading-none mb-2">
-                                Investments
-                            </p>
-                            <p @click="showModal = 'vora'" class="text-xs lg:text-sm text-[var(--primary-color)] font-medium cursor-pointer" >Read More...</p>
-                            
-                            <!-- Place this outside the relative container -->
-                            <div x-show="showModal === 'vora'" x-transition class="fixed inset-0 bg-[rgba(0,0,0,0.34)] z-[100] flex items-center justify-center w-screen h-screen">
-                                <div class="bg-white max-w-2xl lg:max-w-3xl xl:max-w-4xl w-full mx-4 p-6 shadow-xl relative rounded-tl-4xl rounded-br-4xl">
-                                    <button @click="showModal = null" class="absolute top-4 right-4 text-xl font-bold text-red-400 hover:text-red-500 bg-red-100 rounded-full p-2 cursor-pointer">
-                                        <X size={18} stroke-width={2} />
-                                    </button>
-                                    <div class="w-full flex gap-4 pr-4">
-                                        <div class="w-1/5 flex flex-col pt-3.5">
-                                            <div class="w-full relative aspect-square overflow-hidden z-10 after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-[linear-gradient(335deg,_#3395FD,_#00000064)] after:-z-10 after:rounded-t-xl">
-                                                <Image src="/images/upload/kaushik-vora-removebg-preview.webp" alt="debi-sarangi-Head-legal" width={260} height={280} class="w-full object-center object-cover" />
-                                            </div>
-                                        </div>
-                                        <div class="w-4/5 flex flex-col items-left justify-start px-0.5">
-                                            <p class="lg:text-lg text-gray-800 max-w-3xl text-left px-auto leading-none mb-2 font-medium capitalize">
-                                                Kaushik Vora
-                                            </p>
-                                            <p class="text-xs lg:text-sm text-gray-600 max-w-3xl text-left px-auto leading-none mb-2">
-                                                Investments
-                                            </p>
-                                            <p class="text-xs lg:text-sm text-gray-800 max-w-3xl text-justify px-auto leading-normal mb-2">
-                                                Kaushik has 20+ years in invest management, real estate, private equity, and wealth products. He has led structuring, due dilligence, and portfolio managemnt for HMNIs, family offices, and institutions, scalling AUM from hundreds to thousands of crores. He holds an MBA in finance and an Eecutive program in Fintech from IIM Kozhikode.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full flex items-center justify-evenly">
-                    <div class="col-center w-1/6">
-                        <div class="w-[calc(100%-32px)] col-center relative pt-2.5">
-                            <div class="w-full aspect-square overflow-hidden z-10 after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-[linear-gradient(335deg,_#3395FD,_#00000064)] after:-z-10 after:rounded-t-xl">
-                                <Image src="/images/upload/divyansh.webp" alt="divyansh" width={260} height={280} class="w-full object-center object-cover" />
-                            </div>
-                        </div>
-                        <div class="w-full px-6 flex flex-col items-start bg-white py-2.5 shadow-lg rounded-t-md">
-                            <p class="lg:text-lg leading-snug text-gray-800 max-w-3xl text-justify md:text-center px-auto font-medium">
-                                Divyansh
-                            </p>
-                            <p class="text-sm lg:text-base text-gray-600 max-w-3xl text-left px-auto leading-none mb-2">
-                                Leasing & Asset Managment
-                            </p>
-                            <p @click="showModal = 'divyansh'" class="text-xs lg:text-sm text-[var(--primary-color)] font-medium cursor-pointer" >Read More...</p>
-
-                            <!-- Place this outside the relative container -->
-                            <div x-show="showModal === 'divyansh'" x-transition class="fixed inset-0 bg-[rgba(0,0,0,0.34)] z-[100] flex items-center justify-center w-screen h-screen">
-                                <div class="bg-white max-w-2xl lg:max-w-3xl xl:max-w-4xl w-full mx-4 p-6 shadow-xl relative rounded-tl-4xl rounded-br-4xl">
-                                    <button @click="showModal = null" class="absolute top-4 right-4 text-xl font-bold text-red-400 hover:text-red-500 bg-red-100 rounded-full p-2 cursor-pointer">
-                                        <X size={18} stroke-width={2} />
-                                    </button>
-                                    <div class="w-full flex gap-4 pr-4">
-                                        <div class="w-1/5 flex flex-col pt-3.5">
-                                            <div class="w-full relative aspect-square overflow-hidden z-10 after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-[linear-gradient(335deg,_#3395FD,_#00000064)] after:-z-10 after:rounded-t-xl">
-                                                <Image src="/images/upload/divyansh.webp" alt="debi-sarangi-Head-legal" width={260} height={280} class="w-full object-center object-cover" />
-                                            </div>
-                                        </div>
-                                        <div class="w-4/5 flex flex-col items-left justify-start px-0.5">
-                                            <p class="lg:text-lg text-gray-800 max-w-3xl text-left px-auto leading-none mb-2 font-medium capitalize">
-                                                Divyansh
-                                            </p>
-                                            <p class="text-xs lg:text-sm text-gray-600 max-w-3xl text-left px-auto leading-none mb-2">
-                                                Leasing & Asset Managment
-                                            </p>
-                                            <p class="text-xs lg:text-sm text-gray-800 max-w-3xl text-justify px-auto leading-normal mb-2">
-                                                Divyansh has more than 8 years of experience in Leasing & asset Management. Prior to joining Warehouster. He was worked internationally with various IPC’s in warehousing leasing and marketing. He is a registered MRICS member and has also actively worked in the valuation and advisory division for real estate assets.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-center w-1/6">
-                        <div class="w-[calc(100%-32px)] col-center relative pt-2.5">
-                            <div class="w-full aspect-square overflow-hidden z-10 after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-[linear-gradient(335deg,_#3395FD,_#00000064)] after:-z-10 after:rounded-t-xl">
-                                <Image src="/images/upload/kannadhassun.webp" alt="debi-sarangi-Head-legal" width={260} height={280} class="w-full object-center object-cover" />
-                            </div>
-                        </div>
-                        <div class="w-full px-6 flex flex-col items-start bg-white py-2.5 shadow-lg rounded-t-md">
-                            <p class="lg:text-lg leading-snug text-gray-800 max-w-3xl text-justify md:text-center px-auto font-medium">
-                                Kannadhassun
-                            </p>
-                            <p class="text-sm lg:text-base text-gray-600 max-w-3xl text-left px-auto leading-none mb-2">
-                                Head Const & Projects
-                            </p>
-                            <p @click="showModal = 'Kannadhassun'" class="text-xs lg:text-sm text-[var(--primary-color)] font-medium cursor-pointer" >Read More...</p>
-
-                            <!-- Place this outside the relative container -->
-                            <div x-show="showModal === 'Kannadhassun'" x-transition class="fixed inset-0 bg-[rgba(0,0,0,0.34)] z-[100] flex items-center justify-center w-screen h-screen">
-                                <div class="bg-white max-w-2xl lg:max-w-3xl xl:max-w-4xl w-full mx-4 p-6 shadow-xl relative rounded-tl-4xl rounded-br-4xl">
-                                    <button @click="showModal = null" class="absolute top-4 right-4 text-xl font-bold text-red-400 hover:text-red-500 bg-red-100 rounded-full p-2 cursor-pointer">
-                                        <X size={18} stroke-width={2} />
-                                    </button>
-                                    <div class="w-full flex gap-4 pr-4">
-                                        <div class="w-1/5 flex flex-col pt-3.5">
-                                            <div class="w-full relative aspect-square overflow-hidden z-10 after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-[linear-gradient(335deg,_#3395FD,_#00000064)] after:-z-10 after:rounded-t-xl">
-                                                <Image src="/images/upload/kannadhassun.webp" alt="debi-sarangi-Head-legal" width={260} height={280} class="w-full object-center object-cover" />
-                                            </div>
-                                        </div>
-                                        <div class="w-4/5 flex flex-col items-left justify-start px-0.5">
-                                            <p class="lg:text-lg text-gray-800 max-w-3xl text-left px-auto leading-none mb-2 font-medium capitalize">
-                                                Kannadhassun
-                                            </p>
-                                            <p class="text-xs lg:text-sm text-gray-600 max-w-3xl text-left px-auto leading-none mb-2">
-                                                Head Const & Projects
-                                            </p>
-                                            <p class="text-xs lg:text-sm text-gray-800 max-w-3xl text-justify px-auto leading-normal mb-2">
-                                                Kannadhassun has more than 25+ years of rich experience in development of industrial, commercial and Residential projects at various levels. Before joining us he was associated in development of Logistics Park for Ascendas ( CapitaLand ) as Regional Head South India from 2019 - 2021.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="flex justify-end items-center gap-6 mr-10">
+            <div class="cursor-pointer" id="scroll-left">
+                <CircleChevronLeft size={24} strock-width={1} class="text-gray-400" />
             </div>
-            <div class="w-full relative after:absolute after:w-full after:h-10 after:bottom-0 after:left-0 after:bg-linear-to-t after:from-[#f7f7f7] after:to-transparent"></div>
+            <div class="cursor-pointer" id="scroll-right">
+                <CircleChevronRight size={24} strock-width={1} class="text-gray-400"/>
+            </div>
+        </div>
+        <div class="w-full max-w-full overflow-x-scroll scrollbar-none" id="case-studies-scroll">
+            <div class="w-[125%] flex items-stretch justify-center mb-1.5 gap-5 xl:gap-8">
+                {sortedTeams.map(team => (
+                    <div class="w-1/5 max-w-1/5 flex flex-col gap-2.5 p-5 bg-white border border-gray-200 rounded-xl group cursor-pointer overflow-hidden relative fade-in-up" key={team?.data.name} id="case-studie">
+                        <div class="w-full flex items-end justify-center aspect-square overflow-hidden">
+                            <Image src={team?.data.image} alt={team?.data.name} width={230} height={230} class="object-center w-full h-full" />
+                        </div>
+                        <div class="w-full col-center gap-2 p-1.5">
+                            <h6 class="text-(--primary-color) lg:text-lg font-bold transition-all duration-800 capitalize">
+                                {team?.data.name}
+                            </h6>
+                            <h6 class="text-sm xl:text-base font-medium text-gray-700">{team?.data.role}</h6>
+                            <div class="absolute flex items-end w-full h-full bottom-0 left-0 py-5 px-6 bg-[#000000a5] translate-y-full group-hover:translate-y-0 transform transition-transform duration-1000">
+                                <p class="text-sm lg:text-base leading-snug text-white text-justify">
+                                    {team?.data.description}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    ))}
+            </div>
         </div>
     </div>
 </section>

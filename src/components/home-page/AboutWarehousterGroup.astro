@@ -1,69 +1,71 @@
 ---
-import { MapPinHouse, Megaphone, LayoutDashboard, BriefcaseBusiness, Box } from "@lucide/astro";
+import { TrendingUp, ShieldCheck, Users, Radar, Box } from "@lucide/astro";
 ---
 
 <>
-<section class="w-full flex-center mx-auto my-5 md:my-12 px-4">
-    <div class="w-full col-center gap-14 max-w-7xl mt-8 md:mt-16">
-        <div class="col-center gap-2">
-            <span class="flex-center gap-2 px-3.5 py-1 bg-white border border-[#e4e4e4] rounded-full">
-                <Box size={18} stroke-width={2} class="text-gray-800" />
-                <h4 class="text-[13px] md:text-[15px] font-medium  text-gray-800">
+<section class="w-full flex-center mx-auto px-4">
+    <div class="w-full col-center gap-14 max-w-6xl 4xl:max-w-7xl my-5 md:my-12 lg:my-16 xl:my-20 2xl:my-24">
+        <div class="col-center gap-0.5">
+            <span class="flex-center gap-2 px-3.5 py-0.5 bg-white border border-[#e4e4e4] rounded-full fade-in-up">
+                <div class="w-3.5 md:w-4 4xl:w-5">
+                    <Box stroke-width={2} class="w-full text-gray-800" />
+                </div>
+                <h4 class="text-[11px] md:text-[13px] 4xl:text-[15px] font-medium  text-gray-800">
                     About
                 </h4>
             </span>
-            <h2 class="h2-bold text-center">
+            <h2 class="h2-bold text-center mt-3 lg:mt-4 2xl:mt-5 fade-in-up">
                 About Warehouster Group
             </h2>
-            <p class="text-sm lg:text-base leading-snug text-gray-500 max-w-3xl text-justify md:text-center px-auto">
+            <p class="text-sm lg:text-base 2xl:text-lg leading-snug text-gray-500 max-w-3xl text-justify md:text-center px-auto mt-3 lg:mt-4 2xl:mt-5 fade-in-up">
                 Warehouster is India’s integrated logistics asset partner—specializing in acquisition, development, and portfolio management for global and domestic investors.
             </p>
         </div>
         <div class="w-full col-center gap-4 md:gap-5">
-            <div class="w-full flex-stretch gap-4 md:gap-5">
-                <div class="w-full md:w-3/5 py-4 md:py-5 lg:py-6 px-5 md:px-6 lg:px-8 xl:px-9 flex flex-col items-start justify-between bg-white border border-[#dcdcdc] rounded-xl">
-                    <div class="w-9 text-[var(--primary-color)] pb-7">
-                        <MapPinHouse size="100%" stroke-width={1}  />
+            <div class="w-full flex-stretch gap-4 md:gap-5 fade-in-up">
+                <div class="w-full md:w-1/2 py-4 md:py-5 lg:py-6 px-5 md:px-6 lg:px-8 xl:px-9 flex flex-col items-start justify-between bg-white border border-[#dcdcdc] rounded-xl">
+                    <div class="w-9 xl:w-10 3xl:w-11 text-[var(--primary-color)] pb-7">
+                        <TrendingUp size="100%" stroke-width={1}  />
                     </div>
                     <div class="flex flex-col items-start">
-                        <h3 class="h3-md pb-2.5 md:pb-3 lg:pb-4">Land & Liasioning</h3>
-                        <p class="text-base lg:text-lg leading-snug text-gray-500">
-                            Warehouster sources strategic, compliant industrial land across high-growth regions—tailored to customer expansion goals and landlord terms. Our logistics parks meet global standards with zero tolerance for non-compliance.
+                        <h3 class="h3-md pb-2.5 md:pb-3 lg:pb-4">Agile Growth</h3>
+                        <p class="xl:text-lg 4xl:text-xl leading-snug text-gray-500">
+                            Warehouster positions itself as a strategic growth partner, embracing agility not just in operations but in how they collaborate with clients. Their infrastructure and decision-making are designed to adapt quickly to evolving supply chain demands.
                         </p>
                     </div>
                 </div>
-                <div class="w-full md:w-2/5 py-4 md:py-5 lg:py-6 px-5 md:px-6 lg:px-8 xl:px-9 flex flex-col items-start justify-between bg-white border border-[#dcdcdc] rounded-xl">
-                    <div class="w-9 text-[var(--primary-color)] pb-7">
-                        <Megaphone size="100%" stroke-width={1}  />
+                <div class="w-full md:w-1/2 py-4 md:py-5 lg:py-6 px-5 md:px-6 lg:px-8 xl:px-9 flex flex-col items-start justify-between bg-white border border-[#dcdcdc] rounded-xl">
+                    <div class="w-9 xl:w-10 3xl:w-11 text-[var(--primary-color)] pb-7">
+                        <ShieldCheck size="100%" stroke-width={1}  />
                     </div>
                     <div class="flex flex-col items-start">
-                        <h3 class="h3-md pb-2.5 md:pb-3 lg:pb-4">Leasing & Marketing</h3>
-                        <p class="lg:text-lg leading-snug text-gray-500">
-                            Warehouster delivers on-time, customized industrial buildings and scalable logistics parks for warehousing, manufacturing, and business expansion.
+                        <h3 class="h3-md pb-2.5 md:pb-3 lg:pb-4">Regulatory Excellence</h3>
+                        <p class="xl:text-lg 4xl:text-xl leading-snug text-gray-500">
+                            They maintain high standards of compliance and regulatory alignment, ensuring that their logistics parks meet all statutory norms. This builds trust with institutional clients and supports long-term, risk-mitigated operations.
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="w-full flex-stretch gap-4 md:gap-5">
+            <div class="w-full flex-stretch gap-4 md:gap-5 fade-in-up">
                 <div class="w-full md:w-2/5 py-4 md:py-5 lg:py-6 px-5 md:px-6 lg:px-8 xl:px-9 flex flex-col items-start justify-between bg-white border border-[#dcdcdc] rounded-xl">
-                    <div class="w-9 text-[var(--primary-color)] pb-7">
-                        <BriefcaseBusiness size="100%" stroke-width={1}  />
+                    <div class="w-9 xl:w-10 3xl:w-11 text-[var(--primary-color)] pb-7">
+                        <Radar size="100%" stroke-width={1}  />
                     </div>
                     <div class="flex flex-col items-start">
-                        <h3 class="h3-md pb-2.5 md:pb-3 lg:pb-4">Asset Management</h3>
-                        <p class="lg:text-lg leading-snug text-gray-500">
-                            Warehouster drives superior returns through strategic fund management in warehousing and industrial real estate, backed by multi-million dollar portfolios.
+                        <h3 class="h3-md pb-2.5 md:pb-3 lg:pb-4">Future Focus</h3>
+                        <p class="xl:text-lg 4xl:text-xl leading-snug text-gray-500">
+                            Warehouster emphasizes scalable, future-proof logistics ecosystems. Their developments are planned with long-term adaptability in mind—supporting automation, sustainability, and evolving distribution models.
                         </p>
                     </div>
                 </div>
                 <div class="w-full md:w-3/5 py-4 md:py-5 lg:py-6 px-5 md:px-6 lg:px-8 xl:px-9 flex flex-col items-start justify-between bg-white border border-[#dcdcdc] rounded-xl">
-                    <div class="w-9 text-[var(--primary-color)] pb-7">
-                        <LayoutDashboard size="100%" stroke-width={1}  />
+                    <div class="w-9 xl:w-10 3xl:w-11 text-[var(--primary-color)] pb-7">
+                        <Users size="100%" stroke-width={1}  />
                     </div>
                     <div class="flex flex-col items-start">
-                        <h3 class="h3-md pb-2.5 md:pb-3 lg:pb-4">Development Management</h3>
-                        <p class="lg:text-lg leading-snug text-gray-500">
-                            Warehouster’s development management program helps landowners and fund houses unlock warehousing ROI, logistics returns, and industrial real estate value while retaining ownership. We deliver turnkey Grade-A assets and manage operations with no in-house team required.
+                        <h3 class="h3-md pb-2.5 md:pb-3 lg:pb-4">Collaborative Edge</h3>
+                        <p class="xl:text-lg 4xl:text-xl leading-snug text-gray-500">
+                            Rather than just building warehouses, Warehouster fosters ecosystems where tenants, developers, and logistics operators co-create value. Their approach encourages modularity, shared resources, and operational synergy across industries.
                         </p>
                     </div>
                 </div>

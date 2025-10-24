@@ -1,30 +1,88 @@
 ---
-import ClientsLogoSlider from "./component/ClientsLogoSlider.astro";
-import { Box } from "@lucide/astro"
+import Image from "astro/components/Image.astro";
+import { ArrowRight } from "@lucide/astro";
 ---
 
-<head>
-  <link rel="preload" as="image" href="/images/upload/banner-image.webp" />
-</head>
-
-
-<section class="w-full col-center z-0 gap-4">
-    <div class="w-full aspect-[2.2929/1] flex items-end justify-start relative bg-[url(/images/upload/banner-image.webp)] bg-no-repeat bg-cover bg-center">
-        <div class="w-full max-w-6xl mx-auto px-3 mb-5">
-            <h1 class="h1-bold text-white text-shadow-gray-500 text-shadow-md text-left">
+<section class="w-full col-center z-0 gap-4 lg:gap-5 2xl:gap-6">
+    <div class="w-full h-10 lg:h-14 2xl:h-16"></div>
+    <div class="w-full max-w-6xl gap-10 col-center relative bg-[] bg-no-repeat bg-cover bg-center mt-22">
+        <div class="w-full col-center mx-auto px-3 mb-5 mt-12">
+            <h6 class="inline-flex items-center justify-center text-[#2b2b2b] text-xs lg:text-sm 4xl:text-base font-medium bg-white hover:bg-transparent mb-4 px-4 py-1 border border-gray-300 rounded-md hover:border-(--primary-color) transform transition-transform duration-200 ease-in cursor-default">South India’s premier Grade-A logistics park network - <a href="/parks" class="border border-gray-400 py-px px-2.5 rounded-sm my-auto ml-1"> view parks <ArrowRight width={14} class="inline text-gray-700" /></a></h6>
+            <h1 class="h1-bold text-center text-[#1A1A1A]">
                 <span class="inline-block">
-                    <span class="text-[var(--primary-color)]">Y</span>our Space for Growth.
+                    Your Space for Growth
                 </span>
                 <span class="inline-block">
-                    Your <span class="text-[var(--primary-color)]">S</span>pace to Move Ahead. 
+                    Your Space to Move Ahead
                 </span>
             </h1>
-            <p class="text-base md:text-lg xl:text-xl leading-snug xl:leading-tight font-medium max-w-2xl text-shadow-sm text-shadow-gray-[rgba(0,0,0,0.13)] text-white py-3.5 lg:py-5 px-1">
-                Welcome to Warehouster Group – your one-stop solution for all warehousing and industrial infrastructure needs across India. 
+            <p class="text-[#1A1A1A] text-sm md:text-base xl:text-lg text-center leading-snug xl:leading-tight max-w-5xl pt-3 lg:pt-8 px-1">
+                Warehouster empowers businesses and investors with agile, sustainable, and tech-enabled infrastructure—anchored in strategic land, regulatory excellence, and performance-driven asset stewardship across South India’s premier logistics corridors.
             </p>
+            <div class="w-full flex-center lg:pt-8 px-1.5 gap-6">
+                <a href="/contact-us" class="text-nowrap px-6 py-2 bg-(--primary-color) rounded-full relative overflow-hidden border border-(--primary-color) group transform transition-colors delay-100">
+                    <span class="group-hover:-translate-y-10 text-white flex transform transition-transform duration-300">
+                        Enquire now
+                    </span>
+                    <span class="z-10 after:content-['Enquire_now'] after:w-full after:h-full after:text-white after:absolute after:top-10 after:left-1/2 after:-translate-x-1/2 group-hover:after:-translate-y-10 group-hover:translate-z-3 after:flex after:items-center after:justify-center after:z-10 after:transform after:transition-transform after:duration-300">
+                    </span>
+                </a>
+                <a href="/contact-us" class="text-nowrap px-6 py-2 bg-white rounded-full relative overflow-hidden border border-(--primary-color) group transform transition-colors delay-100">
+                    <span class="group-hover:-translate-y-10 text-(--primary-color) flex transform transition-transform duration-300">
+                        Explore Parks
+                    </span>
+                    <span class="z-10 after:content-['Explore_Parks'] after:w-full after:h-full after:text-(--primary-color) after:absolute after:top-10 after:left-1/2 after:-translate-x-1/2 group-hover:after:-translate-y-10 group-hover:translate-z-3 after:flex after:items-center after:justify-center after:z-10 after:transform after:transition-transform after:duration-300">
+                    </span>
+                </a>
+            </div>
         </div>
     </div>
-    <div class="w-full col-center gap-2 md:gap-3.5 xl:gap-5 max-w-6xl mx-auto mt-8 text-[#091532]">
+    
+    <div class="w-full xl:max-w- max-w-384 relative pt-4 before:absolute before:h-full before:w-14 before:left-0 before:top-0 before:bg-linear-to-r before:from-[#f7f7f7] before:to-transparent before:z-10 after:absolute after:h-full after:w-14 after:right-0 after:top-0 after:bg-linear-to-l after:from-[#f7f7f7] after:to-transparent after:z-10">
+        <div class="w-full flex overflow-x-scroll scrollbar-none">
+            <div class="min-w-[240%] flex-center carousel-banner">
+                <div class="grow-0 shrink-0 basis-1/6 overflow-hidden px-4">
+                    <Image src="/images/upload/home-banner-carousel-img-1.webp" alt="banner-img-1" width={636} height={443} class="w-full rounded-md lg:rounded-lg 2xl:rounded-xl"/>
+                </div>
+                <div class="grow-0 shrink-0 basis-1/6 overflow-hidden px-4">
+                    <Image src="/images/upload/home-banner-carousel-img-2.webp" alt="banner-img-1" width={636} height={443} class="w-full rounded-md lg:rounded-lg 2xl:rounded-xl"/>
+                </div>
+                <div class="grow-0 shrink-0 basis-1/6 overflow-hidden px-4">
+                    <Image src="/images/upload/home-banner-carousel-img-3.webp" alt="banner-img-1" width={636} height={443} class="w-full rounded-md lg:rounded-lg 2xl:rounded-xl"/>
+                </div>
+                <div class="grow-0 shrink-0 basis-1/6 overflow-hidden px-4">
+                    <Image src="/images/upload/home-banner-carousel-img-4.webp" alt="banner-img-1" width={636} height={443} class="w-full rounded-md lg:rounded-lg 2xl:rounded-xl"/>
+                </div>
+                <div class="grow-0 shrink-0 basis-1/6 overflow-hidden px-4">
+                    <Image src="/images/upload/home-banner-carousel-img-5.webp" alt="banner-img-1" width={636} height={443} class="w-full rounded-md lg:rounded-lg 2xl:rounded-xl"/>
+                </div>
+                <div class="grow-0 shrink-0 basis-1/6 overflow-hidden px-4">
+                    <Image src="/images/upload/home-banner-carousel-img-6.webp" alt="banner-img-1" width={636} height={443} class="w-full rounded-md lg:rounded-lg 2xl:rounded-xl"/>
+                </div>
+            </div>
+            <div class="min-w-[240%] flex-center carousel-banner" aria-hidden>
+                <div class="grow-0 shrink-0 basis-1/6 overflow-hidden px-4">
+                    <Image src="/images/upload/home-banner-carousel-img-1.webp" alt="banner-img-1" width={636} height={443} class="w-full rounded-md lg:rounded-lg 2xl:rounded-xl"/>
+                </div>
+                <div class="grow-0 shrink-0 basis-1/6 overflow-hidden px-4">
+                    <Image src="/images/upload/home-banner-carousel-img-2.webp" alt="banner-img-1" width={636} height={443} class="w-full rounded-md lg:rounded-lg 2xl:rounded-xl"/>
+                </div>
+                <div class="grow-0 shrink-0 basis-1/6 overflow-hidden px-4">
+                    <Image src="/images/upload/home-banner-carousel-img-3.webp" alt="banner-img-1" width={636} height={443} class="w-full rounded-md lg:rounded-lg 2xl:rounded-xl"/>
+                </div>
+                <div class="grow-0 shrink-0 basis-1/6 overflow-hidden px-4">
+                    <Image src="/images/upload/home-banner-carousel-img-4.webp" alt="banner-img-1" width={636} height={443} class="w-full rounded-md lg:rounded-lg 2xl:rounded-xl"/>
+                </div>
+                <div class="grow-0 shrink-0 basis-1/6 overflow-hidden px-4">
+                    <Image src="/images/upload/home-banner-carousel-img-5.webp" alt="banner-img-1" width={636} height={443} class="w-full rounded-md lg:rounded-lg 2xl:rounded-xl"/>
+                </div>
+                <div class="grow-0 shrink-0 basis-1/6 overflow-hidden px-4">
+                    <Image src="/images/upload/home-banner-carousel-img-6.webp" alt="banner-img-1" width={636} height={443} class="w-full rounded-md lg:rounded-lg 2xl:rounded-xl"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="w-full col-center gap-4 md:gap-5 xl:gap-7 2xl:gap-8 3xl:gap-10 max-w-6xl mx-auto mt-8 2xl:mt-12 text-[#091532]" style="--scroll-width: 100%;">
         <div class="col-center gap-3 md:gap-2">
             <span class="flex-center gap-2 px-3.5 py-1 bg-white border border-[#e4e4e4] rounded-full">
                 <Box size={18} stroke-width={2} class="text-gray-700 md:text-gray-800" />
@@ -32,10 +90,11 @@ import { Box } from "@lucide/astro"
                     Our Partner
                 </h4>
             </span>
-            <h2 class="text-lg md:text-xl lg:text-2xl font-bold text-left px-4">
+            <h2 class="text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold text-left px-4">
                 Your Trusted Brands, Our Expert Partnerships
             </h2>
         </div>
         <ClientsLogoSlider />
-    </div>
+    </div> -->
 </section>
+
