@@ -28,8 +28,8 @@ pipeline {
                 echo "📥 Installing pnpm locally..."
                 npm install pnpm --save-dev
 
-                echo "📦 Installing dependencies (single-threaded for CI)..."
-                npx pnpm install --no-frozen-lockfile --workspace-concurrency 1
+                echo "📦 Installing dependencies..."
+                npx pnpm install
 
                 echo "🏗️ Building Astro site..."
                 npx pnpm exec astro build
