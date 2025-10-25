@@ -1,38 +1,28 @@
-# ---------------------------
-# 1. Build stage
-# ---------------------------
-FROM node:20-alpine AS builder
-
+# Stage 1: Build the Astro app
+FROM node:lts AS build
 WORKDIR /app
 
-# Copy dependency files
-COPY package*.json pnpm-lock.yaml* ./
+# Copy only package files to leverage Docker caching
+COPY package*.json ./
+RUN npm install
 
-# Install pnpm
-RUN npm install -g pnpm
-
-# Install dependencies
-RUN pnpm install --frozen-lockfile
-
-# Copy source code
+# Copy the rest of the source code
 COPY . .
 
-# Build the Astro site
-RUN pnpm run build
+# Build the static site
+RUN npm run build
 
-# ---------------------------
-# 2. Serve stage
-# ---------------------------
-FROM node:20-alpine AS runner
+# Stage 2: Serve with NGINX
+FROM nginx:alpine AS runtime
 
-WORKDIR /app
+# Copy built static files from build stage
+COPY --from=build /app/dist /usr/share/nginx/html
 
-# Install static file server
-RUN npm install -g serve
+# Copy custom NGINX config
+COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 
-# Copy built assets
-COPY --from=builder /app/dist ./dist
-
+# Expose port
 EXPOSE 4321
 
-CMD ["serve", "-s", "dist", "-l", "4321"]
+# Start NGINX
+CMD ["nginx", "-g", "daemon off;"]

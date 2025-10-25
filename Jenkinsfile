@@ -5,43 +5,47 @@ pipeline {
         DOCKER_IMAGE   = "warehouster-frontend"
         CONTAINER_NAME = "warehouster-frontend-container"
         APP_PORT       = "3000"
+        GIT_BRANCH     = "dev"
+        GIT_URL        = "https://github.com/Rajachellan/WareHousterAstroWebsite.git"
+        GIT_CREDENTIAL = "github-token-Server"   // Jenkins credential ID for GitHub
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'dev',
-                    url: 'https://github.com/Rajachellan/WareHousterAstroWebsite.git'
+                echo "🔄 Checking out code from GitHub..."
+                git branch: "${GIT_BRANCH}",
+                    credentialsId: "${GIT_CREDENTIAL}",
+                    url: "${GIT_URL}"
             }
         }
 
         stage('Install Dependencies & Build') {
             steps {
+                echo "📦 Installing dependencies and building frontend..."
                 sh '''
-                echo "🧹 Cleaning previous dependencies..."
-                rm -rf node_modules package-lock.json
+                echo "🧹 Cleaning old files..."
+                rm -rf node_modules package-lock.json dist .next build
 
-                echo "📦 Installing pnpm locally and building Astro app..."
-                npm install pnpm
-                npx pnpm install --no-frozen-lockfile
-                npx pnpm run build
+                echo "📥 Installing pnpm and building..."
+                npm install -g pnpm
+                pnpm install --no-frozen-lockfile
+                pnpm run build
                 '''
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh '''
                 echo "🐳 Building Docker image..."
-                docker build -t $DOCKER_IMAGE .
-                '''
+                sh 'docker build -t $DOCKER_IMAGE .'
             }
         }
 
-        stage('Stop Old Container') {
+        stage('Stop & Remove Old Container') {
             steps {
+                echo "🧹 Removing old container if exists..."
                 sh '''
-                echo "Stopping old container if exists..."
                 docker stop $CONTAINER_NAME || true
                 docker rm $CONTAINER_NAME || true
                 '''
@@ -50,8 +54,8 @@ pipeline {
 
         stage('Run New Container') {
             steps {
+                echo "🚀 Running new container..."
                 sh '''
-                echo "Running new container..."
                 docker run -d --name $CONTAINER_NAME \
                     --restart always \
                     -p $APP_PORT:3000 \
@@ -62,17 +66,17 @@ pipeline {
 
         stage('Health Check') {
             steps {
+                echo "🔍 Performing health check..."
                 sh '''
-                echo "Waiting for container to start..."
                 retries=5
                 until curl -f http://localhost:$APP_PORT || [ $retries -le 0 ]; do
-                    echo "Waiting for frontend to respond..."
+                    echo "⏳ Waiting for frontend to respond... Retries left: $retries"
                     sleep 5
                     retries=$((retries-1))
                 done
 
                 if [ $retries -le 0 ]; then
-                    echo "Frontend failed to start!"
+                    echo "❌ Frontend failed to start!"
                     docker logs $CONTAINER_NAME
                     exit 1
                 fi
@@ -80,16 +84,16 @@ pipeline {
             }
         }
 
-        stage('Verify Container') {
+        stage('Verify Container Status') {
             steps {
+                echo "✅ Verifying container status..."
                 sh '''
-                echo "Checking if container is still running..."
                 if [ "$(docker inspect -f '{{.State.Running}}' $CONTAINER_NAME)" != "true" ]; then
                     echo "❌ Container crashed!"
                     docker logs $CONTAINER_NAME
                     exit 1
                 fi
-                echo "✅ Container is running fine."
+                echo "✅ Container is running successfully."
                 '''
             }
         }
@@ -97,11 +101,10 @@ pipeline {
 
     post {
         success {
-            echo "✅ Frontend Deployment Successful! App running at http://localhost:$APP_PORT/"
+            echo "✅ Frontend successfully deployed and running at http://localhost:$APP_PORT/"
         }
-
         failure {
-            echo "❌ Frontend Deployment Failed!"
+            echo "❌ Frontend deployment failed! Check logs above."
         }
     }
 }
