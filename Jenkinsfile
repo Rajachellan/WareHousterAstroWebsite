@@ -3,15 +3,14 @@ pipeline {
 
     environment {
         DOCKER_IMAGE   = "warehouster-frontend"
-        CONTAINER_NAME = "warehouster-container"
-        APP_PORT       = "4321"
+        CONTAINER_NAME = "warehouster-frontend-container"
+        APP_PORT       = "3000"
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'dev', // change to main if needed
-                    credentialsId: 'github-creds-frontend',
+                git branch: 'dev',
                     url: 'https://github.com/Rajachellan/WareHousterAstroWebsite.git'
             }
         }
@@ -22,10 +21,10 @@ pipeline {
                 echo "🧹 Cleaning previous dependencies..."
                 rm -rf node_modules package-lock.json
 
-                echo "📦 Installing pnpm and building Astro app..."
-                npm install -g pnpm
-                pnpm install --no-frozen-lockfile
-                pnpm run build
+                echo "📦 Installing pnpm locally and building Astro app..."
+                npm install pnpm
+                npx pnpm install --no-frozen-lockfile
+                npx pnpm run build
                 '''
             }
         }
@@ -42,7 +41,7 @@ pipeline {
         stage('Stop Old Container') {
             steps {
                 sh '''
-                echo "🛑 Stopping old container if exists..."
+                echo "Stopping old container if exists..."
                 docker stop $CONTAINER_NAME || true
                 docker rm $CONTAINER_NAME || true
                 '''
@@ -52,10 +51,10 @@ pipeline {
         stage('Run New Container') {
             steps {
                 sh '''
-                echo "🚀 Starting new frontend container..."
+                echo "Running new container..."
                 docker run -d --name $CONTAINER_NAME \
                     --restart always \
-                    -p $APP_PORT:4321 \
+                    -p $APP_PORT:3000 \
                     $DOCKER_IMAGE
                 '''
             }
@@ -64,16 +63,16 @@ pipeline {
         stage('Health Check') {
             steps {
                 sh '''
-                echo "🔍 Checking if frontend is live..."
-                retries=10
+                echo "Waiting for container to start..."
+                retries=5
                 until curl -f http://localhost:$APP_PORT || [ $retries -le 0 ]; do
                     echo "Waiting for frontend to respond..."
-                    sleep 3
+                    sleep 5
                     retries=$((retries-1))
                 done
 
                 if [ $retries -le 0 ]; then
-                    echo "❌ Frontend failed to start!"
+                    echo "Frontend failed to start!"
                     docker logs $CONTAINER_NAME
                     exit 1
                 fi
@@ -84,13 +83,13 @@ pipeline {
         stage('Verify Container') {
             steps {
                 sh '''
-                echo "🔎 Verifying container status..."
+                echo "Checking if container is still running..."
                 if [ "$(docker inspect -f '{{.State.Running}}' $CONTAINER_NAME)" != "true" ]; then
                     echo "❌ Container crashed!"
                     docker logs $CONTAINER_NAME
                     exit 1
                 fi
-                echo "✅ Container is running fine on port $APP_PORT"
+                echo "✅ Container is running fine."
                 '''
             }
         }
@@ -98,14 +97,11 @@ pipeline {
 
     post {
         success {
-            echo "✅ Frontend successfully built and running at http://localhost:$APP_PORT/"
+            echo "✅ Frontend Deployment Successful! App running at http://localhost:$APP_PORT/"
         }
+
         failure {
-            echo "❌ Frontend build or container startup failed!"
-        }
-        always {
-            echo "🧹 Cleaning up unused Docker resources..."
-            sh 'docker system prune -f || true'
+            echo "❌ Frontend Deployment Failed!"
         }
     }
 }
