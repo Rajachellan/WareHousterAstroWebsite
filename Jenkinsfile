@@ -5,11 +5,11 @@ pipeline {
         NODE_VERSION = '20'
         PRERENDER = 'false' // Disable prerendering dynamic routes to avoid build errors
         PNPM_HOME = "${env.WORKSPACE}/.pnpm"
+        PNPM_STORE = "${env.WORKSPACE}/.pnpm-store" // PNPM cache
     }
 
     options {
         timeout(time: 30, unit: 'MINUTES')
-        ansiColor('xterm')
         buildDiscarder(logRotator(numToKeepStr: '10'))
     }
 
@@ -42,13 +42,13 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                echo '📦 Installing dependencies...'
+                echo '📦 Installing dependencies with PNPM cache...'
+                // Use Jenkins cache directory for PNPM store
                 sh '''
+                    mkdir -p $PNPM_STORE
                     rm -rf node_modules dist package-lock.json pnpm-lock.yaml
                     npx pnpm store prune
-
-                    # Install dependencies safely, single-threaded & CI-friendly
-                    npx pnpm install --shamefully-hoist --reporter=append-only
+                    npx pnpm install --shamefully-hoist --reporter=append-only --store $PNPM_STORE
                 '''
             }
         }
@@ -57,7 +57,6 @@ pipeline {
             steps {
                 echo '🏗️ Building Astro site...'
                 sh '''
-                    # Disable prerender to avoid getStaticPaths errors on dynamic routes
                     npx pnpm exec astro build -- --no-prerender
                 '''
             }
@@ -65,9 +64,9 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                echo '🐳 Building Docker image...'
+                echo '🐳 Building Docker image with cache...'
                 sh '''
-                    docker build -t warehouster-frontend:latest .
+                    docker build --pull --cache-from warehouster-frontend:latest -t warehouster-frontend:latest .
                 '''
             }
         }
@@ -103,8 +102,11 @@ pipeline {
 
     post {
         always {
-            echo '🧹 Cleaning up...'
-            sh 'docker system prune -f'
+            echo '🧹 Cleaning up unused Docker images...'
+            sh '''
+                docker image prune -f
+                docker container prune -f
+            '''
         }
         failure {
             echo '❌ Deployment failed.'
