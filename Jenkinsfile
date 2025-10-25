@@ -25,8 +25,8 @@ pipeline {
                 rm -rf node_modules dist package-lock.json pnpm-lock.yaml
                 npx pnpm store prune || true
 
-                echo "📥 Installing pnpm..."
-                npm install -g pnpm
+                echo "📥 Installing pnpm locally..."
+                npm install pnpm --save-dev
 
                 echo "📦 Installing dependencies (single-threaded for CI)..."
                 npx pnpm install --no-frozen-lockfile --workspace-concurrency 1
