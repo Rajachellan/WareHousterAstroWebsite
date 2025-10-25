@@ -25,8 +25,8 @@ pipeline {
                 rm -rf node_modules dist package-lock.json pnpm-lock.yaml
                 npx pnpm store prune || true
 
-                echo "📦 Installing dependencies (single-threaded & CI-safe)..."
-                npx pnpm install --shamefully-hoist --reporter=append-only --frozen-lockfile=false --workspace-concurrency=1
+                echo "📦 Installing dependencies (CI-safe)..."
+                npx pnpm install --shamefully-hoist
 
                 echo "🏗️ Building Astro site..."
                 npx pnpm exec astro build
