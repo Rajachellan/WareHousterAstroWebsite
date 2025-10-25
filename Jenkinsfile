@@ -5,7 +5,6 @@ pipeline {
         NODE_VERSION = '20'
         PRERENDER = 'false' // Disable prerendering dynamic routes to avoid build errors
         PNPM_HOME = "${env.WORKSPACE}/.pnpm"
-        PNPM_STORE = "${env.WORKSPACE}/.pnpm-store" // PNPM cache
     }
 
     options {
@@ -32,7 +31,11 @@ pipeline {
                 echo '⚡ Setting up Node.js and PNPM...'
                 sh '''
                     curl -fsSL https://get.pnpm.io/install.sh | sh -
-                    export PATH="$HOME/.local/share/pnpm:$PATH"
+                    
+                    # Set PNPM for this shell session
+                    export PNPM_HOME="$WORKSPACE/.pnpm"
+                    export PATH="$PNPM_HOME:$PATH"
+
                     node -v
                     npm -v
                     pnpm -v
@@ -42,13 +45,13 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                echo '📦 Installing dependencies with PNPM cache...'
-                // Use Jenkins cache directory for PNPM store
+                echo '📦 Installing dependencies...'
                 sh '''
-                    mkdir -p $PNPM_STORE
                     rm -rf node_modules dist package-lock.json pnpm-lock.yaml
                     npx pnpm store prune
-                    npx pnpm install --shamefully-hoist --reporter=append-only --store $PNPM_STORE
+
+                    # Install dependencies safely, CI-friendly
+                    npx pnpm install --shamefully-hoist --reporter=append-only
                 '''
             }
         }
@@ -57,6 +60,7 @@ pipeline {
             steps {
                 echo '🏗️ Building Astro site...'
                 sh '''
+                    # Disable prerender to avoid getStaticPaths errors on dynamic routes
                     npx pnpm exec astro build -- --no-prerender
                 '''
             }
@@ -64,9 +68,9 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                echo '🐳 Building Docker image with cache...'
+                echo '🐳 Building Docker image...'
                 sh '''
-                    docker build --pull --cache-from warehouster-frontend:latest -t warehouster-frontend:latest .
+                    docker build -t warehouster-frontend:latest .
                 '''
             }
         }
