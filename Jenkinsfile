@@ -10,8 +10,8 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'dev',
-                    credentialsId: 'github-creds-frontend',
+                git branch: 'dev', // or 'main' depending on your repo
+                    credentialsId: 'github-cred-frontend-warehouster',
                     url: 'https://github.com/Rajachellan/WareHousterAstroWebsite.git'
             }
         }
@@ -19,16 +19,20 @@ pipeline {
         stage('Install Dependencies & Build') {
             steps {
                 sh '''
-                npm install -g pnpm
-                pnpm install --frozen-lockfile
-                pnpm run build
+                echo "Installing dependencies and building Astro app..."
+                npm install pnpm
+                npx pnpm install --frozen-lockfile
+                npx pnpm run build
                 '''
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $DOCKER_IMAGE .'
+                sh '''
+                echo "Building Docker image..."
+                docker build -t $DOCKER_IMAGE .
+                '''
             }
         }
 
@@ -45,7 +49,7 @@ pipeline {
         stage('Run New Container') {
             steps {
                 sh '''
-                echo "Running new frontend container..."
+                echo "Starting new frontend container..."
                 docker run -d --name $CONTAINER_NAME \
                     --restart always \
                     -p $APP_PORT:4321 \
@@ -77,7 +81,7 @@ pipeline {
         stage('Verify Container') {
             steps {
                 sh '''
-                echo "Checking if container is still running..."
+                echo "Checking if container is running..."
                 if [ "$(docker inspect -f '{{.State.Running}}' $CONTAINER_NAME)" != "true" ]; then
                     echo "❌ Container crashed!"
                     docker logs $CONTAINER_NAME
