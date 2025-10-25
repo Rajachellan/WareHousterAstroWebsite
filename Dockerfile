@@ -1,28 +1,30 @@
-# Stage 1: Build the Astro app
-FROM node:lts AS build
+# Stage 1: Base image
+FROM node:lts AS base
 WORKDIR /app
 
-# Copy only package files to leverage Docker caching
-COPY package*.json ./
-RUN npm install
+# Copy package files first for caching
+COPY package.json pnpm-lock.yaml* ./
 
-# Copy the rest of the source code
+# Stage 2: Install dependencies
+FROM base AS deps
+RUN npm install pnpm --save-dev
+RUN npx pnpm install --frozen-lockfile
+
+# Stage 3: Build app
+FROM deps AS build
 COPY . .
+RUN npx pnpm run build
 
-# Build the static site
-RUN npm run build
+# Stage 4: Runtime
+FROM node:lts AS runtime
+WORKDIR /app
 
-# Stage 2: Serve with NGINX
-FROM nginx:alpine AS runtime
+# Copy dependencies & build artifacts
+COPY --from=deps /app/node_modules ./node_modules
+COPY --from=build /app/dist ./dist
 
-# Copy built static files from build stage
-COPY --from=build /app/dist /usr/share/nginx/html
-
-# Copy custom NGINX config
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-
-# Expose port
+ENV HOST=0.0.0.0
+ENV PORT=4321
 EXPOSE 4321
 
-# Start NGINX
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["node", "./dist/server/entry.mjs"]
