@@ -26,8 +26,8 @@ const sortedNews = [...data.items].sort(
 
       <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {sortedNews.map((item: NewsItem, index) => (
-          <article class="border border-gray-200 p-5 rounded-md bg-white hover:bg-[#EAEFF1]" key={index}>
-            <a href={item.url} target="_blank" rel="noopener noreferrer" class="w-full h-full flex flex-col justify-between gap-4">
+          <article class="border border-gray-200 px-7 py-5 rounded-md bg-white hover:bg-[#EAEFF1] hover:border-gray-300" key={index}>
+            <a href={item.url} target="_blank" rel="noopener noreferrer" class="w-full h-full flex flex-col justify-between gap-6 xl:gap-7">
               <div class="w-full flex-center">
                 <Image src={item.logo} alt={item.name} width={200} height={55} class="h-auto w-full max-w-48 4xl:max-w-52 rounded-md" />
               </div>
