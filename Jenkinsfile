@@ -2,95 +2,115 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE   = "warehouster-frontend"
-        CONTAINER_NAME = "warehouster-frontend-container"
-        APP_PORT       = "4321"
+        NODE_VERSION = '20'
+        PRERENDER = 'false' // Disable prerendering dynamic routes to avoid build errors
+        PNPM_HOME = "${env.WORKSPACE}/.pnpm"
+    }
+
+    options {
+        timeout(time: 30, unit: 'MINUTES')
+        ansiColor('xterm')
+        buildDiscarder(logRotator(numToKeepStr: '10'))
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                echo "📦 Checking out latest code..."
-                git branch: 'dev',
-                    credentialsId: 'github-cred-frontend-warehouster',
-                    url: 'https://github.com/Rajachellan/WareHousterAstroWebsite.git'
+                echo '🔄 Checking out repository...'
+                checkout([$class: 'GitSCM',
+                    branches: [[name: '*/dev']],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/Rajachellan/WareHousterAstroWebsite.git',
+                        credentialsId: 'github-cred-frontend-warehouster'
+                    ]]
+                ])
             }
         }
 
-        stage('Install Dependencies & Build') {
+        stage('Setup Node & PNPM') {
             steps {
-                echo "⚙️ Installing dependencies and building Astro site..."
+                echo '⚡ Setting up Node.js and PNPM...'
                 sh '''
-                echo "🧹 Cleaning up old files..."
-                rm -rf node_modules dist package-lock.json pnpm-lock.yaml
-                npx pnpm store prune || true
+                    curl -fsSL https://get.pnpm.io/install.sh | sh -
+                    export PATH="$HOME/.local/share/pnpm:$PATH"
+                    node -v
+                    npm -v
+                    pnpm -v
+                '''
+            }
+        }
 
-                echo "📦 Installing dependencies (CI-safe)..."
-                npx pnpm install --shamefully-hoist
+        stage('Install Dependencies') {
+            steps {
+                echo '📦 Installing dependencies...'
+                sh '''
+                    rm -rf node_modules dist package-lock.json pnpm-lock.yaml
+                    npx pnpm store prune
 
-                echo "🏗️ Building Astro site..."
-                npx pnpm exec astro build
+                    # Install dependencies safely, single-threaded & CI-friendly
+                    npx pnpm install --shamefully-hoist --reporter=append-only
+                '''
+            }
+        }
+
+        stage('Build Astro Site') {
+            steps {
+                echo '🏗️ Building Astro site...'
+                sh '''
+                    # Disable prerender to avoid getStaticPaths errors on dynamic routes
+                    npx pnpm exec astro build -- --no-prerender
                 '''
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                echo "🐳 Building Docker image..."
-                sh "docker build -t $DOCKER_IMAGE ."
+                echo '🐳 Building Docker image...'
+                sh '''
+                    docker build -t warehouster-frontend:latest .
+                '''
             }
         }
 
         stage('Stop & Remove Old Container') {
             steps {
-                echo "🧹 Removing old container if it exists..."
+                echo '🛑 Stopping old container if it exists...'
                 sh '''
-                docker stop $CONTAINER_NAME || true
-                docker rm $CONTAINER_NAME || true
+                    docker stop warehouster-frontend || true
+                    docker rm warehouster-frontend || true
                 '''
             }
         }
 
         stage('Run New Container') {
             steps {
-                echo "🚀 Running new container on port $APP_PORT..."
+                echo '▶️ Running new container...'
                 sh '''
-                docker run -d --name $CONTAINER_NAME \
-                    --restart always \
-                    -p $APP_PORT:4321 \
-                    $DOCKER_IMAGE
+                    docker run -d --name warehouster-frontend -p 80:80 warehouster-frontend:latest
                 '''
             }
         }
 
         stage('Health Check') {
             steps {
-                echo "🔍 Checking if app is live..."
+                echo '✅ Performing health check...'
                 sh '''
-                retries=5
-                until curl -f http://localhost:$APP_PORT || [ $retries -le 0 ]; do
-                    echo "Waiting for frontend to start..."
-                    sleep 5
-                    retries=$((retries-1))
-                done
-
-                if [ $retries -le 0 ]; then
-                    echo "❌ App failed to start!"
-                    docker logs $CONTAINER_NAME
-                    exit 1
-                fi
+                    curl -f http://localhost || exit 1
                 '''
             }
         }
     }
 
     post {
-        success {
-            echo "✅ WareHouster frontend deployed successfully at http://localhost:$APP_PORT/"
+        always {
+            echo '🧹 Cleaning up...'
+            sh 'docker system prune -f'
         }
         failure {
-            echo "❌ Deployment failed — cleaning up..."
-            sh 'docker system prune -f'
+            echo '❌ Deployment failed.'
+        }
+        success {
+            echo '🎉 Deployment succeeded!'
         }
     }
 }
