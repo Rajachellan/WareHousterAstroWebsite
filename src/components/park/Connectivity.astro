@@ -1,0 +1,92 @@
+---
+import type { CollectionEntry } from "astro:content";
+type Park = CollectionEntry<"parks">;
+type Connectivity = Park["data"]["connectivity"];
+
+const { heading, description, advantages = [], mapEmbed, distances = [] } =
+  Astro.props as Connectivity;
+
+import { MapPinHouse, Factory, Component, Pickaxe, Plane, Building2, Ship, TrainFront, Truck, TrainTrack } from "@lucide/astro";
+const iconMap: Record<string, any> = {
+  Factory,
+  Component,
+  Pickaxe,
+  Building2,
+  Ship,
+  TrainFront,
+  Plane,
+  Truck,
+  TrainTrack,
+};
+
+---
+
+<section class="w-full col-center mx-auto px-5">
+  <div class="w-full col-center gap-4 md:gap-6 lg:gap-8 px-1.5 py-5 max-w-6xl mt-24 mb-10">
+    <!-- Header -->
+    <div class="col-center gap-2 mb-10">
+      <span class="flex-center gap-2 px-3.5 py-0.5 bg-white border border-[#e4e4e4] rounded-full fade-in-up">
+        <div class="w-3.5 md:w-4">
+          <!-- You can replace with your MapPinHouse icon -->
+          <MapPinHouse stroke-width={2} class="w-full text-gray-800" />
+        </div>
+        <h4 class="text-[11px] md:text-[13px] 4xl:text-[15px] font-medium  text-gray-800">
+          Location & Connectivity
+        </h4>
+      </span>
+
+      <h2 class="h2-bold text-center mt-3 fade-in-up">{heading}</h2>
+      <p class="text-sm lg:text-base 2xl:text-lg leading-snug text-gray-500 max-w-4xl text-justify md:text-center px-auto mt-3 lg:mt-4 2xl:mt-5 fade-in-up">
+        {description}
+      </p>
+    </div>
+
+    <!-- Advantages -->
+    <div class="w-full flex items-stretch justify-center gap-5 rounded-md p-5 fade-in-up">
+      {advantages.map((adv) => {
+        const Icon = iconMap[adv.icon] || null;
+        return (
+          <div class="w-1/3 gap-3.5 px-7 py-6 flex flex-col items-start justify-between bg-white rounded-md">
+            {Icon && <Icon size={32} strokeWidth={2} class="text-(--primary-color)" />}
+            <div class="flex flex-col items-start">
+              <p class="md:text-lg lg:text-xl font-semibold">{adv.title}</p>
+              <p class="text-sm lg:text-base text-gray-500 mt-1.5">{adv.text}</p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Map + Distances -->
+    <div class="w-full flex h-[470px] gap-5 rounded-md p-5 bg-white fade-in-up">
+      <div class="w-[65%]">
+        <iframe
+          src={mapEmbed}
+           width="600" 
+           height="450" 
+           style="border:0;" 
+           allowfullscreen="" 
+           loading="lazy" 
+           referrerpolicy="no-referrer-when-downgrade" 
+           class="w-full h-full rounded-md"
+        ></iframe>
+      </div>
+      <div class="flex w-[35%] bg-[#f7f7f7] rounded-md overflow-y-scroll px-4">
+        <div class="w-full flex flex-col gap-2.5 pl-2">
+          {distances.map((d) => {
+            const Icon = iconMap[d.icon] || null;
+            return (
+              <div class="w-full flex gap-3.5 p-3.5 bg-[#e2e9ff] border border-gray-300 rounded-sm">
+                {Icon && <Icon size={30} stroke-width={1.5} class="text-[#091332]" />}
+                <div class="flex flex-col">
+                  <p class="text-sm lg:text-base leading-none text-gray-950 text-left">{d.name}</p>
+                  <p class="text-sm lg:text-base leading-none text-gray-800 text-left font-extralight">{d.distance}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

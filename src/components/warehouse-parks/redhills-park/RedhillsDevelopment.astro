@@ -12,14 +12,14 @@ import Image from "astro/components/Image.astro";
                 Precision‑engineered structures, compliant systems, and optimized layouts ensure durability, efficiency, and scalability—delivering long‑term value for global occupiers.
             </p>
         </div>
-        <div class="w-full flex items-stretch justify-center py-5 px-7 gap-4 md:gap-5 lg:gap-7 bg-white rounded-xl cursor-pointer mb-10 border border-gray-200 hover:-translate-y-1.5 hover:shadow-lg transform transition-transform duration-300">
+        <div class="w-full flex items-stretch justify-center py-5 px-7 gap-4 md:gap-5 lg:gap-7 bg-white rounded-xl cursor-pointer mb-10 border border-gray-200 hoverPlayer fade-in-up">
             <div class="w-1/2 rounded-md overflow-hidden">
                 <Image src="/images/upload/parks/park-interior.webp" alt="warehouse-redhills-development" width={530} height={360} class="w-full h-full object-cover object-center" />
             </div>
-            <div class="w-1/2 flex flex-col justify-between rounded-md px-5 py-3.5" id="hoverPlayer">
+            <div class="w-1/2 flex flex-col justify-between rounded-md px-5 py-3.5" >
                 <div class="flex flex-col gap-0.5">
                     <div class="flex items-end gap-4">
-                        <lottie-player id="craneLottie" src="/icons/crane.json" background="transparent" speed="1" style="width:64px;height:64px" loop ></lottie-player>
+                        <lottie-player class="craneLottie" src="/icons/crane.json" background="transparent" speed="1" style="width:64px;height:64px" loop ></lottie-player>
                         <h4 class="md:text-lg lg:text-xl font-bold">
                             Interior Excellence
                         </h4>
@@ -59,14 +59,14 @@ import Image from "astro/components/Image.astro";
                 </div>
             </div>
         </div>
-        <div class="w-full flex flex-row-reverse items-stretch justify-center py-5 px-7 gap-4 md:gap-5 lg:gap-7 bg-white rounded-xl cursor-pointer mb-10 border border-gray-200 hover:-translate-y-1.5 hover:shadow-lg transform transition-transform duration-300">
+        <div class="w-full flex flex-row-reverse items-stretch justify-center py-5 px-7 gap-4 md:gap-5 lg:gap-7 bg-white rounded-xl cursor-pointer mb-10 border border-gray-200 hoverPlayer fade-in-up">
             <div class="w-1/2 rounded-md overflow-hidden">
                 <Image src="/images/upload/parks/park-exterior.webp" alt="warehouse-redhills-development" width={530} height={360} class="w-full h-full object-cover object-center" />
             </div>
-            <div class="w-1/2 flex flex-col justify-between rounded-md px-5 py-3.5" id="hoverPlayer">
+            <div class="w-1/2 flex flex-col justify-between rounded-md px-5 py-3.5" >
                 <div class="flex flex-col gap-0.5">
                     <div class="flex items-end gap-4">
-                        <lottie-player id="craneLottie" src="/icons/crane.json" background="transparent" speed="1" style="width:64px;height:64px" loop ></lottie-player>
+                        <lottie-player class="craneLottie" src="/icons/crane.json" background="transparent" speed="1" style="width:64px;height:64px" loop ></lottie-player>
                         <h4 class="md:text-lg lg:text-xl font-bold">
                             Exterior Excellence
                         </h4>
@@ -110,14 +110,14 @@ import Image from "astro/components/Image.astro";
                 </div>
             </div>
         </div>
-        <div class="w-full flex items-stretch justify-center py-5 px-7 gap-4 md:gap-5 lg:gap-7 bg-white rounded-xl cursor-pointer mb-10 border border-gray-200 hover:-translate-y-1.5 hover:shadow-lg transform transition-transform duration-300">
+        <div class="w-full flex items-stretch justify-center py-5 px-7 gap-4 md:gap-5 lg:gap-7 bg-white rounded-xl cursor-pointer mb-10 border border-gray-200 hoverPlayer fade-in-up">
             <div class="w-1/2 rounded-md overflow-hidden">
                 <Image src="/images/upload/parks/park-operation.webp" alt="warehouse-redhills-development" width={530} height={360} class="w-full h-full object-cover object-center" />
             </div>
-            <div class="w-1/2 flex flex-col justify-between rounded-md px-5 py-3.5" id="hoverPlayer">
+            <div class="w-1/2 flex flex-col justify-between rounded-md px-5 py-3.5" >
                 <div class="flex flex-col gap-0.5">
                     <div class="flex items-end gap-4">
-                        <lottie-player id="craneLottie" src="/icons/crane.json" background="transparent" speed="1" style="width:64px;height:64px" loop ></lottie-player>
+                        <lottie-player class="craneLottie" src="/icons/crane.json" background="transparent" speed="1" style="width:64px;height:64px" loop ></lottie-player>
                         <h4 class="md:text-lg lg:text-xl font-bold">
                             Operational Excellence
                         </h4>
@@ -156,26 +156,27 @@ import Image from "astro/components/Image.astro";
 </section>
 
 <script>
-  // run after component is parsed
   window.addEventListener('DOMContentLoaded', () => {
-    const hover = document.getElementById('hoverPlayer');
-    const player = document.getElementById('craneLottie');
-    if ((!player) || (!hover)) return;
+    const hovers = document.querySelectorAll('.hoverPlayer');
 
-    // start stopped at first frame
-    player.stop();
+    hovers.forEach(hover => {
+      const player = hover.querySelector('.craneLottie');
+      if (!player) return;
 
-    // Pointer interactions
-    hover.addEventListener('mouseenter', () => player.play());
-    hover.addEventListener('mouseleave', () => { player.stop(); player.goToAndStop(0, true); });
+      player.stop();
 
-    // Keyboard accessibility
-    hover.addEventListener('focus', () => player.play());
-    hover.addEventListener('blur', () => { player.stop(); player.goToAndStop(0, true); });
+      // Pointer interactions
+      hover.addEventListener('mouseenter', () => player.play());
+      hover.addEventListener('mouseleave', () => { player.stop(); player.goToAndStop(0, true); });
 
-    // Touch support: play on touchstart, reset on touchend
-    hover.addEventListener('touchstart', () => player.play(), { passive: true });
-    hover.addEventListener('touchend', () => { player.stop(); player.goToAndStop(0, true); });
+      // Keyboard accessibility
+      hover.addEventListener('focus', () => player.play());
+      hover.addEventListener('blur', () => { player.stop(); player.goToAndStop(0, true); });
+
+      // Touch support
+      hover.addEventListener('touchstart', () => player.play(), { passive: true });
+      hover.addEventListener('touchend', () => { player.stop(); player.goToAndStop(0, true); });
+    });
   });
 </script>
 

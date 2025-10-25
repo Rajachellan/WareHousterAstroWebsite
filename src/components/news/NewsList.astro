@@ -1,0 +1,49 @@
+---
+import Image from "astro/components/Image.astro";
+import { getEntry, type CollectionEntry } from 'astro:content';
+
+const entry = await getEntry('news', 'news');
+const { data } = entry as CollectionEntry<'news'>;
+
+type NewsItem = {
+  name: string;
+  logo: string;
+  date: string;
+  describe: string;
+  url: string;
+};
+
+const sortedNews = [...data.items].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+---
+
+<section class="w-full col-center z-0 gap-4 overflow-hidden">
+  <div class="w-full max-w-7xl mt-14 mb-10">
+    <div class="flex flex-col items-start justify-center gap-7">
+      <h2 class="h2-bold text-[--primary-color]">Featured News Coverage</h2>
+      <div class="w-full h-px bg-gray-300"></div>
+
+      <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sortedNews.map((item: NewsItem, index) => (
+          <article class="border border-gray-200 p-5 rounded-md bg-white hover:bg-[#EAEFF1]" key={index}>
+            <a href={item.url} target="_blank" rel="noopener noreferrer" class="w-full h-full flex flex-col justify-between gap-4">
+              <div class="w-full flex-center">
+                <Image src={item.logo} alt={item.name} width={200} height={55} class="h-auto w-full max-w-48 4xl:max-w-52 rounded-md" />
+              </div>
+              <h3 class="px-0.5 text-xl font-semibold">{item.name}</h3>
+              <p class="px-0.5 text-sm text-gray-600 text-justify">{item.describe}</p>
+              <p class="px-0.5 text-xs text-gray-400">
+                {new Date(item.date).toLocaleDateString('en-US', {
+                  day: 'numeric',
+                  month: 'short',
+                  year: 'numeric'
+                })}
+              </p>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

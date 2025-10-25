@@ -76,20 +76,20 @@ import { ChevronDown, LandPlot, BrainCircuit, Layers, PackageCheck, FolderKey, N
                             </li>
                             <li class="h-full flex-center group/project cursor-pointer px-3.5 bg-shade-header">
                                 <div class="flex-center gap-0.5">
-                                    <span class="group-hover/project:text-[#F6670B]">
-                                        Initiatives
-                                    </span>
-                                    <span class="translate-y-[1px] group-hover/project:text-[#F6670B]">
+                                    <a href="/parks" class="group-hover/project:text-[#F6670B]">
+                                        Parks
+                                    </a>
+                                    <span class="translate-y-px group-hover/project:text-[#F6670B]">
                                         <ChevronDown size={26} stroke-width={1.2} class="group-hover/project:-rotate-180 transform-300" />
                                     </span>
-                                    <div class="absolute group-hover/project:h-[21rem] top-0 left-0 h-0 w-full transition-[height,drop-shadow] duration-500 delay-100 ease-in-out rounded-md xl:rounded-lg bg-[#F6F6F6] shadow-lg cursor-default -z-10 overflow-hidden">
+                                    <div class="absolute group-hover/project:h-84 top-0 left-0 h-0 w-full transition-[height,drop-shadow] duration-500 delay-100 ease-in-out rounded-md xl:rounded-lg bg-[#F6F6F6] shadow-lg cursor-default -z-10 overflow-hidden">
                                         <div class="grid grid-cols-3 grid-rows-1 px-7 pt-16 md:pt-[88px] pb-7 relative lg:px-4">
                                             <div class="w-full flex flex-col border-r border-gray-200">
                                                 <div class="w-full px-2 flex flex-col">
-                                                    <p class="text-sm group-hover:text-[var(--primary-clr-lit)] text-gray-500 text-center">Developed</p>
+                                                    <p class="text-sm group-hover:text-(--primary-clr-lit) text-gray-500 text-center">Developed</p>
                                                     <div class="w-full pt-3.5 px-3.5 flex flex-col">
                                                         <a href="/park/redhills" class="w-full px-4 py-1.5 hover:bg-white hover:shadow-xs rounded-md transform transition-[background-color] duration-200">
-                                                            <h5 class="text-base group-hover:text-[var(--primary-clr-lit)]">Redhills, <span class="text-[15px] text-gray-500">Chennai</span></h5>
+                                                            <h5 class="text-base group-hover:text-(--primary-clr-lit)">Redhills, <span class="text-[15px] text-gray-500">Chennai</span></h5>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -99,35 +99,35 @@ import { ChevronDown, LandPlot, BrainCircuit, Layers, PackageCheck, FolderKey, N
                                             </div>
                                             <div class="w-full border-r border-gray-200">
                                                 <div class="w-full px-2 flex flex-col">
-                                                    <p class="text-sm group-hover:text-[var(--primary-clr-lit)] text-gray-500 text-center">In-Progress</p>
+                                                    <p class="text-sm group-hover:text-(--primary-clr-lit) text-gray-500 text-center">In-Progress</p>
                                                     <div class="w-full pt-3.5 px-3.5 flex flex-col">
-                                                        <a href="/park/redhills" class="w-full px-4 py-1.5 hover:bg-white hover:shadow-xs rounded-md transform transition-[background-color] duration-200">
-                                                            <h5 class="text-base group-hover:text-[var(--primary-clr-lit)]">Chengalpet, <span class="text-[15px] text-gray-500">Chennai</span></h5>
+                                                        <a href="/park/chengalpet" class="w-full px-4 py-1.5 hover:bg-white hover:shadow-xs rounded-md transform transition-[background-color] duration-200">
+                                                            <h5 class="text-base group-hover:text-(--primary-clr-lit)">Chengalpet, <span class="text-[15px] text-gray-500">Chennai</span></h5>
                                                         </a>
-                                                        <a href="/park/redhills" class="w-full px-4 py-1.5 hover:bg-white hover:shadow-xs rounded-md transform transition-[background-color] duration-200">
-                                                            <h5 class="text-base group-hover:text-[var(--primary-clr-lit)]">Singhadivakkam, <span class="text-[15px] text-gray-500">Chennai</span></h5>
+                                                        <a href="/park/singhadivakkam" class="w-full px-4 py-1.5 hover:bg-white hover:shadow-xs rounded-md transform transition-[background-color] duration-200">
+                                                            <h5 class="text-base group-hover:text-(--primary-clr-lit)">Singhadivakkam, <span class="text-[15px] text-gray-500">Chennai</span></h5>
                                                         </a>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="w-full">
                                                 <div class="w-full px-2 flex flex-col">
-                                                    <p class="text-sm group-hover:text-[var(--primary-clr-lit)] text-gray-500 text-center">UpComing</p>
+                                                    <p class="text-sm group-hover:text-(--primary-clr-lit) text-gray-500 text-center">UpComing</p>
                                                     <div class="w-full pt-3.5 px-3.5 flex flex-col">
-                                                        <a href="/park/redhills" class="w-full px-4 py-1.5 hover:bg-white hover:shadow-xs rounded-md transform transition-[background-color] duration-200">
-                                                            <h5 class="text-base group-hover:text-[var(--primary-clr-lit)]">Baglur, <span class="text-[15px] text-gray-500">Hosur</span></h5>
+                                                        <a href="/park/baglur" class="w-full px-4 py-1.5 hover:bg-white hover:shadow-xs rounded-md transform transition-[background-color] duration-200">
+                                                            <h5 class="text-base group-hover:text-(--primary-clr-lit)">Baglur, <span class="text-[15px] text-gray-500">Hosur</span></h5>
                                                         </a>
-                                                        <a href="/park/redhills" class="w-full px-4 py-1.5 hover:bg-white hover:shadow-xs rounded-md transform transition-[background-color] duration-200">
-                                                            <h5 class="text-base group-hover:text-[var(--primary-clr-lit)]">Kiliyanur, <span class="text-[15px] text-gray-500">Pondichery</span></h5>
+                                                        <a href="/park/kiliyanur" class="w-full px-4 py-1.5 hover:bg-white hover:shadow-xs rounded-md transform transition-[background-color] duration-200">
+                                                            <h5 class="text-base group-hover:text-(--primary-clr-lit)">Kiliyanur, <span class="text-[15px] text-gray-500">Pondichery</span></h5>
                                                         </a>
-                                                        <a href="/park/redhills" class="w-full px-4 py-1.5 hover:bg-white hover:shadow-xs rounded-md transform transition-[background-color] duration-200">
-                                                            <h5 class="text-base group-hover:text-[var(--primary-clr-lit)]">Uthukadu, <span class="text-[15px] text-gray-500">Oragadam</span></h5>
+                                                        <a href="/park/uthukadu" class="w-full px-4 py-1.5 hover:bg-white hover:shadow-xs rounded-md transform transition-[background-color] duration-200">
+                                                            <h5 class="text-base group-hover:text-(--primary-clr-lit)">Uthukadu, <span class="text-[15px] text-gray-500">Oragadam</span></h5>
                                                         </a>
-                                                        <a href="/park/redhills" class="w-full px-4 py-1.5 hover:bg-white hover:shadow-xs rounded-md transform transition-[background-color] duration-200">
-                                                            <h5 class="text-base group-hover:text-[var(--primary-clr-lit)]">Sholavaram , <span class="text-[15px] text-gray-500">Chennai</span></h5>
+                                                        <a href="/park/sholavaram" class="w-full px-4 py-1.5 hover:bg-white hover:shadow-xs rounded-md transform transition-[background-color] duration-200">
+                                                            <h5 class="text-base group-hover:text-(--primary-clr-lit)">Sholavaram , <span class="text-[15px] text-gray-500">Chennai</span></h5>
                                                         </a>
-                                                        <a href="/park/redhills" class="w-full px-4 py-1.5 hover:bg-white hover:shadow-xs rounded-md transform transition-[background-color] duration-200">
-                                                            <h5 class="text-base group-hover:text-[var(--primary-clr-lit)]">Vishnuvakkam, <span class="text-[15px] text-gray-500">Chennai</span></h5>
+                                                        <a href="/park/vishnuvakkam" class="w-full px-4 py-1.5 hover:bg-white hover:shadow-xs rounded-md transform transition-[background-color] duration-200">
+                                                            <h5 class="text-base group-hover:text-(--primary-clr-lit)">Vishnuvakkam, <span class="text-[15px] text-gray-500">Chennai</span></h5>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -174,11 +174,11 @@ import { ChevronDown, LandPlot, BrainCircuit, Layers, PackageCheck, FolderKey, N
                         </ul>
                     </div>
                     <div class="flex-center mx-1.5 h-full w-32">
-                        <a href="/contact-us" class="text-nowrap px-5 py-1.5 bg-[var(--primary-clr-lit)] rounded-full relative overflow-hidden border border-[var(--primary-clr-lit)] group hover:bg-white transform transition-colors delay-100">
+                        <a href="/contact-us" class="text-nowrap px-5 py-1.5 bg-(--primary-clr-lit) rounded-full relative overflow-hidden border border-(--primary-clr-lit) group hover:bg-white transform transition-colors delay-100">
                             <span class="group-hover:-translate-y-10 text-white flex transform transition-transform duration-300">
                                 Contact Us
                             </span>
-                            <span class="z-10 after:content-['Contact_Us'] after:w-full after:h-full after:text-[var(--primary-clr-lit)] after:absolute after:top-10 after:left-1/2 after:-translate-x-1/2 group-hover:after:-translate-y-10 group-hover:translate-z-3 after:flex after:items-center after:justify-center after:z-10 after:transform after:transition-transform after:duration-300">
+                            <span class="z-10 after:content-['Contact_Us'] after:w-full after:h-full after:text-(--primary-clr-lit) after:absolute after:top-10 after:left-1/2 after:-translate-x-1/2 group-hover:after:-translate-y-10 group-hover:translate-z-3 after:flex after:items-center after:justify-center after:z-10 after:transform after:transition-transform after:duration-300">
                             </span>
                         </a>
                     </div>

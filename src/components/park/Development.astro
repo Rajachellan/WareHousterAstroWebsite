@@ -1,0 +1,113 @@
+---
+import Image from "astro/components/Image.astro";
+import type { CollectionEntry } from "astro:content";
+
+type Park = CollectionEntry<"parks">;
+type Development = Park["data"]["development"];
+
+const { heading, description, blocks = [] } = Astro.props as Development;
+---
+
+<section class="w-full col-center mx-auto px-5">
+  <div class="w-full col-center gap-6 max-w-6xl mt-24 mb-10">
+    <!-- Header -->
+    <div class="col-center gap-2 mb-10">
+      <h2 class="h2-bold text-center fade-in-up">{heading}</h2>
+      <p class="text-sm lg:text-base text-gray-500 max-w-4xl text-center pt-4 fade-in-up">
+        {description}
+      </p>
+    </div>
+
+    <!-- Blocks -->
+    {blocks.map((block, i) => (
+      <div
+        class={`w-full flex ${
+          i % 2 === 1 ? "flex-row-reverse" : ""
+        } items-stretch justify-center py-5 px-7 gap-5 bg-white rounded-xl border border-gray-200 hover:shadow-xl hoverPlayer mb-8 md:mb-10 lg:mb-12 xl:mb-14 fade-in-up`}
+      >
+        <!-- Image -->
+        <div class="w-1/2 rounded-md overflow-hidden">
+          <Image
+            src={block.image}
+            alt={block.title}
+            width={530}
+            height={360}
+            class="w-full h-full object-cover object-center"
+          />
+        </div>
+
+        <!-- Content -->
+        <div class="w-1/2 flex flex-col justify-between rounded-md px-5 py-3.5">
+          <div class="flex flex-col gap-0.5">
+            <div class="flex items-end gap-4">
+              <lottie-player
+                class="craneLottie"
+                src={block.icon}
+                background="transparent"
+                speed="1"
+                style="width:64px;height:64px"
+                loop
+              ></lottie-player>
+              <h4 class="text-lg md:text-xl lg:text-[26px] font-bold text-[#121212]">{block.title}</h4>
+            </div>
+
+            <p class="text-[13px] lg:text-[15px] text-gray-500 mt-1.5">
+              {block.description}
+            </p>
+
+            <!-- Highlights -->
+            <div class="flex flex-wrap gap-3.5 text-[10px] md:text-xs lg:text-[12px] text-gray-800 my-1.5">
+              {block.highlights.map((h) => (
+                <span class="px-3.5 py-0.5 rounded-full bg-[#f7f7f7] border border-gray-200">
+                  {h}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <!-- Metric (optional) -->
+          {block.metric && (
+            <div class="flex flex-col gap-0.5 py-2.5 border-t border-gray-300 mt-1.5">
+              <h4 class="text-[17px] md:text-[19px] lg:text-[25px] font-bold"> 
+                  {block.metric.number}<span class="text-gary-700 font-text-sm mdLtext-base lg:text-xl font-medium">{block.metric.content}</span>
+              </h4>
+              {block.metricDesc && (
+                <p class="text-sm lg:text-base text-gray-500 mt-0.5">
+                  {block.metricDesc}
+                </p>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script is:inline>
+  window.addEventListener('DOMContentLoaded', () => {
+    const hovers = document.querySelectorAll('.hoverPlayer');
+
+    hovers.forEach(hover => {
+      const player = hover.querySelector('.craneLottie');
+      if (!player) return;
+
+      player.stop();
+
+      // Pointer interactions
+      hover.addEventListener('mouseenter', () => player.play());
+      hover.addEventListener('mouseleave', () => { player.stop(); player.goToAndStop(0, true); });
+
+      // Keyboard accessibility
+      hover.addEventListener('focus', () => player.play());
+      hover.addEventListener('blur', () => { player.stop(); player.goToAndStop(0, true); });
+
+      // Touch support
+      hover.addEventListener('touchstart', () => player.play(), { passive: true });
+      hover.addEventListener('touchend', () => { player.stop(); player.goToAndStop(0, true); });
+    });
+  });
+</script>
+
+
+<scri is:inline src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" defer></scri is:inlinept>

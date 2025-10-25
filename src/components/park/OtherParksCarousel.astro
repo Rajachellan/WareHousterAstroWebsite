@@ -1,0 +1,86 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { CircleChevronLeft, CircleChevronRight } from '@lucide/astro';
+
+const { otherParks }: { otherParks: CollectionEntry<'parks'>[] } = Astro.props;
+---
+
+<section class="mt-16 px-4 flex flex-col items-center">
+  <div class="w-full max-w-6xl flex flex-col gap-6">
+    <!-- Heading -->
+    <div class="text-center">
+      <h2 class="text-2xl font-semibold text-gray-800">Explore Other Parks</h2>
+      <p class="text-sm text-gray-500 mt-2">
+        Discover more parks across our network with strategic locations and scalable infrastructure.
+      </p>
+    </div>
+
+    <!-- Scroll Buttons -->
+    <div class="flex justify-end items-center gap-4 pr-4">
+      <button class="cursor-pointer" id="scroll-left" aria-label="Scroll Left">
+        <CircleChevronLeft size={28} stroke-width={1.5} class="text-gray-400 hover:text-orange-500 transition" />
+      </button>
+      <button class="cursor-pointer" id="scroll-right" aria-label="Scroll Right">
+        <CircleChevronRight size={28} stroke-width={1.5} class="text-gray-400 hover:text-orange-500 transition" />
+      </button>
+    </div>
+
+    <!-- Carousel -->
+    <div class="w-full overflow-x-auto scrollbar-none scroll-smooth px-2" id="other-parks-scroll">
+      <div class="flex gap-6 min-w-max px-2">
+        {otherParks.map((p: CollectionEntry<'parks'>) => (
+          <a
+            href={`/park/${p.slug}`}
+            class="w-[280px] sm:w-[300px] md:w-[320px] shrink-0 bg-white rounded-lg shadow hover:shadow-lg duration-300 px-4 py-2.5 hover:bg-[#EAEFF1] transform transition-transform border border-gray-200 hover:border-gray-300"
+          >
+            <img
+              src={p.data.banner.image}
+              alt={p.data.title}
+              class="w-full h-40 object-cover rounded-lg"
+            />
+            <div class="p-4 flex flex-col gap-2">
+              <h3 class="text-lg font-semibold text-gray-900">{p.data.title}</h3>
+
+              {Array.isArray(p.data.banner.metrics) && p.data.banner.metrics.length > 0 && (
+                <div class="flex flex-wrap gap-2">
+                  {p.data.banner.metrics.map((metric) => (
+                    <span class="px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-sm">
+                      {metric.label.main}
+                      {metric.label.sub && <span class="text-gray-500"> {metric.label.sub}</span>}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {(!Array.isArray(p.data.banner.metrics) || p.data.banner.metrics.length === 0) && (
+                <span class="px-3 py-1 rounded-full bg-gray-50 text-gray-400 text-sm font-medium">
+                  No metrics available
+                </span>
+              )}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const scrollContainer = document.getElementById('other-parks-scroll');
+    const scrollLeftBtn = document.getElementById('scroll-left');
+    const scrollRightBtn = document.getElementById('scroll-right');
+
+    if (!scrollContainer || !scrollLeftBtn || !scrollRightBtn) return;
+
+    const scrollByFraction = () => scrollContainer.offsetWidth * 0.8;
+
+    scrollLeftBtn.onclick = () => {
+      scrollContainer.scrollBy({ left: -scrollByFraction(), behavior: 'smooth' });
+    };
+
+    scrollRightBtn.onclick = () => {
+      scrollContainer.scrollBy({ left: scrollByFraction(), behavior: 'smooth' });
+    };
+  });
+</script>

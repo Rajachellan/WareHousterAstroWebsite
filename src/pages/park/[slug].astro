@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Banner from '../../components/park/Banner.astro';
+import Connectivity from '../../components/park/Connectivity.astro';
+import Development from '../../components/park/Development.astro';
+import OtherParksCarousel from '../../components/park/OtherParksCarousel.astro';
+
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const parks = await getCollection('parks');
+  return parks.map((park) => ({
+    params: { slug: park.slug },
+    props: {
+      park,
+      otherParks: parks.filter((p) => p.slug !== park.slug),
+    },
+  }));
+}
+
+// Props come from getStaticPaths
+const { park, otherParks  } = Astro.props;
+const { banner, connectivity, development } = park.data;
+---
+
+<Layout>
+  <Banner {...banner} />
+  <Connectivity {...connectivity} />
+  <Development {...development} />
+  <OtherParksCarousel otherParks={otherParks} />
+</Layout>

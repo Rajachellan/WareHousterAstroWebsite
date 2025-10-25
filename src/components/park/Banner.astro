@@ -1,0 +1,88 @@
+---
+import Image from "astro/components/Image.astro";
+
+type Metric = { label: {main: string; sub: string;} };
+type Advantage = { title: string; icon: string; text: string };
+
+interface BannerProps {
+  metrics: Metric[];
+  headline: string;
+  description: string;
+  image: string;
+  advantages: Advantage[];
+}
+
+const { metrics = [], headline, description, image, advantages = [] } = Astro.props as BannerProps;
+---
+
+<section class="w-full flex-center mx-auto mb-5 md:mb-12 px-4">
+  <div class="w-full col-center gap-14 max-w-6xl mt-8 md:mt-24 pt-5 md:pt-20">
+    <!-- Metrics + Headline -->
+    <div class="col-center gap-2">
+      <span class="flex-center gap-2 px-3.5 py-1 bg-white border border-[#e4e4e4] rounded-lg">
+        {metrics.map((m, i) => (
+          <>
+            <h6 class="text-[13px] md:text-[15px] 4xl:text-[17px] font-medium text-gray-800">
+              {m.label.main}{m.label.sub && (<span class="text-gray-700 text-[10px] md:text-[13px] ml-1">{m.label.sub}</span>
+                )}
+            </h6>
+            {i < metrics.length - 1 && (
+              <div class="w-2.5 aspect-square rounded-full bg-(--primary-clr-lit) mx-1.5"></div>
+            )}
+          </>
+        ))}
+      </span>
+
+      <h1 class="font-bold text-3xl md:text-5xl lg:text-6xl xl:text-7xl text-center">
+        <span set:html={headline} />
+      </h1>
+
+      <p class="text-sm lg:text-base leading-snug text-gray-500 max-w-3xl text-justify md:text-center mt-1.5">
+        {description}
+      </p>
+    </div>
+
+    <!-- Image + Advantages -->
+    <div class="w-full flex items-stretch justify-center gap-4 md:gap-5 lg:gap-7">
+      <div class="w-1/2 rounded-md overflow-hidden">
+        <Image src={image} alt={headline} width={530} height={360} class="w-full h-full object-cover object-center" />
+      </div>
+
+      <div class="w-1/2 bg-white rounded-md px-7 py-5">
+        <span class="w-fit flex-center gap-2 px-3.5 py-1 bg-[#f5f5f5] border border-[#e4e4e4] rounded-lg">
+          <p class="text-[11px] md:text-[13px] font-medium text-black">Core Advantages</p>
+        </span>
+
+        {advantages.map((adv) => (
+          <div class="flex flex-col gap-0.5 mt-5">
+            <div class="flex items-center justify-start gap-1.5">
+              <div class="w-16">
+                <lottie-player id={`lottie-${adv.title}`} src={adv.icon} background="transparent" speed="1" class={adv.icon === "/icons/business-management.json" ? "w-14" : "w-12"} loop></lottie-player>
+              </div>
+              <h4 class="md:text-lg lg:text-xl font-semibold">{adv.title}</h4>
+            </div>
+            <p class="text-sm lg:text-base leading-snug text-gray-500 text-left mt-0.5">{adv.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<script is:inline>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("lottie-player").forEach((player) => {
+      const parent = player.closest(".flex"); // or a wrapper div
+      if (!parent) return;
+
+      player.stop();
+
+      parent.addEventListener("mouseenter", () => player.play());
+      parent.addEventListener("mouseleave", () => {
+        player.stop();
+        player.goToAndStop(0, true);
+      });
+    });
+  });
+</script>
