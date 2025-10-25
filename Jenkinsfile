@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'dev', // change to 'main' if needed
+                git branch: 'dev', // change to main if needed
                     credentialsId: 'github-creds-frontend',
                     url: 'https://github.com/Rajachellan/WareHousterAstroWebsite.git'
             }
@@ -19,10 +19,13 @@ pipeline {
         stage('Install Dependencies & Build') {
             steps {
                 sh '''
-                echo "📦 Installing dependencies and building Astro app..."
-                npm install pnpm
-                npx pnpm install --no-frozen-lockfile
-                npx pnpm run build
+                echo "🧹 Cleaning previous dependencies..."
+                rm -rf node_modules package-lock.json
+
+                echo "📦 Installing pnpm and building Astro app..."
+                npm install -g pnpm
+                pnpm install --no-frozen-lockfile
+                pnpm run build
                 '''
             }
         }
@@ -39,7 +42,7 @@ pipeline {
         stage('Stop Old Container') {
             steps {
                 sh '''
-                echo "🛑 Stopping old container if it exists..."
+                echo "🛑 Stopping old container if exists..."
                 docker stop $CONTAINER_NAME || true
                 docker rm $CONTAINER_NAME || true
                 '''
