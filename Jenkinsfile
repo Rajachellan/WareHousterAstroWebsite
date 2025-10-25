@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE   = "astro-frontend"
-        CONTAINER_NAME = "astro-frontend-container"
+        DOCKER_IMAGE   = "warehouster-frontend"
+        CONTAINER_NAME = "warehouster-frontend-container"
         APP_PORT       = "4321"
     }
 
@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo "📦 Checking out latest code..."
                 git branch: 'dev',
-                    credentialsId: 'github-token-Server',
+                    credentialsId: 'github-cred-frontend-warehouster',
                     url: 'https://github.com/Rajachellan/WareHousterAstroWebsite.git'
             }
         }
@@ -21,14 +21,15 @@ pipeline {
             steps {
                 echo "⚙️ Installing dependencies and building Astro site..."
                 sh '''
-                echo "🧹 Cleaning up..."
+                echo "🧹 Cleaning up old files..."
                 rm -rf node_modules dist package-lock.json pnpm-lock.yaml
+                npx pnpm store prune || true
 
-                echo "📦 Installing pnpm locally..."
-                npm install pnpm --save-dev
+                echo "📥 Installing pnpm..."
+                npm install -g pnpm
 
-                echo "📥 Installing dependencies..."
-                npx pnpm install --no-frozen-lockfile
+                echo "📦 Installing dependencies (single-threaded for CI)..."
+                npx pnpm install --no-frozen-lockfile --workspace-concurrency 1
 
                 echo "🏗️ Building Astro site..."
                 npx pnpm exec astro build
@@ -39,9 +40,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo "🐳 Building Docker image..."
-                sh '''
-                docker build -t $DOCKER_IMAGE .
-                '''
+                sh "docker build -t $DOCKER_IMAGE ."
             }
         }
 
@@ -57,7 +56,7 @@ pipeline {
 
         stage('Run New Container') {
             steps {
-                echo "🚀 Running new container..."
+                echo "🚀 Running new container on port $APP_PORT..."
                 sh '''
                 docker run -d --name $CONTAINER_NAME \
                     --restart always \
@@ -90,7 +89,7 @@ pipeline {
 
     post {
         success {
-            echo "✅ Astro frontend deployed successfully at http://localhost:$APP_PORT/"
+            echo "✅ WareHouster frontend deployed successfully at http://localhost:$APP_PORT/"
         }
         failure {
             echo "❌ Deployment failed — cleaning up..."
