@@ -1,58 +1,8 @@
----
-import { Phone, Mail, Clock, MapPin } from "@lucide/astro";
----
 
 <>
 <section class="w-full flex-center mx-auto px-4 bg-white" id="contact-us">
-    <div class="w-full flex items-stretch gap-4 justify-center max-w-7xl mt-8 lg:mt-12 xl:mt-16 mb-10 py-16">
-        <div class="w-1/2 bg-[url('/images/upload/contact-us-img.webp')] bg-center bg-cover rounded-lg flex items-end p-6 fade-in-up">
-            <div class="w-full grid grid-cols-2 grid-row-2 relative gap-3.5 z-0 p-5 rounded-md">
-                <div class="flex flex-col items-center justify-end relative z-10">
-                    <div class="w-14 aspect-square bg-[#3395FD] rounded-md flex-center p-2.5">
-                        <Phone class="w-full h-full text-white" stroke-width={2}  />
-                    </div>
-                    <span class="text-sm lg:text-base font-medium text-gray-900">
-                        Phone
-                    </span>
-                    <span class="text-sm lg:text-base font-medium text-gray-800">
-                        +91 95600 11696
-                    </span>
-                </div>
-                <div class="flex flex-col items-center justify-end relative z-10">
-                    <div class="w-14 aspect-square bg-[#3395FD] rounded-md flex-center p-2.5">
-                        <Mail class="w-full h-full text-white" stroke-width={2}  />
-                    </div>
-                    <span class="text-sm lg:text-base font-medium text-gray-900">
-                        Email
-                    </span>
-                    <span class="text-sm lg:text-base font-medium text-gray-800">
-                        info@warehouster.com
-                    </span>
-                </div>
-                <div class="flex flex-col items-center justify-start relative z-10">
-                    <div class="w-14 aspect-square bg-[#3395FD] rounded-md flex-center p-2.5">
-                        <Clock class="w-full h-full text-white" stroke-width={2}  />
-                    </div>
-                    <span class="text-sm lg:text-base font-medium text-gray-900">
-                        Business Hours
-                    </span>
-                    <span class="text-xs lg:text-sm text-gray-800 font-medium">
-                        Monday to Friday | 9 am to 6 pm IST
-                    </span>
-                </div>
-                <div class="flex flex-col items-center justify-start relative z-10">
-                    <div class="w-14 aspect-square bg-[#3395FD] rounded-md flex-center p-2.5">
-                        <MapPin class="w-full h-full text-white" stroke-width={2}  />
-                    </div>
-                    <span class="text-sm lg:text-base font-medium text-gray-900">
-                        Corporate Office
-                    </span>
-                    <span class="text-xs lg:text-sm text-gray-800 font-medium leading-tight text-center">
-                        Warehouster3rd Floor, 17, 3rd Cross Street East,Venkatasamy Nagar, Shenoy Nagar,Chennai,Tamil Nadu 600030
-                    </span>
-                </div>
-                <div class="absolute w-full h-full top-0 left-0 backdrop-blur-md z-0 bg-[#ffffff75] rounded-md"></div>
-            </div>
+    <div class="w-full flex items-stretch gap-4 justify-center max-w-7xl mt-8 lg:mt-12 xl:mt-16 mb-10 py-16 ">
+        <div class="w-1/2 bg-[url('/images/upload/contact-us-img-2.webp')] bg-center bg-cover rounded-lg flex items-end p-6 border border-gray-200 shadow-[0px_4px_10px_#00000010,0px_-4px_10px_#00000010] fade-in-up">
         </div>
         <div class="w-1/2 flex flex-col gap-6 px-6 py-5 border border-gray-200 rounded-lg shadow-[0px_4px_10px_#00000010,0px_-4px_10px_#00000010] fade-in-up">
             <div class="flex flex-col pl-3.5">
@@ -64,11 +14,11 @@ import { Phone, Mail, Clock, MapPin } from "@lucide/astro";
             <div class="flex flex-col gap-7">
                 <div class="flex gap-5">
                     <div class="w-1/2 px-3.5">
-                        <label for="first-name"  class="text-sm xl:text-base text-gray-950 font-medium relative after:content-['*'] after:absolute after:top-0 after:left-full after:pl-1.5 after:text-red-500 after:font-medium">First name</label>
+                        <label for="full-name"  class="text-sm xl:text-base text-gray-950 font-medium relative after:content-['*'] after:absolute after:top-0 after:left-full after:pl-1.5 after:text-red-500 after:font-medium">Full name</label>
                         <input type="text" class="w-full bg-[#F6F6F6] border border-gray-200 rounded-md text-sm xl:text-base focus:outline-none px-4 py-1 mt-1.5 text-gray-800 focus:border-gray-400">
                     </div>
                     <div class="w-1/2 px-3.5 rounded-md">
-                        <label for="last-name"  class="text-sm xl:text-base text-gray-950 font-medium">Last name</label>
+                        <label for="last-name"  class="text-sm xl:text-base text-gray-950 font-medium">Phone number</label>
                         <input type="text" class="w-full bg-[#F6F6F6] border border-gray-200 rounded-md text-sm xl:text-base focus:outline-none px-4 py-1 mt-1.5 text-gray-800 focus:border-gray-400">
                     </div>
                 </div>

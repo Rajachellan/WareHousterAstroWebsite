@@ -1,0 +1,57 @@
+---
+import { CircleArrowRight } from "@lucide/astro";
+import Image from "astro/components/Image.astro";
+---
+
+<>
+<section class="w-full flex-center mx-auto px-4">
+    <div class="w-full col-center gap-14 max-w-6xl my-10 md:my-14 lg:my-20 xl:my-24">
+        <div class="col-center gap-2">
+            <h2 class="h2-bold text-center pt-4 fade-in-up">
+                Strategic Focus Markets & Use Cases
+            </h2>
+            <p class="text-sm lg:text-base leading-snug text-gray-500 max-w-3xl text-justify md:text-center px-auto pt-4 fade-in-up">
+                Our alliance primarily targets industrial corridors and logistics hubs in India, including Chennai / Tamil Nadu, Bengaluru, Madurai, Hosur, and expanding to other high-demand regions. Key use cases include:
+            </p>
+        </div>
+        
+        <div class="w-full flex items-stretch gap-10 pt-6 md:pt-8 lg:pt-12">
+            <div class="w-[50%] rounded-md fade-in-up">
+                <Image src="/images/upload/warehouse-strategic-alliance.webp" alt="warehouse-strategic-alliance" width={625} height={420} class="w-full rounded-md" />
+            </div>
+            <div class="w-[50%] bg-white text-gray-700 rounded-md px-9 py-5 flex flex-col items-start justify-center gap-4 fade-in-up">
+                <div class="flex items-center gap-2.5">
+                    <CircleArrowRight size={22} />
+                    <p class="lg:text-lg leading-snug max-w-3xl text-justify md:text-center px-auto">
+                        E-commerce growth & omni-channel demand
+                    </p>
+                </div>
+                <div class="flex items-center gap-2.5 text-gray-600">
+                    <CircleArrowRight size={22} />
+                    <p class="lg:text-lg leading-snug max-w-3xl text-justify md:text-center px-auto">
+                        Sustainability & ESG compliance
+                    </p>
+                </div>
+                <div class="flex items-center gap-2.5">
+                    <CircleArrowRight size={22} />
+                    <p class="lg:text-lg leading-snug max-w-3xl text-justify md:text-center px-auto">
+                        Automation & smart warehousing
+                    </p>
+                </div>
+                <div class="flex items-center gap-2.5 text-gray-600">
+                    <CircleArrowRight size={22}/>
+                    <p class="lg:text-lg leading-snug max-w-3xl text-justify md:text-center px-auto">
+                        Land scarcity & regulatory delays
+                    </p>
+                </div>
+                <div class="flex items-center gap-2.5">
+                    <CircleArrowRight size={22} />
+                    <p class="lg:text-lg leading-snug max-w-3xl text-justify md:text-center px-auto">
+                        Rising construction costs & supply chain volatility
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</>
