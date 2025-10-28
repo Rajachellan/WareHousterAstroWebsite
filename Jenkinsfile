@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         NODE_VERSION = '20'
-        PRERENDER = 'false' // Disable prerendering dynamic routes to avoid build errors
+        PRERENDER = 'false' 
         PNPM_HOME = "${env.WORKSPACE}/.pnpm"
     }
 
@@ -89,7 +89,7 @@ pipeline {
             steps {
                 echo '▶️ Running new container...'
                 sh '''
-                    docker run -d --name warehouster-frontend -p 80:80 warehouster-frontend:latest
+                    docker run -d --name warehouster-frontend -p 4321:80 warehouster-frontend:latest
                 '''
             }
         }
