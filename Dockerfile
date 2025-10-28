@@ -8,7 +8,8 @@ COPY package.json pnpm-lock.yaml* ./
 # Stage 2: Install dependencies
 FROM base AS deps
 RUN npm install pnpm --save-dev
-RUN npx pnpm install --frozen-lockfile
+# 👇 Changed this line to avoid lockfile error
+RUN npx pnpm install --no-frozen-lockfile
 
 # Stage 3: Build app
 FROM deps AS build

@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         NODE_VERSION = '20'
-        PRERENDER = 'false' // Disable prerendering dynamic routes to avoid build errors
+        PRERENDER = 'false' 
         PNPM_HOME = "${env.WORKSPACE}/.pnpm"
     }
 
