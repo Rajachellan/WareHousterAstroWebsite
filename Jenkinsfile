@@ -89,7 +89,7 @@ pipeline {
             steps {
                 echo '▶️ Running new container...'
                 sh '''
-                    docker run -d --name warehouster-frontend -p 80:80 warehouster-frontend:latest
+                    docker run -d --name warehouster-frontend -p 4321:4321 warehouster-frontend:latest
                 '''
             }
         }
