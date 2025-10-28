@@ -7,14 +7,19 @@ COPY package.json pnpm-lock.yaml* ./
 
 # Stage 2: Install dependencies
 FROM base AS deps
-RUN npm install pnpm --save-dev
-# 👇 Changed this line to avoid lockfile error
-RUN npx pnpm install --no-frozen-lockfile
+# Install a fixed pnpm version
+RUN npm install -g pnpm@10.19.0
+
+# Create pnpm store directory for caching
+RUN mkdir -p /root/.pnpm-store
+
+# Install dependencies with reduced concurrency to avoid worker exits
+RUN pnpm install --store /root/.pnpm-store --no-frozen-lockfile --network-concurrency 1
 
 # Stage 3: Build app
 FROM deps AS build
 COPY . .
-RUN npx pnpm run build
+RUN pnpm run build
 
 # Stage 4: Runtime
 FROM node:lts AS runtime
