@@ -1,114 +1,145 @@
----
-import { Phone, Mail, Clock, MapPin } from "@lucide/astro";
----
-
 <>
 <section class="w-full flex-center mx-auto px-4 bg-white" id="contact-us">
-    <div class="w-full flex items-stretch gap-4 justify-center max-w-7xl mt-8 lg:mt-12 xl:mt-16 mb-10 py-16">
-        <div class="w-1/2 bg-[url('/images/upload/contact-us-img.webp')] bg-center bg-cover rounded-lg flex items-end p-6 fade-in-up">
-            <div class="w-full grid grid-cols-2 grid-row-2 relative gap-3.5 z-0 p-5 rounded-md">
-                <div class="flex flex-col items-center justify-end relative z-10">
-                    <div class="w-14 aspect-square bg-[#3395FD] rounded-md flex-center p-2.5">
-                        <Phone class="w-full h-full text-white" stroke-width={2}  />
-                    </div>
-                    <span class="text-sm lg:text-base font-medium text-gray-900">
-                        Phone
-                    </span>
-                    <span class="text-sm lg:text-base font-medium text-gray-800">
-                        +91 95600 11696
-                    </span>
-                </div>
-                <div class="flex flex-col items-center justify-end relative z-10">
-                    <div class="w-14 aspect-square bg-[#3395FD] rounded-md flex-center p-2.5">
-                        <Mail class="w-full h-full text-white" stroke-width={2}  />
-                    </div>
-                    <span class="text-sm lg:text-base font-medium text-gray-900">
-                        Email
-                    </span>
-                    <span class="text-sm lg:text-base font-medium text-gray-800">
-                        info@warehouster.com
-                    </span>
-                </div>
-                <div class="flex flex-col items-center justify-start relative z-10">
-                    <div class="w-14 aspect-square bg-[#3395FD] rounded-md flex-center p-2.5">
-                        <Clock class="w-full h-full text-white" stroke-width={2}  />
-                    </div>
-                    <span class="text-sm lg:text-base font-medium text-gray-900">
-                        Business Hours
-                    </span>
-                    <span class="text-xs lg:text-sm text-gray-800 font-medium">
-                        Monday to Friday | 9 am to 6 pm IST
-                    </span>
-                </div>
-                <div class="flex flex-col items-center justify-start relative z-10">
-                    <div class="w-14 aspect-square bg-[#3395FD] rounded-md flex-center p-2.5">
-                        <MapPin class="w-full h-full text-white" stroke-width={2}  />
-                    </div>
-                    <span class="text-sm lg:text-base font-medium text-gray-900">
-                        Corporate Office
-                    </span>
-                    <span class="text-xs lg:text-sm text-gray-800 font-medium leading-tight text-center">
-                        Warehouster3rd Floor, 17, 3rd Cross Street East,Venkatasamy Nagar, Shenoy Nagar,Chennai,Tamil Nadu 600030
-                    </span>
-                </div>
-                <div class="absolute w-full h-full top-0 left-0 backdrop-blur-md z-0 bg-[#ffffff75] rounded-md"></div>
-            </div>
-        </div>
-        <div class="w-1/2 flex flex-col gap-6 px-6 py-5 border border-gray-200 rounded-lg shadow-[0px_4px_10px_#00000010,0px_-4px_10px_#00000010] fade-in-up">
-            <div class="flex flex-col pl-3.5">
-                <h2 class="h2-bold text-left text-[#1A1A1A]">
-                    We’re here to help
-                </h2>
-                <p class="text-sm md:text-base xl:text-lg 2xl:text-xl pt-3.5">Our dedicated team is ready to support you.</p>
-            </div>
-            <div class="flex flex-col gap-7">
-                <div class="flex gap-5">
-                    <div class="w-1/2 px-3.5">
-                        <label for="first-name"  class="text-sm xl:text-base text-gray-950 font-medium relative after:content-['*'] after:absolute after:top-0 after:left-full after:pl-1.5 after:text-red-500 after:font-medium">First name</label>
-                        <input type="text" class="w-full bg-[#F6F6F6] border border-gray-200 rounded-md text-sm xl:text-base focus:outline-none px-4 py-1 mt-1.5 text-gray-800 focus:border-gray-400">
-                    </div>
-                    <div class="w-1/2 px-3.5 rounded-md">
-                        <label for="last-name"  class="text-sm xl:text-base text-gray-950 font-medium">Last name</label>
-                        <input type="text" class="w-full bg-[#F6F6F6] border border-gray-200 rounded-md text-sm xl:text-base focus:outline-none px-4 py-1 mt-1.5 text-gray-800 focus:border-gray-400">
-                    </div>
-                </div>
-                <div class="flex gap-5">
-                    <div class="w-1/2 px-3.5">
-                        <label for="first-name"  class="text-sm xl:text-base text-gray-950 font-medium relative after:content-['*'] after:absolute after:top-0 after:left-full after:pl-1.5 after:text-red-500 after:font-medium">Email</label>
-                        <input type="text" class="w-full bg-[#F6F6F6] border border-gray-200 rounded-md text-sm xl:text-base focus:outline-none px-4 py-1 mt-1.5 text-gray-800 focus:border-gray-400">
-                    </div>
-                    <div class="w-1/2 px-3.5 rounded-md">
-                        <label for="last-name"  class="text-sm xl:text-base text-gray-950 font-medium">Company name</label>
-                        <input type="text" class="w-full bg-[#F6F6F6] border border-gray-200 rounded-md text-sm xl:text-base focus:outline-none px-4 py-1 mt-1.5 text-gray-800 focus:border-gray-400">
-                    </div>
-                </div>
-                <div class="flex gap-5">
-                    <div class="w-auto px-3.5">
-                        <label for="first-name"  class="text-sm xl:text-base text-gray-950 font-medium relative after:content-['*'] after:absolute after:top-0 after:left-full after:pl-1.5 after:text-red-500 after:font-medium">Types of Enquiry</label>
-                        <select class="w-full bg-[#F6F6F6] border border-gray-200 rounded-md text-sm xl:text-base focus:outline-none px-4 py-1 mt-1.5 text-gray-800 focus:border-gray-400">
-                            <option class="py-2.5" value="" disabled selected>Please choose a service</option>
-                            <option class="py-2.5" value="land-acquisition">Land Acquisition</option>
-                            <option class="py-2.5" value="warehouse-strategic-alliances">Warehouse – Strategic Alliances</option>
-                            <option class="py-2.5" value="development-management">Development Management</option>
-                            <option class="py-2.5" value="approvals-compliances">Approvals and Compliances</option>
-                            <option class="py-2.5" value="asset-management">Asset Management</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="flex gap-5">
-                    <div class="w-full px-3.5">
-                        <label for="first-name"  class="text-sm xl:text-base text-gray-950 font-medium relative after:content-['*'] after:absolute after:top-0 after:left-full after:pl-1.5 after:text-red-500 after:font-medium">Tell us more</label>
-                        <textarea class="w-full aspect-4/1 bg-[#F6F6F6] border border-gray-200 rounded-md text-sm xl:text-base focus:outline-none px-4 py-3 mt-1.5 text-gray-800 focus:border-gray-400"></textarea>
-                    </div>
-                </div>
-                <div class="flex-center">
-                    <a href="#" class="px-8 text-sm xl:text-base bg-[linear-gradient(55deg,#004EA1_65%,#7BB6F4_95%)] rounded-full relative overflow-hidden group">
-                        <span class="block font-medium text-white uppercase my-1.5 transform transition-transform duration-300 group-hover:-translate-y-full">submit</span>
-                        <span class="absolute w-full h-full top-full left-0 grid place-items-center rounded-full text-white text-sm xl:text-base font-medium uppercase transform transition-transform duration-300 group-hover:-translate-y-full">submit</span>
-                    </a>
-                </div>
-            </div>
-        </div>
+  <div class="w-full flex items-stretch gap-4 justify-center max-w-7xl mt-8 lg:mt-12 xl:mt-16 mb-10 py-16">
+    <!-- Left Image -->
+    <div
+      class="w-1/2 bg-[url('/images/upload/contact-us-img-2.webp')] bg-center bg-cover rounded-lg flex items-end p-6 border border-gray-200 shadow-[0px_4px_10px_#00000010,0px_-4px_10px_#00000010] fade-in-up">
     </div>
+
+    <!-- Right Form -->
+    <div
+      class="w-1/2 flex flex-col gap-6 px-6 py-5 border border-gray-200 rounded-lg shadow-[0px_4px_10px_#00000010,0px_-4px_10px_#00000010] fade-in-up">
+      <div class="flex flex-col pl-3.5">
+        <h2 class="h2-bold text-left text-[#1A1A1A]">
+          We’re here to help
+        </h2>
+        <p class="text-sm md:text-base xl:text-lg 2xl:text-xl pt-3.5">Our dedicated team is ready to support you.</p>
+      </div>
+
+      <!-- Contact Form -->
+      <form id="contact-form" method="POST" action="https://api.web3forms.com/submit"
+        class="flex flex-col gap-7">
+        <input type="hidden" name="access_key" value="69341f98-941a-4ecf-8735-1f5dcff273fa" />
+
+        <div class="flex gap-5">
+          <div class="w-1/2 px-3.5">
+            <label for="full-name"
+              class="text-sm xl:text-base text-gray-950 font-medium relative after:content-['*'] after:absolute after:top-0 after:left-full after:pl-1.5 after:text-red-500 after:font-medium">Full
+              name</label>
+            <input name="full-name" type="text"
+              class="w-full bg-[#F6F6F6] border border-gray-200 rounded-md text-sm xl:text-base focus:outline-none px-4 py-1 mt-1.5 text-gray-800 focus:border-gray-400"
+              required>
+          </div>
+          <div class="w-1/2 px-3.5 rounded-md">
+            <label for="phone"
+              class="text-sm xl:text-base text-gray-950 font-medium">Phone number</label>
+            <input name="phone" type="text"
+              class="w-full bg-[#F6F6F6] border border-gray-200 rounded-md text-sm xl:text-base focus:outline-none px-4 py-1 mt-1.5 text-gray-800 focus:border-gray-400">
+          </div>
+        </div>
+
+        <div class="flex gap-5">
+          <div class="w-1/2 px-3.5">
+            <label for="email"
+              class="text-sm xl:text-base text-gray-950 font-medium relative after:content-['*'] after:absolute after:top-0 after:left-full after:pl-1.5 after:text-red-500 after:font-medium">Email</label>
+            <input name="email" type="email"
+              class="w-full bg-[#F6F6F6] border border-gray-200 rounded-md text-sm xl:text-base focus:outline-none px-4 py-1 mt-1.5 text-gray-800 focus:border-gray-400"
+              required>
+          </div>
+          <div class="w-1/2 px-3.5 rounded-md">
+            <label for="company"
+              class="text-sm xl:text-base text-gray-950 font-medium">Company name</label>
+            <input name="company" type="text"
+              class="w-full bg-[#F6F6F6] border border-gray-200 rounded-md text-sm xl:text-base focus:outline-none px-4 py-1 mt-1.5 text-gray-800 focus:border-gray-400">
+          </div>
+        </div>
+
+        <div class="flex gap-5">
+          <div class="w-auto px-3.5">
+            <label for="enquiry-type"
+              class="text-sm xl:text-base text-gray-950 font-medium relative after:content-['*'] after:absolute after:top-0 after:left-full after:pl-1.5 after:text-red-500 after:font-medium">Types
+              of Enquiry</label>
+            <select name="enquiry-type"
+              class="w-full bg-[#F6F6F6] border border-gray-200 rounded-md text-sm xl:text-base focus:outline-none px-4 py-1 mt-1.5 text-gray-800 focus:border-gray-400"
+              required>
+              <option value="" disabled selected>Please choose a service</option>
+              <option value="land-acquisition">Land Acquisition</option>
+              <option value="warehouse-strategic-alliances">Warehouse – Strategic Alliances</option>
+              <option value="development-management">Development Management</option>
+              <option value="approvals-compliances">Approvals and Compliances</option>
+              <option value="asset-management">Asset Management</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex gap-5">
+          <div class="w-full px-3.5">
+            <label for="message"
+              class="text-sm xl:text-base text-gray-950 font-medium relative after:content-['*'] after:absolute after:top-0 after:left-full after:pl-1.5 after:text-red-500 after:font-medium">Tell
+              us more</label>
+            <textarea name="message"
+              class="w-full aspect-4/1 bg-[#F6F6F6] border border-gray-200 rounded-md text-sm xl:text-base focus:outline-none px-4 py-3 mt-1.5 text-gray-800 focus:border-gray-400"
+              required></textarea>
+          </div>
+        </div>
+
+        <div class="flex-center">
+          <button type="submit"
+            class="px-8 text-sm xl:text-base bg-[linear-gradient(55deg,#004EA1_65%,#7BB6F4_95%)] rounded-full relative overflow-hidden group">
+            <span
+              class="block font-medium text-white uppercase my-1.5 transform transition-transform duration-300 group-hover:-translate-y-full">submit</span>
+            <span
+              class="absolute w-full h-full top-full left-0 grid place-items-center rounded-full text-white text-sm xl:text-base font-medium uppercase transform transition-transform duration-300 group-hover:-translate-y-full">submit</span>
+          </button>
+        </div>
+
+        <!-- Success/Error Message -->
+        <p id="form-message" class="hidden text-center mt-3 text-sm font-medium"></p>
+      </form>
+    </div>
+  </div>
 </section>
+
+<!-- JavaScript -->
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contact-form");
+    const message = document.getElementById("form-message");
+
+    if (!form) return;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      message.classList.add("hidden");
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+        });
+
+        if (response.ok) {
+          form.reset();
+          message.textContent =
+            "Thank you for your interest. We’ll be in touch shortly.";
+          message.classList.remove("hidden");
+          message.classList.remove("text-red-600");
+          message.classList.add("text-green-600");
+        } else {
+          message.textContent = "Oops! Something went wrong. Please try again.";
+          message.classList.remove("hidden");
+          message.classList.remove("text-green-600");
+          message.classList.add("text-red-600");
+        }
+      } catch {
+        message.textContent = "Network error. Please check your connection.";
+        message.classList.remove("hidden");
+        message.classList.remove("text-green-600");
+        message.classList.add("text-red-600");
+      }
+    });
+  });
+</script>
 </>
