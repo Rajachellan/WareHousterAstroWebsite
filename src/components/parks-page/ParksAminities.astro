@@ -1,0 +1,85 @@
+---
+import {
+  PlugZap,
+  ShieldCheck,
+  Camera,
+  Truck,
+  Scale,
+  Fuel,
+  Building2,
+  HeartPulse,
+  Stethoscope,
+  Lightbulb,
+  Toilet,
+  Bed,
+  Utensils,
+  ParkingCircle,
+  Trees,
+  Droplets,
+  Factory,
+  CloudRain,
+  Wifi,
+  Building,
+} from '@lucide/astro';
+
+const amenities = [
+  { name: "24x7 Electricity", description: "Uninterrupted power supply for seamless operations.", icon: PlugZap },
+  { name: "24x7 Security", description: "Round-the-clock surveillance and access control.", icon: ShieldCheck },
+  { name: "CCTV Cameras", description: "High-definition monitoring across all zones.", icon: Camera },
+  { name: "Truck Terminals", description: "Dedicated bays for fleet movement and dispatch.", icon: Truck },
+  { name: "Loading & Unloading", description: "Mechanized docks for efficient cargo handling.", icon: Factory },
+  { name: "Weighbridge", description: "On-site weighing systems for accurate logistics.", icon: Scale },
+  { name: "R.C.C. Roads", description: "Heavy-duty concrete roads for all-weather durability.", icon: Building2 },
+  { name: "Fuel Station", description: "Integrated fueling for fleet and equipment.", icon: Fuel },
+  { name: "Fire Fighting System", description: "Advanced fire detection and suppression.", icon: HeartPulse },
+  { name: "Medical Centre", description: "Emergency care and first-aid facilities.", icon: Stethoscope },
+  { name: "Street Lights", description: "Solar-powered lighting for safety and visibility.", icon: Lightbulb },
+  { name: "Common Toilet", description: "Clean and accessible sanitation for staff and drivers.", icon: Toilet },
+  { name: "Street Furniture", description: "Benches, bins, and wayfinding for comfort and clarity.", icon: Building2 },
+  { name: "Dormitory", description: "Rest zones for drivers and shift workers.", icon: Bed },
+  { name: "Canteen", description: "On-site food services for staff and visitors.", icon: Utensils },
+  { name: "Management Building", description: "Centralized admin and operations hub.", icon: Building2 },
+  { name: "Abundant Parking", description: "Spacious parking for trucks, staff, and visitors.", icon: ParkingCircle },
+  { name: "Landscape", description: "Green buffers and curated eco-zones.", icon: Trees },
+  { name: "24x7 Water Tank Supply", description: "Reliable water infrastructure for all utilities.", icon: Droplets },
+  { name: "Sewage Treatment Plants", description: "Eco-friendly waste management systems.", icon: Factory },
+  { name: "Storm Water Drainage", description: "Engineered flow systems for monsoon resilience.", icon: CloudRain },
+  { name: "Wi-Fi Zone", description: "High-speed connectivity for smart logistics.", icon: Wifi },
+];
+---
+
+
+<section class="w-full col-center mx-auto my-10 px-5">
+  <div class="w-full col-center gap-14 max-w-7xl mt-20">
+    <div class="col-center gap-0.5">
+      <span class="flex-center gap-2 px-3.5 py-0.5 bg-white border border-[#e4e4e4] rounded-full fade-in-up">
+        <div class="w-3.5 md:w-4 4xl:w-5">
+          <Building stroke-width={2} class="w-full text-gray-800" />
+        </div>
+        <h4 class="text-[11px] md:text-[13px] 4xl:text-[15px] font-medium text-gray-800">
+          Park Amenities
+        </h4>
+      </span>
+      <h2 class="h2-bold text-center mt-3 lg:mt-4 2xl:mt-5 fade-in-up">
+        Infrastructure That Powers Performance
+      </h2>
+      <h6 class="text-sm lg:text-base 2xl:text-lg leading-snug text-gray-400 md:text-gray-500 max-w-4xl text-center px-auto mt-3 lg:mt-4 2xl:mt-5 fade-in-up">
+        From 24/7 security and EV-ready docks to smart metering and green zones, our parks are built for operational excellence.
+        Every amenity is designed to elevate tenant experience and drive long-term value.
+      </h6>
+    </div>
+
+    <!-- Amenities Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {amenities.map((item, index) => (
+        <div class="flex items-start gap-4 p-4 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 fade-in-up hover:bg-white" key={index}>
+          <item.icon class="" />
+          <div class="flex flex-col">
+            <h5 class="text-base font-semibold text-gray-800 mb-1">{item.name}</h5>
+            <p class="text-sm text-gray-500 leading-snug">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

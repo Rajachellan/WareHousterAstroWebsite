@@ -1,6 +1,20 @@
 ---
 import { Box } from "@lucide/astro";
 import { Image } from 'astro:assets';
+import { getEntry } from 'astro:content';
+
+const entry = await getEntry('news', 'news');
+
+if (!entry) {
+  throw new Error('News entry not found');
+}
+
+const { data } = entry;
+const sorted = [...data.items].sort((a, b) => {
+  return new Date(b.date).getTime() - new Date(a.date).getTime();
+});
+const [latest, ...rest] = sorted;
+const nextFive = rest.slice(0, 5);
 ---
 
 <section class="w-full col-center mx-auto my-10 px-5">
@@ -100,78 +114,49 @@ import { Image } from 'astro:assets';
                 </div>
             </div>
             <div id="media-two" class="w-full h-fit flex items-stretch justify-center media-section gap-3.5">
+                <!-- Latest News -->
                 <div class="w-1/2 flex flex-col items-start justify-start gap-2.5 transform transition-all duration-300">
                     <div class="w-full col-center group">
-                        <div class="w-full flex-center relative">
-                            <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] group-hover:block">
-                            </div>
-                            <Image src="/images/upload/news/manufacturing-today.webp" alt="manufacturing-today" width={768} height={690} class="w-full object-fit" />
-                        </div>
-                        <div class="w-full col-center">
-                            <p class="lg:text-lg text-gray-600  group-hover:text-gray-800 font-medium px-1">
-                                We thank Manufacturing Today India for featuring our MD, Sandeep Chadha, in their latest article on sustainable warehousing
-                            </p>
-                        </div>
+                    <div class="w-full flex-center relative">
+                        <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] group-hover:block"></div>
+                        <img src={latest.logo} alt={latest.name} width="768" height="690" class="w-full max-w-60 object-fit" />
                     </div>
-                    <a href="#" class="text-xs lg:text-sm px-1 text-[var(--primary-color)] font-medium">Read more...</a>
+                    <div class="w-full col-center">
+                        <p class="lg:text-lg text-gray-600 group-hover:text-gray-800 font-medium px-1">
+                        {latest.describe}
+                        </p>
+                    </div>
+                    </div>
+                    <a href={latest.url} class="text-xs lg:text-sm px-1 text-(--primary-color) font-medium" target="_blank" rel="noopener noreferrer">
+                    Read more...
+                    </a>
                 </div>
+
+                <!-- Last Few News -->
                 <div class="w-1/2 h-full col-center px-4 overflow-hidden">
-                    <div class="flex flex-col max-h-[400px] h-full gap-3 overflow-y-scroll scrollbar-custom">
-                        <div class="w-full h-1/4 py-2.5 flex-center group gap-2.5 border-b border-gray-300">
+                    <div class="flex flex-col max-h-80 h-full gap-3 overflow-y-scroll scrollbar-custom">
+                    {nextFive.map((item, index) => (
+                        <a href={item.url} target='_blank' class="w-full h-1/4 py-2.5 flex-center group gap-2.5 border-b border-gray-300" key={index}>
                             <div class="w-1/4 relative">
                                 <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] rounded-xs group-hover:block"></div>
-                                <Image src="/images/upload/news/cargobreakingnews1.webp" alt="cargobreakingnews1" width={950} height={650} class="w-full rounded-xs" />
+                                <img src={item.logo} alt={item.name} width="950" height="650" class="w-full rounded-xs" />
                             </div>
                             <div class="w-3/4 flex-center">
-                                <p class="text-sm lg:text-base text-gray-600  group-hover:text-gray-800 font-medium px-1">
-                                    We're thrilled to thank CargoBreakingNews for featuring our MD, Mr. Sandeep Chadha, and his insights on security in warehouse management
+                                <p class="text-sm lg:text-base text-gray-600 group-hover:text-gray-800 font-medium px-1">
+                                {
+                                    item.describe.length > 120
+                                    ? item.describe
+                                        .slice(0, 120)
+                                        .split(' ')
+                                        .slice(0, -1)
+                                        .join(' ')
+                                        .trim() + '...'
+                                    : item.describe
+                                }
                                 </p>
                             </div>
-                        </div>
-                        <div class="w-full h-1/4 py-2.5 flex-center group gap-2.5 border-b border-gray-300">
-                            <div class="w-1/4 relative">
-                                <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] rounded-xs group-hover:block"></div>
-                                <Image src="/images/upload/news/building-strategic-alliances-in-warehousing-park.webp" alt="building-strategic-alliances-in-warehousing-park" width={950} height={650} class="w-full rounded-xs" />
-                            </div>
-                            <div class="w-3/4 flex-center">
-                                <p class="text-sm lg:text-base text-gray-600  group-hover:text-gray-800 font-medium px-1">
-                                    Building Strategic Alliances in Warehousing Park: Unlocking Growth and Operational Excellence with Warehouster
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-full h-1/4 py-2.5 flex-center group gap-2.5 border-b border-gray-300">
-                            <div class="w-1/4 relative">
-                                <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] rounded-xs group-hover:block"></div>
-                                <Image src="/images/upload/news/DevelopingWarehouseComprehensiveBusinesses.webp" alt="DevelopingWarehouseComprehensiveBusinesses" width={950} height={650} class="w-full rounded-xs" />
-                            </div>
-                            <div class="w-3/4 flex-center">
-                                <p class="text-sm lg:text-base text-gray-600  group-hover:text-gray-800 font-medium px-1">
-                                    Developing Warehouse: A Comprehensive Guide How to Develop a Warehouse
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-full h-1/4 py-2.5 flex-center group gap-2.5 border-b border-gray-300">
-                            <div class="w-1/4 relative">
-                                <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] rounded-xs group-hover:block"></div>
-                                <Image src="/images/upload/news/DevelopingWarehouseComprehensiveBusinesses.webp" alt="DevelopingWarehouseComprehensiveBusinesses" width={950} height={650} class="w-full rounded-xs" />
-                            </div>
-                            <div class="w-3/4 flex-center">
-                                <p class="text-sm lg:text-base text-gray-600  group-hover:text-gray-800 font-medium px-1">
-                                    Developing Warehouse: A Comprehensive Guide How to Develop a Warehouse
-                                </p>
-                            </div>
-                        </div>
-                        <div class="w-full h-1/4 py-2.5 flex-center group gap-2.5 border-b border-gray-300">
-                            <div class="w-1/4 relative">
-                                <div class="hidden w-full h-full absolute bg-[rgba(0,0,0,0.2)] rounded-xs group-hover:block"></div>
-                                <Image src="/images/upload/news/DevelopingWarehouseComprehensiveBusinesses.webp" alt="DevelopingWarehouseComprehensiveBusinesses" width={950} height={650} class="w-full rounded-xs" />
-                            </div>
-                            <div class="w-3/4 flex-center">
-                                <p class="text-sm lg:text-base text-gray-600  group-hover:text-gray-800 font-medium px-1">
-                                    Developing Warehouse: A Comprehensive Guide How to Develop a Warehouse
-                                </p>
-                            </div>
-                        </div>
+                        </a>
+                    ))}
                     </div>
                 </div>
             </div>

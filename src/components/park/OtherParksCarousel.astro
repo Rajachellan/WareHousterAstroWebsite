@@ -9,7 +9,7 @@ const { otherParks }: { otherParks: CollectionEntry<'parks'>[] } = Astro.props;
   <div class="w-full max-w-6xl flex flex-col gap-6 my-20">
     <!-- Heading -->
     <div class="col-center text-center">
-      <h2 class="h2-bold text-center fade-in-up">Explore Other Parks</h2>
+      <h2 class="h2-bold text-center fade-in-up">Explore Our Next-Gen Logistics Parks</h2>
       <p class="text-sm lg:text-base text-gray-500 max-w-4xl text-center pt-4 fade-in-up">
         Discover more parks across our network with strategic locations and scalable infrastructure.
       </p>
@@ -44,7 +44,7 @@ const { otherParks }: { otherParks: CollectionEntry<'parks'>[] } = Astro.props;
               {Array.isArray(p.data.banner.metrics) && p.data.banner.metrics.length > 0 && (
                 <div class="flex flex-wrap gap-2">
                   {p.data.banner.metrics.map((metric) => (
-                    <span class="px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-sm">
+                    <span class="px-3 py-1 rounded-sm bg-gray-100 text-gray-700 border border-gray-200 text-sm">
                       {metric.label.main}
                       {metric.label.sub && <span class="text-gray-500"> {metric.label.sub}</span>}
                     </span>
