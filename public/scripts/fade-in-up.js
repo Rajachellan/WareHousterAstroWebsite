@@ -1,19 +1,16 @@
-// src/scripts/fade-in-up.js
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// public/scripts/fade-in-up.js
+import gsap from 'https://cdn.skypack.dev/gsap';
+import { ScrollTrigger } from 'https://cdn.skypack.dev/gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function initFadeInUp() {
+document.addEventListener('DOMContentLoaded', () => {
   const targets = document.querySelectorAll('.fade-in-up');
 
   targets.forEach((el) => {
     gsap.fromTo(
       el,
-      {
-        opacity: 0,
-        y: 60
-      },
+      { opacity: 0, y: 60 },
       {
         opacity: 1,
         y: 0,
@@ -21,11 +18,11 @@ export default function initFadeInUp() {
         ease: 'power2.out',
         scrollTrigger: {
           trigger: el,
-          start: 'top 90%', // when top of element hits 80% of viewport
+          start: 'top 90%',
           toggleActions: 'play none none none',
-          once: true
-        }
+          once: true,
+        },
       }
     );
   });
-}
+});
