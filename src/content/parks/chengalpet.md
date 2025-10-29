@@ -38,7 +38,7 @@ connectivity:
     - title: "Workforce Advantage"
       icon: "Pickaxe"
       text: "Easy access to skilled and semi‑skilled manpower from nearby residential catchments."
-  mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!..." # replace with actual embed
+  mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20739.61834992569!2d80.13643883948156!3d13.207118141695132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a527d0e7054b3fb%3A0x217b2ab79be2a72!2sEdapalayam%20Auto%20Stand!5e0!3m2!1sen!2sin!4v1759972398934!5m2!1sen!2sin" # replace with actual embed
   distances:
     - name: "GST Road (NH 32)"
       icon: "Truck"
